@@ -51,7 +51,7 @@ var amazonUrl = `https://amazon23.p.rapidapi.com/product-search?query=${searchTe
 
 // -------- -------- -------- -------- Executing the fetch
 // Fetch function is reusable - Required: Include the API url as the parameter
-fetchApi(weatherUrl); // This fetches for he weather data
+// fetchApi(weatherUrl); // This fetches for he weather data
 // fetchApi(amazonUrl); // This fetches from the Amazon data (1998 calls remaining (Mar 31/2022 @ 7:32PM EST))
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
@@ -79,3 +79,67 @@ function displayProduct(data) {
 
 // !!!!!!! Future updates
 // - Based on users SIZE preference, return clothing accordingly
+
+// -------- -------- -------- -------- Intro form submit
+var introFormEl = document.getElementById('intro-form');
+introFormEl.addEventListener('submit', (e) => {
+  e.preventDefault;
+
+  // Reveal the main page (future update - 'and handle the form data')
+  handleSubmit(e);
+
+  // After the main contanier is revealed (display: unset), execute event listener for the nav buttons
+  handleNavBtns();
+});
+
+// -------- -------- -------- -------- Post submit functions
+var parent = document.querySelector('.main-parent');
+var introEl = document.querySelector('.intro');
+function handleSubmit(e) {
+  // Hide the intro page
+  introEl.classList.add('inactive');
+  // Reveal the main section
+  parent.classList.remove('inactive');
+
+  console.log(e.target); // Returns the full form
+}
+
+// -------- -------- -------- -------- Page Handling functions
+function handleNavBtns() {
+  var navBtns = document.querySelectorAll('.nav-btn');
+  navBtns.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      var btnLabel = e.target.textContent;
+      btnLabel == 'Home' ? gotoHome() : gotoFavourites();
+    });
+  });
+}
+
+// Goes back to the main page
+var data = document.querySelector('.data');
+var navEl = document.getElementById('nav-items');
+function gotoMain() {
+  favourites.classList.add('inactive');
+  data.classList.remove('inactive');
+  navEl.classList.remove('inactive');
+}
+
+// Goes to the favourites
+var favourites = document.querySelector('.favourites');
+function gotoFavourites() {
+  var goBackBtn = document.getElementById('go-back');
+
+  navEl.classList.add('inactive');
+  favourites.classList.remove('inactive');
+  data.classList.add('inactive');
+
+  goBackBtn.addEventListener('click', () => {
+    gotoMain();
+  });
+}
+
+// Goes to the home page (intro with the form)
+function gotoHome() {
+  parent.classList.add('inactive');
+  introEl.classList.remove('inactive');
+}
