@@ -93,9 +93,12 @@ introFormEl.addEventListener('submit', (e) => {
 });
 
 // -------- -------- -------- -------- Post submit functions
+// Here we use the form data to fetch from the API and display the MAIN page
 var parent = document.querySelector('.main-parent');
 var introEl = document.querySelector('.intro');
 function handleSubmit(e) {
+  document.title = 'Wearther - Main'; // Update document title
+
   // Hide the intro page
   introEl.classList.add('inactive');
   // Reveal the main section
@@ -119,6 +122,7 @@ function handleNavBtns() {
 var data = document.querySelector('.data');
 var navEl = document.getElementById('nav-items');
 function gotoMain() {
+  document.title = 'Wearther - Main'; // Update document title
   favourites.classList.add('inactive');
   data.classList.remove('inactive');
   navEl.classList.remove('inactive');
@@ -126,9 +130,9 @@ function gotoMain() {
 
 // Goes to the favourites
 var favourites = document.querySelector('.favourites');
+var goBackBtn = document.getElementById('go-back');
 function gotoFavourites() {
-  var goBackBtn = document.getElementById('go-back');
-
+  document.title = 'Wearther - Favorites'; // Update document title
   navEl.classList.add('inactive');
   favourites.classList.remove('inactive');
   data.classList.add('inactive');
@@ -140,6 +144,7 @@ function gotoFavourites() {
 
 // Goes to the home page (intro with the form)
 function gotoHome() {
+  document.title = 'Wearther - Welcome'; // Update document title
   parent.classList.add('inactive');
   introEl.classList.remove('inactive');
 }
