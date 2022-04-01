@@ -51,8 +51,8 @@ var amazonUrl = `https://amazon23.p.rapidapi.com/product-search?query=${searchTe
 
 // -------- -------- -------- -------- Executing the fetch
 // Fetch function is reusable - Required: Include the API url as the parameter
-fetchApi(weatherUrl); // This fetches for the weather data
-// fetchApi(amazonUrl) // This fetches from the Amazon data (2000 calls remaining (Mar 30/2022 @ 3:39PM EST))
+fetchApi(weatherUrl); // This fetches for he weather data
+// fetchApi(amazonUrl); // This fetches from the Amazon data (1998 calls remaining (Mar 31/2022 @ 7:32PM EST))
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
 // Only showing 1 products for testing purposes, will include a loop to iterate over all products for final application
