@@ -1,4 +1,4 @@
-// -------- -------- -------- -------- EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS
+// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (url) => {
   // Execute a try and catch block to catch if there is no network
@@ -78,7 +78,7 @@ function displayProduct(data) {
   productLinkEl.innerText = 'Link to product page';
 }
 
-// -------- -------- -------- -------- EVERYTHING BELOW WILL CHECK THE FORM AS THE DATA IS BEING INPUTTED
+// **** **** **** **** **** **** **** EVERYTHING BELOW WILL CHECK THE FORM AS THE DATA IS BEING INPUTTED
 
 // Declare a variable to test upon changes made in the form
 var tempParams = [false, false, false];
@@ -139,7 +139,7 @@ dropdownOptions.forEach((item) => {
   });
 });
 
-// -------- -------- -------- -------- EVERYTHING BELOW HANDLES THE FORM SUBMISSION AND PAGE NAVIGATION
+// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE FORM SUBMISSION AND PAGE NAVIGATION
 
 // -------- -------- -------- -------- Intro form submit
 var introFormEl = document.getElementById('intro-form');
