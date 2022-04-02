@@ -88,8 +88,11 @@ introFormEl.addEventListener('submit', (e) => {
   // Reveal the main page (future update - 'and handle the form data')
   handleSubmit(e);
 
-  // After the main contanier is revealed (display: unset), execute event listener for the nav buttons
+  // After the main container is revealed (display: unset), execute event listener for the nav buttons
   handleNavBtns();
+
+  // Clears the form
+  introFormEl.reset();
 });
 
 // -------- -------- -------- -------- Post submit functions
@@ -98,6 +101,23 @@ var parent = document.querySelector('.main-parent');
 var introEl = document.querySelector('.intro');
 function handleSubmit(e) {
   document.title = 'Wearther - Main'; // Update document title
+
+  // Returns the form values
+  var selectedName = document.getElementById('form-name').value;
+  var selectedAge = document.getElementById('form-age').value;
+  var selectedGender = document.querySelector("select[name='gender']").value;
+  var selectedClothingSize = document.querySelector(
+    "select[name='clothing-size']"
+  ).value;
+  var selectedCity = document.getElementById('form-city').value;
+
+  console.log(
+    selectedName,
+    selectedAge,
+    selectedGender,
+    selectedClothingSize,
+    selectedCity
+  );
 
   // Hide the intro page
   introEl.classList.add('inactive');
