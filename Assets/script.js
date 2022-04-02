@@ -114,13 +114,13 @@ allInputs.forEach((item) => {
     // Check the item id's
     if (item.id == 'form-name') {
       // If the input field is filled in, update the array with true, else, return false
-      item.value.length > 0 ? (tempParams[0] = true) : (tempParams[0] = false);
+      item.value.trim() ? (tempParams[0] = true) : (tempParams[0] = false);
     }
     if (item.id == 'form-age') {
-      item.value.length > 0 ? (tempParams[1] = true) : (tempParams[1] = false);
+      item.value.trim() ? (tempParams[1] = true) : (tempParams[1] = false);
     }
     if (item.id == 'form-city') {
-      item.value.length > 0 ? (tempParams[2] = true) : (tempParams[2] = false);
+      item.value.trim() ? (tempParams[2] = true) : (tempParams[2] = false);
     }
 
     // Check the inputs and the selected options, if everything is filled in, active the submit button
