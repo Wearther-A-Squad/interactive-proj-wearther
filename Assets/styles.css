@@ -56,3 +56,9 @@ input::-webkit-inner-spin-button {
 .data.inactive {
   display: none;
 }
+
+/* TO BE REMOVED*/
+/* Temporary styling for the element that displays the form data  --------- --------- --------- ---------  */
+#tempP {
+  margin-top: 25px;
+}

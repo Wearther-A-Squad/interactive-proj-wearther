@@ -85,8 +85,8 @@ var introFormEl = document.getElementById('intro-form');
 introFormEl.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // Reveal the main page (future update - 'and handle the form data')
-  handleSubmit(e);
+  // Reveal the main page and save the form data
+  handleSubmit();
 
   // After the main container is revealed (display: unset), execute event listener for the nav buttons
   handleNavBtns();
@@ -99,9 +99,8 @@ introFormEl.addEventListener('submit', (e) => {
 // Here we use the form data to fetch from the API and display the MAIN page
 var parent = document.querySelector('.main-parent');
 var introEl = document.querySelector('.intro');
-function handleSubmit(e) {
-  document.title = 'Wearther - Main'; // Update document title
-
+var submitBtn = document.getElementById('form-submit');
+function handleSubmit() {
   // Returns the form values
   var selectedName = document.getElementById('form-name').value;
   var selectedAge = document.getElementById('form-age').value;
@@ -111,20 +110,34 @@ function handleSubmit(e) {
   ).value;
   var selectedCity = document.getElementById('form-city').value;
 
-  console.log(
-    selectedName,
-    selectedAge,
-    selectedGender,
-    selectedClothingSize,
-    selectedCity
-  );
+  // If any required input is empty....
+  if (
+    !selectedName ||
+    !selectedAge ||
+    !selectedGender ||
+    !selectedClothingSize ||
+    !selectedCity
+  ) {
+    //  Alert the user (future update, keep submit button disabled)
+    alert(
+      'Fill in all required fields (Future update - Will remove the Alert and just disable the submit button if required fields are empty'
+    );
+  } else {
+    // Else if it is all filled in, capture the form data and display the main page
 
-  // Hide the intro page
-  introEl.classList.add('inactive');
-  // Reveal the main section
-  parent.classList.remove('inactive');
+    // Update document title
+    document.title = 'Wearther - Main';
 
-  console.log(e.target); // Returns the full form
+    // Update an element to show the submitted data (TEMPORARY ELEMENT JUST TO SEE THE DATA)
+    var tempEl = document.getElementById('submitted-data');
+    tempEl.textContent = `Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender}, 
+    Preferred clothing size: ${selectedClothingSize}, City: ${selectedCity}`;
+
+    // Hide the intro page
+    introEl.classList.add('inactive');
+    // Reveal the main section
+    parent.classList.remove('inactive');
+  }
 }
 
 // -------- -------- -------- -------- Page Handling functions
