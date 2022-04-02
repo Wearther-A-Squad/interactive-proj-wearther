@@ -135,7 +135,6 @@ dropdownOptions.forEach((item) => {
   item.addEventListener('change', function () {
     // Check the inputs and the selected options, if everything is filled in, active the submit button
     checkInputs();
-    checkInputs();
   });
 });
 
@@ -158,6 +157,8 @@ introFormEl.addEventListener('submit', (e) => {
   for (i = 0; i < tempParams.length; i++) {
     tempParams[i] = false;
   }
+  // Disable the button so when you revisit the home page, the conditionals re-execute accordingly
+  formSubmitBtn.disabled = true;
 });
 
 // -------- -------- -------- -------- Post submit functions
