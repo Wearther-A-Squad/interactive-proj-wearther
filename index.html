@@ -14,13 +14,13 @@
       <form id="intro-form" action="#">
         <input id="form-name" type="text" placeholder="Full name *Required" />
         <input id="form-age" type="number" placeholder="Age *Required" />
-        <select id="form-gender" name="gender" id="gender">
+        <select class="form-dropdown" id="form-gender" name="gender" id="gender">
           <option value="" disabled selected>Your gender *Required</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="non-binary">Non-binary</option>
         </select>
-        <select id="form-clothing-size" name="clothing-size">
+        <select class="form-dropdown" id="form-clothing-size" name="clothing-size">
           <option value="" disabled selected>
             Preferred clothing size *Required
           </option>
@@ -29,7 +29,7 @@
           <option value="large">Large</option>
         </select>
         <input id="form-city" type="text" placeholder="Type your city *Required" />
-        <button id="form-submit" type="submit">Submit</button>
+        <button disabled id="form-submit" type="submit">Submit</button>
       </form>
     </main>
     <!-- MAIN application section (Displays AFTER initial form submissions) -->

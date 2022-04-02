@@ -1,3 +1,4 @@
+// -------- -------- -------- -------- EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (url) => {
   // Execute a try and catch block to catch if there is no network
@@ -51,7 +52,7 @@ var amazonUrl = `https://amazon23.p.rapidapi.com/product-search?query=${searchTe
 
 // -------- -------- -------- -------- Executing the fetch
 // Fetch function is reusable - Required: Include the API url as the parameter
-// fetchApi(weatherUrl); // This fetches for he weather data
+// fetchApi(weatherUrl); // This fetches for the weather data
 // fetchApi(amazonUrl); // This fetches from the Amazon data (1998 calls remaining (Mar 31/2022 @ 7:32PM EST))
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
@@ -77,8 +78,68 @@ function displayProduct(data) {
   productLinkEl.innerText = 'Link to product page';
 }
 
-// !!!!!!! Future updates
-// - Based on users SIZE preference, return clothing accordingly
+// -------- -------- -------- -------- EVERYTHING BELOW WILL CHECK THE FORM AS THE DATA IS BEING INPUTTED
+
+// Declare a variable to test upon changes made in the form
+var tempParams = [false, false, false];
+// The below functions checks all conditions to make sure the form section is fully filled in
+function checkInputs() {
+  // These 2 variables holds the value of the options in the select container
+  var selectedGender = document.querySelector("select[name='gender']").value;
+  var selectedClothingSize = document.querySelector(
+    "select[name='clothing-size']"
+  ).value;
+
+  // Check the array along with the options variable values and update the submit button accordingly
+  if (
+    tempParams[0] &&
+    tempParams[1] &&
+    tempParams[2] &&
+    selectedGender &&
+    selectedClothingSize
+  ) {
+    formSubmitBtn.disabled = false;
+  } else {
+    formSubmitBtn.disabled = true;
+  }
+}
+
+// The below block will add the event listeners for the inputs in the form
+var allInputs = document.querySelectorAll('form input');
+var formSubmitBtn = document.getElementById('form-submit');
+// Iterate through all input fields
+allInputs.forEach((item) => {
+  // Listen for a keyup....
+  item.addEventListener('keyup', () => {
+    // Check the item id's
+    if (item.id == 'form-name') {
+      // If the input field is filled in, update the array with true, else, return false
+      item.value.length > 0 ? (tempParams[0] = true) : (tempParams[0] = false);
+    }
+    if (item.id == 'form-age') {
+      item.value.length > 0 ? (tempParams[1] = true) : (tempParams[1] = false);
+    }
+    if (item.id == 'form-city') {
+      item.value.length > 0 ? (tempParams[2] = true) : (tempParams[2] = false);
+    }
+
+    // Check the inputs and the selected options, if everything is filled in, active the submit button
+    checkInputs();
+  });
+});
+
+// The below block will add the event listeners for the options in the select container
+// The same conditional will execute below as the above one
+var dropdownOptions = document.querySelectorAll('.form-dropdown');
+dropdownOptions.forEach((item) => {
+  item.addEventListener('change', function () {
+    // Check the inputs and the selected options, if everything is filled in, active the submit button
+    checkInputs();
+    checkInputs();
+  });
+});
+
+// -------- -------- -------- -------- EVERYTHING BELOW HANDLES THE FORM SUBMISSION AND PAGE NAVIGATION
 
 // -------- -------- -------- -------- Intro form submit
 var introFormEl = document.getElementById('intro-form');
@@ -93,6 +154,10 @@ introFormEl.addEventListener('submit', (e) => {
 
   // Clears the form
   introFormEl.reset();
+  // Clear array so the condition are fresh the next time we try to generate a password
+  for (i = 0; i < tempParams.length; i++) {
+    tempParams[i] = false;
+  }
 });
 
 // -------- -------- -------- -------- Post submit functions
@@ -101,7 +166,7 @@ var parent = document.querySelector('.main-parent');
 var introEl = document.querySelector('.intro');
 var submitBtn = document.getElementById('form-submit');
 function handleSubmit() {
-  // Returns the form values
+  // Declare the variables to capture the form values upon submission
   var selectedName = document.getElementById('form-name').value;
   var selectedAge = document.getElementById('form-age').value;
   var selectedGender = document.querySelector("select[name='gender']").value;
@@ -110,34 +175,18 @@ function handleSubmit() {
   ).value;
   var selectedCity = document.getElementById('form-city').value;
 
-  // If any required input is empty....
-  if (
-    !selectedName ||
-    !selectedAge ||
-    !selectedGender ||
-    !selectedClothingSize ||
-    !selectedCity
-  ) {
-    //  Alert the user (future update, keep submit button disabled)
-    alert(
-      'Fill in all required fields (Future update - Will remove the Alert and just disable the submit button if required fields are empty'
-    );
-  } else {
-    // Else if it is all filled in, capture the form data and display the main page
+  // Update document title
+  document.title = 'Wearther - Main';
 
-    // Update document title
-    document.title = 'Wearther - Main';
-
-    // Update an element to show the submitted data (TEMPORARY ELEMENT JUST TO SEE THE DATA)
-    var tempEl = document.getElementById('submitted-data');
-    tempEl.textContent = `Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender}, 
+  // Update an element to show the submitted data (TEMPORARY ELEMENT JUST TO SEE THE DATA)
+  var tempEl = document.getElementById('submitted-data');
+  tempEl.textContent = `Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender}, 
     Preferred clothing size: ${selectedClothingSize}, City: ${selectedCity}`;
 
-    // Hide the intro page
-    introEl.classList.add('inactive');
-    // Reveal the main section
-    parent.classList.remove('inactive');
-  }
+  // Hide the intro page
+  introEl.classList.add('inactive');
+  // Reveal the main section
+  parent.classList.remove('inactive');
 }
 
 // -------- -------- -------- -------- Page Handling functions
