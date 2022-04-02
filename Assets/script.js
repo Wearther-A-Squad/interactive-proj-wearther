@@ -83,7 +83,7 @@ function displayProduct(data) {
 // -------- -------- -------- -------- Intro form submit
 var introFormEl = document.getElementById('intro-form');
 introFormEl.addEventListener('submit', (e) => {
-  e.preventDefault;
+  e.preventDefault();
 
   // Reveal the main page (future update - 'and handle the form data')
   handleSubmit(e);
