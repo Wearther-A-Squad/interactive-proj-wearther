@@ -45,8 +45,12 @@
   gap: 15px;
 }
 
+#form-submit:disabled {
+  cursor: default;
+}
+
 #form-submit {
-  /* grid-column: 1/1; */
+  cursor: pointer;
 }
 
 /* Remove toggle buttons for input with type number */
