@@ -1,14 +1,20 @@
+// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (url) => {
   // Execute a try and catch block to catch if there is no network
   try {
     var res = '';
     // Specific URLs require specific options
-    url == amazonUrl
-      ? // If the url is for Amazon, include options
-        (res = await fetch(url, amazonOptions))
-      : // else fetch without options
-        (res = await fetch(url));
+    if (url == amazonUrl) {
+      // If the url is for Amazon, include options
+      res = await fetch(url, amazonOptions);
+    } else if (url == amazonUrlFull) {
+      // For the FULL url, it requires different options
+      res = await fetch(url, amazonOptionsFull);
+    } else {
+      // else fetch without options
+      res = await fetch(url);
+    }
 
     var data = await res.json();
 
@@ -19,6 +25,7 @@ var fetchApi = async (url) => {
     } else {
       // Otherwise the data returned successfully
       console.log(data);
+      // For the amazon api, display the elements
       if (url == amazonUrl) {
         displayProduct(data);
       }
@@ -32,7 +39,6 @@ var fetchApi = async (url) => {
 // -------- -------- -------- -------- WeatherAPI setup
 var APIKEY = '6aa15f30207248b9b2b135920223003';
 var searchedCity = 'Toronto';
-// Returns current and hourly temp
 var weatherUrl = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${searchedCity}&aqi=no`;
 
 // -------- -------- -------- -------- RapidAPI (Amazon) setup
@@ -44,14 +50,27 @@ const amazonOptions = {
   },
 };
 
+const amazonOptionsFull = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Host': 'amazon24.p.rapidapi.com',
+    'X-RapidAPI-Key': 'ffae5646afmshec63d61fbd07b2fp17ee73jsn3371d91d22c0',
+  },
+};
+
 // For now i hardcoded 'ipad' but this data will be returned from user input
 var searchTerm = 'ipad';
+// Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
 var amazonUrl = `https://amazon23.p.rapidapi.com/product-search?query=${searchTerm}&country=US`;
+// Referring to the ASIN number from the above API, we can return more details about the product, for now, the ASIN is hard coded
+var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
 
 // -------- -------- -------- -------- Executing the fetch
 // Fetch function is reusable - Required: Include the API url as the parameter
-fetchApi(weatherUrl); // This fetches for the weather data
-// fetchApi(amazonUrl); // This fetches from the Amazon data (1998 calls remaining (Mar 31/2022 @ 7:32PM EST))
+// fetchApi(weatherUrl); // This fetches for the weather data
+
+// fetchApi(amazonUrl); // This fetches from the Amazon data (1995 calls remaining (Mar 31/2022 @ 7:32PM EST))
+// fetchApi(amazonUrlFull); // This returns FULL product details based on the ASIN extracted from above fetch
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
 // Only showing 1 products for testing purposes, will include a loop to iterate over all products for final application
@@ -179,7 +198,7 @@ function handleSubmit() {
 
   // Update an element to show the submitted data (TEMPORARY ELEMENT JUST TO SEE THE DATA)
   var tempEl = document.getElementById('submitted-data');
-  tempEl.textContent = `Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender},
+  tempEl.textContent = `Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender}, 
     Preferred clothing size: ${selectedClothingSize}, City: ${selectedCity}`;
 
   // Hide the intro page
