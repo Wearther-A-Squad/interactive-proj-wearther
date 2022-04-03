@@ -1,4 +1,3 @@
-// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (url) => {
   // Execute a try and catch block to catch if there is no network
@@ -33,9 +32,8 @@ var fetchApi = async (url) => {
 // -------- -------- -------- -------- WeatherAPI setup
 var APIKEY = '6aa15f30207248b9b2b135920223003';
 var searchedCity = 'Toronto';
-var weatherUrl = `http://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${searchedCity}&aqi=no`;
-// The above url returns the CURRENT weather, for the five-day forecast, there is a different URL
-// https://www.weatherapi.com/docs/#apis-forecast < Link to forecast doc
+// Returns current and hourly temp
+var weatherUrl = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${searchedCity}&aqi=no`;
 
 // -------- -------- -------- -------- RapidAPI (Amazon) setup
 const amazonOptions = {
@@ -52,7 +50,7 @@ var amazonUrl = `https://amazon23.p.rapidapi.com/product-search?query=${searchTe
 
 // -------- -------- -------- -------- Executing the fetch
 // Fetch function is reusable - Required: Include the API url as the parameter
-// fetchApi(weatherUrl); // This fetches for the weather data
+fetchApi(weatherUrl); // This fetches for the weather data
 // fetchApi(amazonUrl); // This fetches from the Amazon data (1998 calls remaining (Mar 31/2022 @ 7:32PM EST))
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
@@ -181,7 +179,7 @@ function handleSubmit() {
 
   // Update an element to show the submitted data (TEMPORARY ELEMENT JUST TO SEE THE DATA)
   var tempEl = document.getElementById('submitted-data');
-  tempEl.textContent = `Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender}, 
+  tempEl.textContent = `Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender},
     Preferred clothing size: ${selectedClothingSize}, City: ${selectedCity}`;
 
   // Hide the intro page
