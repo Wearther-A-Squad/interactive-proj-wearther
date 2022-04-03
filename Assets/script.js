@@ -234,7 +234,9 @@ function gotoHome() {
 
 // **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE ITEM FAVOURITE FUNCTION(S)
 
-var starBtn = document.getElementById('star-btn');
-starBtn.addEventListener('click', () => {
-  alert('You clicked on the favourite button!');
+var starBtn = document.querySelectorAll('.star-btn');
+starBtn.forEach((item) => {
+  item.addEventListener('click', () => {
+    alert('You clicked on the favourite button!');
+  });
 });
