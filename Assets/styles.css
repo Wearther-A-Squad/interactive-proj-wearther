@@ -6,10 +6,49 @@
   box-sizing: border-box;
 }
 
+/* Universal properties --------- --------- --------- ---------  */
+.five-day-reco #single-product:first-child,
+#nav-items ul li:first-child,
+.current-reco-container #single-product:first-child,
+#favourites-container #single-product:first-child {
+  margin-left: 0;
+}
+.five-day-reco #single-product:last-child,
+#nav-items ul li:last-child,
+.current-reco-container #single-product:last-child,
+#favourites-container #single-product:last-child {
+  margin-right: 0;
+}
+
 /* Intro Page --------- --------- --------- ---------  */
 .intro.inactive {
   display: none;
 }
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.intro h1 {
+  text-align: center;
+  margin: 15px 0;
+}
+
+#intro-form input {
+  text-indent: 10px;
+}
+
+#intro-form {
+  display: grid;
+  grid-template: 40px 40px 40px 40px/ 300px 300px;
+  gap: 15px;
+}
+
+#form-submit {
+  /* grid-column: 1/1; */
+}
+
 /* Remove toggle buttons for input with type number */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -48,9 +87,108 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 
+#nav-items ul {
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  list-style: none;
+}
+
+#nav-items ul li {
+  margin: 0 5px;
+}
+
+#tempP,
+.data h1 {
+  text-align: center;
+}
+
+#data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.current-reco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.current-reco p {
+  margin-bottom: 10px;
+}
+
+.current-reco-container {
+  display: flex;
+}
+
+.current-reco-container img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.current-reco-container #single-product {
+  position: relative;
+  margin: 0 15px;
+}
+
+.current-reco-container #star-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 10px;
+  top: 40px;
+  cursor: pointer;
+}
+.five-day-reco {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.five-day-reco-container {
+  margin-top: 10px;
+  display: flex;
+}
+
+.five-day-reco img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.five-day-reco #single-product {
+  margin: 0 15px;
+}
+
 /* Favourites page  --------- --------- --------- ---------  */
 .favourites.inactive {
   display: none;
+}
+
+#go-back {
+  margin: 10px;
+  margin-left: 10px;
+}
+.favourites h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#favourites-container {
+  display: flex;
+  justify-content: center;
+}
+
+#favourites-container #single-product {
+  margin: 0 15px;
+}
+
+#favourites-container img {
+  width: 200px;
 }
 
 /* Main data page (Clothing Recommendations)  --------- --------- --------- ---------  */

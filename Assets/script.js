@@ -231,3 +231,10 @@ function gotoHome() {
   parent.classList.add('inactive');
   introEl.classList.remove('inactive');
 }
+
+// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE ITEM FAVOURITE FUNCTION(S)
+
+var starBtn = document.getElementById('star-btn');
+starBtn.addEventListener('click', () => {
+  alert('You clicked on the favourite button!');
+});

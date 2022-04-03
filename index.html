@@ -28,7 +28,7 @@
           <option value="medium">Medium</option>
           <option value="large">Large</option>
         </select>
-        <input id="form-city" type="text" placeholder="Type your city *Required" onkeydown="return /[a-z]/i.test(event.key)"/>
+        <input id="form-city" type="text" placeholder="Enter your city *Required" onkeydown="return /[a-z]/i.test(event.key)"/>
         <button disabled id="form-submit" type="submit">Submit</button>
       </form>
     </main>
@@ -36,7 +36,7 @@
     <main class="main-parent inactive">
       <header id="nav-items">
         <nav>
-          <ul >
+          <ul>
             <li><button class="nav-btn">Home</button></li>
             <li><button class="nav-btn">Favorites</butt></li>
           </ul>
@@ -47,9 +47,25 @@
         <button id="go-back">Go back</button>
         <h1>Favourites</h1>
         <div id="favourites-container">
+          <!-- The below HTML code will be dynamically generated via JS -->
           <div id="single-product">
-            <h1 id="product-title">Dummy Test</h1>
+            <h4 id="fav-product-title">Dummy Product Title</h4>
+            <img id="fav-product-img" src="easter_desktop_379x304new._SY304_CB626571179_.jpg" alt="Test Image" />
+            <p id="fav-product-price">$0.00</p>
+            <a id="fav-product-link" href="#" target="_blank">Test Link</a>
           </div>
+          <div id="single-product">
+            <h4 id="fav-product-title">Dummy Product Title</h4>
+            <img id="fav-product-img" src="easter_desktop_379x304new._SY304_CB626571179_.jpg" alt="Test Image" />
+            <p id="fav-product-price">$0.00</p>
+            <a id="fav-product-link" href="#" target="_blank">Test Link</a>
+          </div>
+          <div id="single-product">
+            <h4 id="fav-product-title">Dummy Product Title</h4>
+            <img id="fav-product-img" src="easter_desktop_379x304new._SY304_CB626571179_.jpg" alt="Test Image" />
+            <p id="fav-product-price">$0.00</p>
+            <a id="fav-product-link" href="#" target="_blank">Test Link</a>
+          </div>                    
         </div>
       </section>
       <!-- Data page that displays the current recommended clothing -->
@@ -57,12 +73,61 @@
         <h1>Main Dashboard</h1>
         <p id="tempP">Submitted data (This element will be removed in the future): <br><span id="submitted-data"></span></p>
         <div id="data-container">
-          <div id="single-product">
-            <h1 id="product-title"></h1>
-            <img id="product-img" src="" alt="" />
-            <p id="product-price"></p>
-            <a id="product-link" href="" target="_blank"></a>
-          </div>
+          <!-- Current weather clothing recommendation -->
+          <section class="current-reco">
+            <p>Here's your daily recommended set of clothing for the day:</p>
+            <div class="current-reco-container">
+              <div id="single-product">
+                <img id="star-btn" src='star.png'/>
+                <h1 id="product-title">Dummy Product</h1>
+                <img id="product-img" src="1.png" alt="" />
+                <p id="product-price">$0,00</p>
+                <a id="product-link" href="#" target="_blank">Test Link</a>
+              </div>  
+              <div id="single-product">
+                <img id="star-btn" src='star.png'/>
+                <h1 id="product-title">Dummy Product</h1>
+                <img id="product-img" src="2.png" alt="" />
+                <p id="product-price">$0,00</p>
+                <a id="product-link" href="#" target="_blank">Test Link</a>
+              </div>   
+              <div id="single-product">
+                <img id="star-btn" src='star.png'/>
+                <h1 id="product-title">Dummy Product</h1>
+                <img id="product-img" src="3.png" alt="" />
+                <p id="product-price">$0,00</p>
+                <a id="product-link" href="#" target="_blank">Test Link</a>
+              </div>   
+              <div id="single-product">
+                <img id="star-btn" src='star.png'/>
+                <h1 id="product-title">Dummy Product</h1>
+                <img id="product-img" src="4.png" alt="" />
+                <p id="product-price">$0,00</p>
+                <a id="product-link" href="#" target="_blank">Test Link</a>
+              </div>       
+            </div>
+          </section>
+          <!-- Five-day forecast clothing recommendations -->
+          <section class="five-day-reco">
+            <p>Weekly recommended clothing forecast</p>
+            <div class="five-day-reco-container">
+              <div id="single-product">
+                <img id="product-img" src="easter_desktop_379x304new._SY304_CB626571179_.jpg" alt="" />
+              </div>
+              <div id="single-product">
+                <img id="product-img" src="easter_desktop_379x304new._SY304_CB626571179_.jpg" alt="" />
+              </div>
+              <div id="single-product">
+                <img id="product-img" src="easter_desktop_379x304new._SY304_CB626571179_.jpg" alt="" />
+              </div>
+              <div id="single-product">
+                <img id="product-img" src="easter_desktop_379x304new._SY304_CB626571179_.jpg" alt="" />
+              </div>
+              <div id="single-product">
+                <img id="product-img" src="easter_desktop_379x304new._SY304_CB626571179_.jpg" alt="" />
+              </div>      
+            </div>
+          </section>
         </div>
       </section>
     </main>
