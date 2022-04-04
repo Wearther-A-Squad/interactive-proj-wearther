@@ -4,19 +4,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+hr {
+  opacity: 0.3;
+  margin: 40px 0;
+  width: 580px;
 }
 
 /* Universal properties --------- --------- --------- ---------  */
 .five-day-reco #single-product:first-child,
 #nav-items ul li:first-child,
 .current-reco-container #single-product:first-child,
-#favourites-container #single-product:first-child {
+#favourites-container #single-product:first-child,
+#current-hourly div:first-child {
   margin-left: 0;
 }
 .five-day-reco #single-product:last-child,
 #nav-items ul li:last-child,
 .current-reco-container #single-product:last-child,
-#favourites-container #single-product:last-child {
+#favourites-container #single-product:last-child,
+#current-hourly div:last-child {
   margin-right: 0;
 }
 
@@ -91,18 +99,42 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 
-#nav-items ul {
-  margin-left: 10px;
-  margin-top: 10px;
+nav {
+  margin-top: 50px;
   display: flex;
+  justify-content: center;
+}
+
+/* Weather nav button */
+#wearther-nav {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+/* Favorites nav button */
+#favorites-nav {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+#nav-items ul {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
   list-style: none;
 }
 
 #nav-items ul li {
+  cursor: pointer;
   margin: 0 5px;
 }
 
-#tempP,
+#nav-items button {
+  cursor: pointer;
+}
 .data h1 {
   text-align: center;
 }
@@ -111,16 +143,83 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 15px;
 }
 
-.current-reco {
+/* Main container hero ---- ---- ----*/
+#current-weather-hero {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#current-weather-hero img {
+  width: 200px;
+  margin-right: 20px;
+}
+#current-temp {
+  display: flex;
+  align-items: center;
+}
+
+#current-temp h1 {
+  font-size: 45px;
+}
+
+#current-temp img {
+  width: 100px;
+  margin-left: 10px;
+}
+#current-desc {
+  display: flex;
+  align-items: center;
+}
+
+#current-desc p {
+  width: 400px;
+}
+
+/* Hourly ---- ---- ----*/
+#current-hourly {
+  margin-top: 30px;
+  display: flex;
+}
+
+#current-hourly div {
+  margin: 0 30px;
+}
+
+#current-hourly img {
+  width: 65px;
+}
+
+.hourly {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.current-reco p {
-  margin-bottom: 10px;
+
+/* Amazon listings ---- ---- ----*/
+.amazon-listings {
+  margin-bottom: 100px;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.amazon-listings h5 {
+  /* Header */
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.amazon-listings #product-title {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.amazon-listings #product-price {
+  margin-bottom: 5px;
 }
 
 .current-reco-container {
@@ -128,8 +227,8 @@ input::-webkit-inner-spin-button {
 }
 
 .current-reco-container img {
-  width: 200px;
-  height: 200px;
+  width: 125px;
+  height: 125px;
   object-fit: cover;
 }
 
@@ -140,32 +239,35 @@ input::-webkit-inner-spin-button {
 
 .current-reco-container .star-btn {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   right: 10px;
-  top: 40px;
+  top: 30px;
   cursor: pointer;
 }
+
+/* Five day forecast ---- ---- ----*/
 .five-day-reco {
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .five-day-reco-container {
-  margin-top: 10px;
   display: flex;
 }
 
 .five-day-reco img {
-  width: 100px;
-  height: 100px;
+  width: 65px;
+  height: 65px;
   object-fit: cover;
 }
 
 .five-day-reco #single-product {
-  margin: 0 15px;
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Favourites page  --------- --------- --------- ---------  */

@@ -51,8 +51,13 @@
       <header id="nav-items">
         <nav>
           <ul>
-            <li><button class="nav-btn">Home</button></li>
-            <li><button class="nav-btn">Favorites</button></li>
+            <li>
+              <button id="wearther-nav" class="nav-btn">Wearther</button>
+              <p>the weather. every wear.</p>
+            </li>
+            <li>
+              <button id="favorites-nav" class="nav-btn">Favorites</button>
+            </li>
           </ul>
         </nav>
       </header>
@@ -106,84 +111,110 @@
       </section>
       <!-- Data page that displays the current recommended clothing -->
       <section class="data">
-        <h1>Main Dashboard</h1>
-        <p id="tempP">
-          Submitted data (This element will be removed in the future):
-          <br /><span id="submitted-data"></span>
-        </p>
+        <!-- <h1>Current:</h1> -->
         <div id="data-container">
           <!-- Current weather clothing recommendation -->
-          <section class="current-reco">
-            <p>Here's your daily recommended set of clothing for the day:</p>
+          <div id="current-weather-hero">
+            <div id="current-temp">
+              <h1>4°C</h1>
+              <img src="weather.png" alt="Current weather icon" />
+            </div>
+            <div id="current-desc">
+              <img src="clothes.png" alt="Current clothing icon" />
+              <p>
+                Today is a {beautiful, moderately nice, bad, very bad, don't go
+                outside} {windy, sunny, hailing, ''} day! You should wear
+                {light, medium, heavy} clothing.
+              </p>
+            </div>
+          </div>
+          <section id="current-hourly">
+            <div class="hourly">
+              <p>9AM</p>
+              <img src="clothes.png" alt="Hourly clothing icon" />
+            </div>
+            -
+            <div class="hourly">
+              <p>12PM</p>
+              <img src="clothes.png" alt="Hourly clothing icon" />
+            </div>
+            -
+            <div class="hourly">
+              <p>3PM</p>
+              <img src="clothes.png" alt="Hourly clothing icon" />
+            </div>
+            -
+            <div class="hourly">
+              <p>6PM</p>
+              <img src="clothes.png" alt="Hourly clothing icon" />
+            </div>
+            -
+            <div class="hourly">
+              <p>9PM</p>
+              <img src="clothes.png" alt="Hourly clothing icon" />
+            </div>
+          </section>
+          <hr />
+
+          <!-- Five-day forecast clothing recommendations -->
+          <section class="five-day-reco">
+            <div class="five-day-reco-container">
+              <div id="single-product">
+                <p>0/0/22</p>
+                <img id="product-img" src="clothes.png" alt="" />
+              </div>
+              -
+              <div id="single-product">
+                <p>0/0/22</p>
+                <img id="product-img" src="clothes.png" alt="" />
+              </div>
+              -
+              <div id="single-product">
+                <p>0/0/22</p>
+                <img id="product-img" src="clothes.png" alt="" />
+              </div>
+              -
+              <div id="single-product">
+                <p>0/0/22</p>
+                <img id="product-img" src="clothes.png" alt="" />
+              </div>
+              -
+              <div id="single-product">
+                <p>0/0/22</p>
+                <img id="product-img" src="clothes.png" alt="" />
+              </div>
+            </div>
+          </section>
+          <section class="amazon-listings">
+            <h5>Checkout the Amazon listings for the day!</h5>
             <div class="current-reco-container">
               <div id="single-product">
                 <img class="star-btn" src="star.png" />
-                <h1 id="product-title">Dummy Product</h1>
+                <p id="product-title">Dummy Product</p>
                 <img id="product-img" src="1.png" alt="" />
                 <p id="product-price">$0,00</p>
                 <a id="product-link" href="#" target="_blank">Test Link</a>
               </div>
               <div id="single-product">
                 <img class="star-btn" src="star.png" />
-                <h1 id="product-title">Dummy Product</h1>
+                <p id="product-title">Dummy Product</p>
                 <img id="product-img" src="2.png" alt="" />
                 <p id="product-price">$0,00</p>
                 <a id="product-link" href="#" target="_blank">Test Link</a>
               </div>
               <div id="single-product">
                 <img class="star-btn" src="star.png" />
-                <h1 id="product-title">Dummy Product</h1>
+                <p id="product-title">Dummy Product</p>
                 <img id="product-img" src="3.png" alt="" />
                 <p id="product-price">$0,00</p>
                 <a id="product-link" href="#" target="_blank">Test Link</a>
               </div>
               <div id="single-product">
                 <img class="star-btn" src="star.png" />
-                <h1 id="product-title">Dummy Product</h1>
+                <p id="product-title">Dummy Product</p>
                 <img id="product-img" src="4.png" alt="" />
                 <p id="product-price">$0,00</p>
                 <a id="product-link" href="#" target="_blank">Test Link</a>
-              </div>
-            </div>
-          </section>
-          <!-- Five-day forecast clothing recommendations -->
-          <section class="five-day-reco">
-            <p>Weekly recommended clothing forecast</p>
-            <div class="five-day-reco-container">
-              <div id="single-product">
-                <img
-                  id="product-img"
-                  src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-                  alt=""
-                />
-              </div>
-              <div id="single-product">
-                <img
-                  id="product-img"
-                  src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-                  alt=""
-                />
-              </div>
-              <div id="single-product">
-                <img
-                  id="product-img"
-                  src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-                  alt=""
-                />
-              </div>
-              <div id="single-product">
-                <img
-                  id="product-img"
-                  src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-                  alt=""
-                />
-              </div>
-              <div id="single-product">
-                <img
-                  id="product-img"
-                  src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-                  alt=""
-                />
               </div>
             </div>
           </section>

@@ -196,10 +196,9 @@ function handleSubmit() {
   // Update document title
   document.title = 'Wearther - Main';
 
-  // Update an element to show the submitted data (TEMPORARY ELEMENT JUST TO SEE THE DATA)
-  var tempEl = document.getElementById('submitted-data');
-  tempEl.textContent = `Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender}, 
-    Preferred clothing size: ${selectedClothingSize}, City: ${selectedCity}`;
+  // Console log the submitted data for reference
+  console.log(`Name: ${selectedName}, Age: ${selectedAge}, Gender: ${selectedGender}, 
+    Preferred clothing size: ${selectedClothingSize}, City: ${selectedCity}`);
 
   // Hide the intro page
   introEl.classList.add('inactive');
@@ -213,7 +212,7 @@ function handleNavBtns() {
   navBtns.forEach((item) => {
     item.addEventListener('click', (e) => {
       var btnLabel = e.target.textContent;
-      btnLabel == 'Home' ? gotoHome() : gotoFavourites();
+      btnLabel == 'Favorites' ? gotoFavourites() : gotoHome();
     });
   });
 }
