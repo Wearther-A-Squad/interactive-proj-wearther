@@ -255,9 +255,18 @@ function handleSubmit() {
   fetchApi(weatherUrl);
 
   if (selectedGender == 'female') {
+    if (selectedAge < 13) {
+      var searchTerm = 'girlshirts';
+    } else {
+      var searchTerm = 'womenshirts';
+    }
     var searchTerm = 'womenshirt';
   } else if (selectedGender == 'male') {
-    var searchTerm = 'maleshirt';
+    if (selectedAge < 13) {
+      var searchTerm = 'boyshirts';
+    } else {
+      var searchTerm = 'menshirts';
+    }
   } else {
     var searchTerm = 'unisexshirt';
   }
