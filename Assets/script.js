@@ -255,23 +255,31 @@ function handleSubmit() {
   fetchApi(weatherUrl);
 
   if (selectedGender == 'female') {
-    if (selectedAge < 13) {
-      var searchTerm = 'girlshirts';
-    } else {
-      var searchTerm = 'womenshirts';
+    if (selectedAge < 3) {
+      console.log('true2');
+      var searchTerm = 'baby-girl-shirts';
+    } else if (selectedAge > 3 && selectedAge < 13) {
+      console.log('true');
+      var searchTerm = 'little-girl-shirts';
+    } else if (selectedAge > 13) {
+      console.log('true4');
+      var searchTerm = 'women-shirts';
     }
-    var searchTerm = 'womenshirt';
   } else if (selectedGender == 'male') {
-    if (selectedAge < 13) {
-      var searchTerm = 'boyshirts';
-    } else {
-      var searchTerm = 'menshirts';
+    if (selectedAge < 3) {
+      var searchTerm = 'baby-boy-shirts';
+    } else if (selectedAge > 3 && selectedAge < 13) {
+      var searchTerm = 'little-boy-shirts';
+    } else if (selectedAge > 13) {
+      var searchTerm = 'men-shirts';
     }
   } else {
     var searchTerm = 'unisexshirt';
   }
+
   // Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
   var amazonUrl = `https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
+  console.log(amazonUrl);
   // Referring to the ASIN number from the above API, we can return more details about the product, for now, the ASIN is hard coded
   // var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
   fetchApi(amazonUrl);
