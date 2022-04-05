@@ -4,36 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Assets/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Wearther</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./Assets/styles.css" />
+    <title>Wearther - the weather. every wear</title>
   </head>
   <body>
     <!-- The first page the user is presented with -->
     <main class="intro">
-      <h1>Wearther</h1>
+      <h1 class="text-black text-xl">Wearther</h1>
       <h3>the weather. every wear.</h3>
       <form id="intro-form" action="#">
         <input
+          class="border"
           id="form-name"
           type="text"
           placeholder="Name"
           onkeydown="return /[a-z]/i.test(event.key)"
         />
-        <input id="form-age" type="number" placeholder="Age" />
-        <select class="form-dropdown" id="form-gender" name="gender">
+        <input class="border" id="form-age" type="number" placeholder="Age" />
+        <select class="form-dropdown border" id="form-gender" name="gender">
           <option value="" disabled selected>Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="non-binary">Non-binary</option>
         </select>
         <select
-          class="form-dropdown"
+          class="form-dropdown border"
           id="form-clothing-size"
           name="clothing-size"
         >
@@ -43,12 +51,15 @@
           <option value="large">Large</option>
         </select>
         <input
+          class="border"
           id="form-city"
           type="text"
           placeholder="City"
           onkeydown="return /[a-z]/i.test(event.key)"
         />
-        <button disabled id="form-submit" type="submit">Submit</button>
+        <button class="border" disabled id="form-submit" type="submit">
+          Submit
+        </button>
       </form>
     </main>
     <!-- MAIN application section (Displays AFTER initial form submissions) -->
