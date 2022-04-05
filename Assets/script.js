@@ -45,20 +45,50 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
 
     var descClothing = document.getElementById('current-desc-clothing');
     var clothing = ['light', 'medium', 'heavy', 'super-heavy'];
+    var weatherIconEl = document.getElementById('current-clothing-icon');
+
     if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
       descOpener.textContent = openers[4];
+      var randomPick = Math.random();
+      if (randomPick >= 0.5) {
+        weatherIconEl.src = 'Assets/icons/Female/Cold - clear/woman.png';
+      } else {
+        weatherIconEl.src = 'Assets/icons/Male/Cold - clear/winter-hat.png';
+      }
     } else if (data.current.feelslike_c > -5 && data.current.feelslike_c < 0) {
       descOpener.textContent = openers[3];
       descClothing.textContent = clothing[3];
+      if (randomPick >= 0.5) {
+        weatherIconEl.src =
+          'Assets/icons/Female/Cold - clear/winter-jacket.png';
+      } else {
+        weatherIconEl.src = 'Assets/icons/Male/Cold - snow/jacket.png';
+      }
     } else if (data.current.feelslike_c > 0 && data.current.feelslike_c < 5) {
       descOpener.textContent = openers[2];
       descClothing.textContent = clothing[2];
+      if (randomPick >= 0.5) {
+        weatherIconEl.src = weatherIconEl.src =
+          'Assets/icons/Female/Hot - clear/summer.png';
+      } else {
+        weatherIconEl.src = 'Assets/icons/Male/Cold - snow/snow.png';
+      }
     } else if (data.current.feelslike_c > 5 && data.current.feelslike_c < 10) {
       descOpener.textContent = openers[1];
       descClothing.textContent = clothing[1];
+      if (randomPick >= 0.5) {
+        weatherIconEl.src = 'Assets/icons/Female/Hot - clear/summer.png';
+      } else {
+        weatherIconEl.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
+      }
     } else if (data.current.feelslike_c > 10) {
       descOpener.textContent = openers[0];
       descClothing.textContent = clothing[0];
+      if (randomPick >= 0.5) {
+        weatherIconEl.src = 'Assets/icons/Female/Nice - clear/blouse.png';
+      } else {
+        weatherIconEl.src = 'Assets/icons/Male/Hot - clear/hawaiian-shirt.png';
+      }
     }
 
     var descCondition = document.getElementById('current-desc-condition');
