@@ -4,4 +4,300 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+hr {
+  opacity: 0.3;
+  margin: 40px 0;
+  width: 580px;
+}
+
+/* Universal properties --------- --------- --------- ---------  */
+.five-day-reco #single-product:first-child,
+#nav-items ul li:first-child,
+.current-reco-container #single-product:first-child,
+#favourites-container #single-product:first-child,
+#current-hourly div:first-child {
+  margin-left: 0;
+}
+.five-day-reco #single-product:last-child,
+#nav-items ul li:last-child,
+.current-reco-container #single-product:last-child,
+#favourites-container #single-product:last-child,
+#current-hourly div:last-child {
+  margin-right: 0;
+}
+
+/* Intro Page --------- --------- --------- ---------  */
+.intro.inactive {
+  display: none;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.intro h1 {
+  text-align: center;
+  margin: 15px 0;
+}
+
+#intro-form input {
+  text-indent: 10px;
+}
+
+#intro-form {
+  display: grid;
+  grid-template: 40px 40px 40px 40px/ 300px 300px;
+  gap: 15px;
+}
+
+#form-submit:disabled {
+  cursor: default;
+}
+
+#form-submit {
+  cursor: pointer;
+}
+
+/* Remove toggle buttons for input with type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Stylizes the dropdown menu */
+.select-dropdown,
+.select-status {
+  font-size: 2.2rem;
+  color: #444;
+  padding: 12px;
+  width: 300px;
+  max-width: 100%;
+  margin: 0;
+  border: 2px solid var(--grey);
+  border-radius: 12px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url('../images/select-arrow.svg');
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+
+/* MAIN parent container (holds all HTML pages) --------- --------- --------- ---------  */
+.main-parent.inactive {
+  display: none;
+}
+
+/* Nav items */
+#nav-items.inactive {
+  display: none;
+}
+
+nav {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Weather nav button */
+#wearther-nav {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+/* Favorites nav button */
+#favorites-nav {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+#nav-items ul {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+#nav-items ul li {
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+#nav-items button {
+  cursor: pointer;
+}
+.data h1 {
+  text-align: center;
+}
+
+#data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* Main container hero ---- ---- ----*/
+#current-weather-hero {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#current-weather-hero img {
+  width: 200px;
+  margin-right: 20px;
+}
+#current-temp {
+  display: flex;
+  align-items: center;
+}
+
+#current-temp h1 {
+  font-size: 45px;
+}
+
+#current-temp img {
+  width: 100px;
+  margin-left: 10px;
+}
+#current-desc {
+  display: flex;
+  align-items: center;
+}
+
+#current-desc p {
+  width: 400px;
+}
+
+/* Hourly ---- ---- ----*/
+#current-hourly {
+  margin-top: 30px;
+  display: flex;
+}
+
+#current-hourly div {
+  margin: 0 30px;
+}
+
+#current-hourly img {
+  width: 65px;
+}
+
+.hourly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Amazon listings ---- ---- ----*/
+.amazon-listings {
+  margin-bottom: 100px;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.amazon-listings h5 {
+  /* Header */
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.amazon-listings #product-title {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.amazon-listings #product-price {
+  margin-bottom: 5px;
+}
+
+.current-reco-container {
+  display: flex;
+}
+
+.current-reco-container img {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+}
+
+.current-reco-container #single-product {
+  position: relative;
+  margin: 0 15px;
+}
+
+.current-reco-container .star-btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 10px;
+  top: 30px;
+  cursor: pointer;
+}
+
+/* Five day forecast ---- ---- ----*/
+.five-day-reco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.five-day-reco-container {
+  display: flex;
+}
+
+.five-day-reco img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+}
+
+.five-day-reco #single-product {
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Favourites page  --------- --------- --------- ---------  */
+.favourites.inactive {
+  display: none;
+}
+
+#go-back {
+  margin: 10px;
+  margin-left: 10px;
+}
+.favourites h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#favourites-container {
+  display: flex;
+  justify-content: center;
+}
+
+#favourites-container #single-product {
+  margin: 0 15px;
+}
+
+#favourites-container img {
+  width: 200px;
+}
+
+/* Main data page (Clothing Recommendations)  --------- --------- --------- ---------  */
+.data.inactive {
+  display: none;
 }
