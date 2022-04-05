@@ -26,13 +26,7 @@
       <h1 class="text-black text-xl">Wearther</h1>
       <h2>the weather. every wear.</h2>
       <form id="intro-form" action="#">
-        <input
-          class="border"
-          id="form-name"
-          type="text"
-          placeholder="Name"
-          onkeydown="return /[0-9]/i.test(event.key)"
-        />
+        <input class="border" id="form-name" type="text" placeholder="Name" />
         <input class="border" id="form-age" type="number" placeholder="Age" />
         <select class="form-dropdown border" id="form-gender" name="gender">
           <option value="" disabled selected>Gender</option>
@@ -50,13 +44,7 @@
           <option value="medium">Medium</option>
           <option value="large">Large</option>
         </select>
-        <input
-          class="border"
-          id="form-city"
-          type="text"
-          placeholder="City"
-          onkeydown="return /[a-z]/i.test(event.key)"
-        />
+        <input class="border" id="form-city" type="text" placeholder="City" />
         <button class="border" disabled id="form-submit" type="submit">
           Submit
         </button>
@@ -131,17 +119,22 @@
         <div id="data-container">
           <!-- Current weather clothing recommendation -->
           <div id="current-weather-hero">
-            <div id="current-temp">
-              <h1>4°C</h1>
-              <img src="weather.png" alt="Current weather icon" />
+            <div id="current-temp-container">
+              <h1 id="city-chosen"></h1>
+              <h1 id="current-temp"></h1>
+              <img
+                id="current-weather-icon"
+                src=""
+                alt="Current weather icon"
+              />
             </div>
             <div id="current-desc">
               <img src="clothes.png" alt="Current clothing icon" />
               <p>
-                Hi <span id="current-desc-name">{Users name here}</span>
-                Today is a {beautiful, moderately nice, bad, very bad, don't go
-                outside} {windy, sunny, hailing, ''} day! You should wear
-                {light, medium, heavy} clothing.
+                Hi <span id="current-desc-name"></span> Today is a
+                <span id="current-desc-phrase"></span>
+                <span id="current-desc-condition"></span> day! You should wear
+                <span id="current-desc-clothing"></span> clothing.
               </p>
             </div>
           </div>
@@ -203,36 +196,13 @@
             </div>
           </section>
           <section class="amazon-listings">
-            <h5>Checkout the Amazon listings for the day!</h5>
+            <h5 id="amazon-header">
+              Checkout the Amazon listings for the day!
+            </h5>
             <div class="current-reco-container">
-              <div id="single-product">
-                <img class="star-btn" src="star.png" />
-                <p id="product-title">Dummy Product</p>
-                <img id="product-img" src="1.png" alt="" />
-                <p id="product-price">$0,00</p>
-                <a id="product-link" href="#" target="_blank">Test Link</a>
-              </div>
-              <div id="single-product">
-                <img class="star-btn" src="star.png" />
-                <p id="product-title">Dummy Product</p>
-                <img id="product-img" src="2.png" alt="" />
-                <p id="product-price">$0,00</p>
-                <a id="product-link" href="#" target="_blank">Test Link</a>
-              </div>
-              <div id="single-product">
-                <img class="star-btn" src="star.png" />
-                <p id="product-title">Dummy Product</p>
-                <img id="product-img" src="3.png" alt="" />
-                <p id="product-price">$0,00</p>
-                <a id="product-link" href="#" target="_blank">Test Link</a>
-              </div>
-              <div id="single-product">
-                <img class="star-btn" src="star.png" />
-                <p id="product-title">Dummy Product</p>
-                <img id="product-img" src="4.png" alt="" />
-                <p id="product-price">$0,00</p>
-                <a id="product-link" href="#" target="_blank">Test Link</a>
-              </div>
+              <h1 id="loading-listings">
+                Loading recommended Amazon listings....
+              </h1>
             </div>
           </section>
         </div>
