@@ -1,19 +1,13 @@
 // **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS
+
 // -------- -------- -------- -------- Universal fetch function
-var fetchApi = async (url) => {
+var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
   // Execute a try and catch block to catch if there is no network
   // try {
   var res = '';
-  // Specific URLs require specific options
-  if (url.includes('amazon24.p')) {
-    console.log('amazon fetching...');
-    res = await fetch(url, amazonOptions);
-  } else {
-    // else fetch without options
-    console.log('weather fetching...');
-    res = await fetch(url);
-  }
 
+  console.log('weather fetching...');
+  res = await fetch(weatherUrl);
   var data = await res.json();
 
   // If the response is 400...
@@ -22,65 +16,136 @@ var fetchApi = async (url) => {
     alert('No data returned');
   } else {
     // Otherwise the data returned successfully
-    if (url.includes('weather')) {
-      console.log('weather', data);
+    console.log('weather', data);
 
-      // Update the weather icon
-      var weatherIconEl = document.getElementById('current-weather-icon');
-      weatherIconEl.src = data.current.condition.icon;
-      weatherIconEl.alt = `${data.current.condition.text} - weather icon`;
+    // Update the weather icon
+    var weatherIconEl = document.getElementById('current-weather-icon');
+    weatherIconEl.src = data.current.condition.icon;
+    weatherIconEl.alt = `${data.current.condition.text} - weather icon`;
 
-      var currentTempEl = document.getElementById('current-temp');
-      currentTempEl.textContent = `${data.current.feelslike_c}°C`;
+    var currentTempEl = document.getElementById('current-temp');
+    currentTempEl.textContent = `${data.current.feelslike_c}°C`;
 
-      // This updates the main description based on the weather
-      var descOpener = document.getElementById('current-desc-phrase');
-      var openers = [
-        'beautiful',
-        'moderately nice',
-        'ok',
-        'very bad',
-        "don't go outside",
-      ];
+    // This updates the main description based on the weather
+    var descOpener = document.getElementById('current-desc-phrase');
+    var openers = [
+      'beautiful',
+      'moderately nice',
+      'ok',
+      'very bad',
+      "don't go outside",
+    ];
 
-      var descClothing = document.getElementById('current-desc-clothing');
-      var clothing = ['light', 'medium', 'heavy', 'super-heavy'];
-      if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
-        descOpener.textContent = openers[4];
-      } else if (
-        data.current.feelslike_c > -5 &&
-        data.current.feelslike_c < 0
-      ) {
-        descOpener.textContent = openers[3];
-        descClothing.textContent = clothing[3];
-      } else if (data.current.feelslike_c > 0 && data.current.feelslike_c < 5) {
-        descOpener.textContent = openers[2];
-        descClothing.textContent = clothing[2];
-      } else if (
-        data.current.feelslike_c > 5 &&
-        data.current.feelslike_c < 10
-      ) {
-        descOpener.textContent = openers[1];
-        descClothing.textContent = clothing[1];
-      } else if (data.current.feelslike_c > 10) {
-        descOpener.textContent = openers[0];
-        descClothing.textContent = clothing[0];
+    var descClothing = document.getElementById('current-desc-clothing');
+    var clothing = ['light', 'medium', 'heavy', 'super-heavy'];
+    if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+      descOpener.textContent = openers[4];
+    } else if (data.current.feelslike_c > -5 && data.current.feelslike_c < 0) {
+      descOpener.textContent = openers[3];
+      descClothing.textContent = clothing[3];
+    } else if (data.current.feelslike_c > 0 && data.current.feelslike_c < 5) {
+      descOpener.textContent = openers[2];
+      descClothing.textContent = clothing[2];
+    } else if (data.current.feelslike_c > 5 && data.current.feelslike_c < 10) {
+      descOpener.textContent = openers[1];
+      descClothing.textContent = clothing[1];
+    } else if (data.current.feelslike_c > 10) {
+      descOpener.textContent = openers[0];
+      descClothing.textContent = clothing[0];
+    }
+
+    var descCondition = document.getElementById('current-desc-condition');
+    var conditions = ['mildy windy', 'windy', 'very windy'];
+    if (data.current.wind_mph > 0 && data.current.wind_mph < 15) {
+      descCondition.textContent = conditions[0];
+    } else if (data.current.wind_mph > 15 && data.current.wind_mph < 25) {
+      descCondition.textContent = conditions[1];
+    } else if (data.current.wind_mph > 25) {
+      descCondition.textContent = conditions[2];
+    }
+
+    if (selectedGender == 'female') {
+      if (selectedAge < 3) {
+        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+          var searchTerm = 'baby-girl-jackets';
+        } else if (
+          data.current.feelslike_c > -5 &&
+          data.current.feelslike_c < 5
+        ) {
+          var searchTerm = 'baby-girl-sweaters';
+        } else if (data.current.feelslike_c > 5) {
+          var searchTerm = 'baby-girl-shirts';
+        }
+      } else if (selectedAge > 3 && selectedAge < 13) {
+        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+          var searchTerm = 'little-girl-jackets';
+        } else if (
+          data.current.feelslike_c > -5 &&
+          data.current.feelslike_c < 5
+        ) {
+          var searchTerm = 'little-girl-sweaters';
+        } else if (data.current.feelslike_c > 5) {
+          var searchTerm = 'little-girl-shirts';
+        }
+      } else if (selectedAge > 13) {
+        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+          var searchTerm = 'women-jackets';
+        } else if (
+          data.current.feelslike_c > -5 &&
+          data.current.feelslike_c < 5
+        ) {
+          var searchTerm = 'women-sweaters';
+        } else if (data.current.feelslike_c > 5) {
+          var searchTerm = 'women-shirts';
+        }
       }
-
-      var descCondition = document.getElementById('current-desc-condition');
-      var conditions = ['mildy windy', 'windy', 'very windy'];
-      if (data.current.wind_mph > 0 && data.current.wind_mph < 15) {
-        descCondition.textContent = conditions[0];
-      } else if (data.current.wind_mph > 15 && data.current.wind_mph < 25) {
-        descCondition.textContent = conditions[1];
-      } else if (data.current.wind_mph > 25) {
-        descCondition.textContent = conditions[2];
+    } else if (selectedGender == 'male') {
+      if (selectedAge < 3) {
+        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+          var searchTerm = 'baby-boy-jackets';
+        } else if (
+          data.current.feelslike_c > -5 &&
+          data.current.feelslike_c < 5
+        ) {
+          var searchTerm = 'baby-boy-sweaters';
+        } else if (data.current.feelslike_c > 5) {
+          var searchTerm = 'baby-boy-shirts';
+        }
+      } else if (selectedAge > 3 && selectedAge < 13) {
+        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+          var searchTerm = 'little-boy-jackets';
+        } else if (
+          data.current.feelslike_c > -5 &&
+          data.current.feelslike_c < 5
+        ) {
+          var searchTerm = 'little-boy-sweaters';
+        } else if (data.current.feelslike_c > 5) {
+          var searchTerm = 'little-boy-shirts';
+        }
+      } else if (selectedAge > 13) {
+        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+          var searchTerm = 'men-jackets';
+        } else if (
+          data.current.feelslike_c > -5 &&
+          data.current.feelslike_c < 5
+        ) {
+          var searchTerm = 'men-sweaters';
+        } else if (data.current.feelslike_c > 5) {
+          var searchTerm = 'men-shirts';
+        }
       }
     } else {
-      console.log('amazon', data);
-      // Generate the Amazon listing elements
-      displayProduct(data);
+      var searchTerm = 'unisex-shirt';
     }
+    console.log(`Amazon fetching using this search term: ${searchTerm}...`);
+    // Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
+    console.log('amazon', data);
+    var amazonUrl = `https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
+    // Referring to the ASIN number from the above API, we can return more details about the product, for now, the ASIN is hard coded
+    // var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
+    res = await fetch(amazonUrl, amazonOptions);
+    var data = await res.json();
+    displayProduct(data);
   }
   // If there is no network connection, execute the catch block function
   // } catch (error) {
@@ -249,36 +314,7 @@ function handleSubmit() {
   // Return the weather data for the searched up city
   var APIKEY = '6aa15f30207248b9b2b135920223003';
   var weatherUrl = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${selectedCity}&aqi=no`;
-  fetchApi(weatherUrl);
-
-  if (selectedGender == 'female') {
-    if (selectedAge < 3) {
-      console.log('true2');
-      var searchTerm = 'baby-girl-shirts';
-    } else if (selectedAge > 3 && selectedAge < 13) {
-      console.log('true');
-      var searchTerm = 'little-girl-shirts';
-    } else if (selectedAge > 13) {
-      console.log('true4');
-      var searchTerm = 'women-shirts';
-    }
-  } else if (selectedGender == 'male') {
-    if (selectedAge < 3) {
-      var searchTerm = 'baby-boy-shirts';
-    } else if (selectedAge > 3 && selectedAge < 13) {
-      var searchTerm = 'little-boy-shirts';
-    } else if (selectedAge > 13) {
-      var searchTerm = 'men-shirts';
-    }
-  } else {
-    var searchTerm = 'unisex-shirt';
-  }
-
-  // Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
-  var amazonUrl = `https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
-  // Referring to the ASIN number from the above API, we can return more details about the product, for now, the ASIN is hard coded
-  // var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
-  fetchApi(amazonUrl);
+  fetchApi(weatherUrl, selectedAge, selectedGender);
 
   // Hide the intro page
   introEl.classList.add('inactive');
