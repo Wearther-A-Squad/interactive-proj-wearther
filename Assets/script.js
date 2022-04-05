@@ -1,5 +1,12 @@
 // **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS
 
+var majorCities = [
+  { US: ['new york', 'chicago'] },
+  { CA: ['toronto', 'vancouver'] },
+];
+
+console.log(majorCities[0].US[1]);
+
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
   // Execute a try and catch block to catch if there is no network
@@ -161,11 +168,6 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
   //   alert('Failed to connect to API due to network issues');
   // }
 };
-
-// -------- -------- -------- -------- WeatherAPI setup
-// var APIKEY = '6aa15f30207248b9b2b135920223003';
-// var searchedCity = 'Toronto';
-// var weatherUrl = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${searchedCity}&aqi=no`;
 
 // -------- -------- -------- -------- RapidAPI (Amazon) setup
 const amazonOptions = {
