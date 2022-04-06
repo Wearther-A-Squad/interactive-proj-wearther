@@ -182,7 +182,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       }
     }
 
-    for (let i = 9; i <= 22; ) {
+    for (let i = 9; i <= 22;) {
       var randomPick = Math.random();
       console.log(i);
 
@@ -251,7 +251,7 @@ function displayProduct(data) {
 
     // This iterates over the data for the Amazon products and generates the HTML elements accordingly
     var amazonContainer = document.querySelector('.current-reco-container');
-    for (let i = 0; i < data.docs.length; ) {
+    for (let i = 0; i < data.docs.length;) {
       var newProductEl = document.createElement('div');
       newProductEl.classList.add('single-product');
       newProductEl.innerHTML = `

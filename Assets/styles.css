@@ -6,11 +6,11 @@
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
 }
-hr {
+/*hr {
   opacity: 0.3;
   margin: 40px 0;
   width: 580px;
-}
+}*/
 
 /* Universal properties --------- --------- --------- ---------  */
 .five-day-reco #single-product:first-child,
@@ -33,25 +33,27 @@ hr {
   display: none;
 }
 
-.intro {
+/*.intro {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.intro h1 {
+}*/
+
+/*.intro h1 {
   text-align: center;
   margin: 15px 0;
-}
+}*/
 
 #intro-form input {
   text-indent: 10px;
 }
 
-#intro-form {
+/*#intro-form {
   display: grid;
   grid-template: 40px 40px 40px 40px/ 300px 300px;
   gap: 15px;
 }
+*/
 
 #form-submit:disabled {
   cursor: default;
@@ -99,55 +101,56 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 
-nav {
+/*nav {
   margin-top: 50px;
   display: flex;
   justify-content: center;
-}
+}*/
 
 /* Weather nav button */
-#wearther-nav {
+/*#wearther-nav {
   font-size: 20px;
   background-color: transparent;
   border: none;
-}
+}*/
 
 /* Favorites nav button */
-#favorites-nav {
+/*#favorites-nav {
   font-size: 20px;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid black;
-}
+}*/
 
-#nav-items ul {
+/*#nav-items ul {
   width: 70%;
   display: flex;
   justify-content: space-between;
   list-style: none;
-}
+}*/
 
 #nav-items ul li {
   cursor: pointer;
-  margin: 0 5px;
+/*  margin: 0 5px;*/
 }
 
 #nav-items button {
   cursor: pointer;
 }
-.data h1 {
-  text-align: center;
-}
 
-#data-container {
+/*.data h1 {
+  text-align: center;
+}*/
+
+/*#data-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 15px;
-}
+}*/
 
 /* Main container hero ---- ---- ----*/
-#current-weather-hero {
+/*#current-weather-hero {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -169,18 +172,25 @@ nav {
 #current-temp-container img {
   width: 80px;
   margin-left: 5px;
-}
-#current-desc {
-  display: flex;
-  align-items: center;
+}*/
+/*#current-desc p {
+  width: 450px;
+}*/
+
+/*#current-desc {
+  flex: 1 30%;
+}*/
+
+/*#current-cicon {
+  flex: 1 12%;
 }
 
-#current-desc p {
-  width: 450px;
-}
+#current-desc-p {
+  flex: 1 70%
+}*/
 
 /* Hourly ---- ---- ----*/
-#current-hourly {
+/*#current-hourly {
   margin-top: 30px;
   display: flex;
 }
@@ -197,10 +207,10 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+}*/
 
 /* Amazon listings ---- ---- ----*/
-.amazon-listings {
+/*.amazon-listings {
   margin-bottom: 100px;
   margin-top: 45px;
   display: flex;
@@ -211,9 +221,9 @@ nav {
 #amazon-header {
   display: none;
 }
-.amazon-listings h5 {
+.amazon-listings h5 {*/
   /* Header */
-  margin-bottom: 15px;
+  /*margin-bottom: 15px;
   font-size: 20px;
   font-weight: 400;
 }
@@ -257,10 +267,10 @@ nav {
   right: 10px;
   top: 10px;
   cursor: pointer;
-}
+}*/
 
 /* Five day forecast ---- ---- ----*/
-.five-day-reco {
+/*.five-day-reco {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -281,14 +291,14 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+}*/
 
 /* Favourites page  --------- --------- --------- ---------  */
 .favourites.inactive {
   display: none;
 }
 
-#go-back {
+/*#go-back {
   margin: 10px;
   margin-left: 10px;
 }
@@ -309,6 +319,7 @@ nav {
 #favourites-container img {
   width: 200px;
 }
+*/
 
 /* Main data page (Clothing Recommendations)  --------- --------- --------- ---------  */
 .data.inactive {
