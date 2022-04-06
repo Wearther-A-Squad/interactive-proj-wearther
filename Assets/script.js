@@ -13,23 +13,23 @@ var majorCities = [
       'Anchorage',
       'Ann Arbor',
       'Antioch',
-      'Apple Valley',
+      'Apple valley',
       'Appleton',
       'Arlington',
       'Arvada',
       'Asheville',
       'Athens',
       'Atlanta',
-      'Atlantic City',
+      'Atlantic city',
       'Augusta',
       'Aurora',
       'Austin',
       'Bakersfield',
       'Baltimore',
       'Barnstable',
-      'Baton Rouge',
+      'Baton rouge',
       'Beaumont',
-      'Bel Air',
+      'Bel air',
       'Bellevue',
       'Berkeley',
       'Bethlehem',
@@ -37,8 +37,8 @@ var majorCities = [
       'Birmingham',
       'Bloomington',
       'Boise',
-      'Boise City',
-      'Bonita Springs',
+      'Boise city',
+      'Bonita springs',
       'Boston',
       'Boulder',
       'Bradenton',
@@ -52,11 +52,11 @@ var majorCities = [
       'Burlington',
       'Cambridge',
       'Canton',
-      'Cape Coral',
+      'Cape coral',
       'Carrollton',
       'Cary',
-      'Cathedral City',
-      'Cedar Rapids',
+      'Cathedral city',
+      'Cedar rapids',
       'Champaign',
       'Chandler',
       'Charleston',
@@ -64,40 +64,40 @@ var majorCities = [
       'Chattanooga',
       'Chesapeake',
       'Chicago',
-      'Chula Vista',
+      'Chula vista',
       'Cincinnati',
-      'Clarke County',
+      'Clarke county',
       'Clarksville',
       'Clearwater',
       'Cleveland',
-      'College Station',
-      'Colorado Springs',
+      'College station',
+      'Colorado springs',
       'Columbia',
       'Columbus',
       'Concord',
-      'Coral Springs',
+      'Coral springs',
       'Corona',
-      'Corpus Christi',
-      'Costa Mesa',
+      'Corpus christi',
+      'Costa mesa',
       'Dallas',
-      'Daly City',
+      'Daly city',
       'Danbury',
       'Davenport',
-      'Davidson County',
+      'Davidson county',
       'Dayton',
-      'Daytona Beach',
+      'Daytona beach',
       'Deltona',
       'Denton',
       'Denver',
-      'Des Moines',
+      'Des moines',
       'Detroit',
       'Downey',
       'Duluth',
       'Durham',
-      'El Monte',
-      'El Paso',
+      'El monte',
+      'El paso',
       'Elizabeth',
-      'Elk Grove',
+      'Elk grove',
       'Elkhart',
       'Erie',
       'Escondido',
@@ -109,12 +109,12 @@ var majorCities = [
       'Fitchburg',
       'Flint',
       'Fontana',
-      'Fort Collins',
-      'Fort Lauderdale',
-      'Fort Smith',
-      'Fort Walton Beach',
-      'Fort Wayne',
-      'Fort Worth',
+      'Fort collins',
+      'Fort lauderdale',
+      'Fort smith',
+      'Fort walton Beach',
+      'Fort wayne',
+      'Fort worth',
       'Frederick',
       'Fremont',
       'Fresno',
@@ -125,34 +125,34 @@ var majorCities = [
       'Gastonia',
       'Gilbert',
       'Glendale',
-      'Grand Prairie',
-      'Grand Rapids',
+      'Grand prairie',
+      'Grand rapids',
       'Grayslake',
       'Green Bay',
       'GreenBay',
       'Greensboro',
       'Greenville',
-      'Gulfport-Biloxi',
+      'Gulfport biloxi',
       'Hagerstown',
       'Hampton',
       'Harlingen',
       'Harrisburg',
       'Hartford',
-      'Havre de Grace',
+      'Havre de grace',
       'Hayward',
       'Hemet',
       'Henderson',
       'Hesperia',
       'Hialeah',
       'Hickory',
-      'High Point',
+      'High point',
       'Hollywood',
       'Honolulu',
       'Houma',
       'Houston',
       'Howell',
       'Huntington',
-      'Huntington Beach',
+      'Huntington beach',
       'Huntsville',
       'Independence',
       'Indianapolis',
@@ -162,13 +162,13 @@ var majorCities = [
       'Jackson',
       'Jacksonville',
       'Jefferson',
-      'Jersey City',
-      'Johnson City',
+      'Jersey city',
+      'Johnson city',
       'Joliet',
       'Kailua',
       'Kalamazoo',
       'Kaneohe',
-      'Kansas City',
+      'Kansas city',
       'Kennewick',
       'Kenosha',
       'Killeen',
@@ -176,23 +176,23 @@ var majorCities = [
       'Knoxville',
       'Lacey',
       'Lafayette',
-      'Lake Charles',
+      'Lake charles',
       'Lakeland',
       'Lakewood',
       'Lancaster',
       'Lansing',
       'Laredo',
-      'Las Cruces',
-      'Las Vegas',
+      'Las cruces',
+      'Las vegas',
       'Layton',
       'Leominster',
       'Lewisville',
       'Lexington',
       'Lincoln',
-      'Little Rock',
-      'Long Beach',
+      'Little rock',
+      'Long beach',
       'Lorain',
-      'Los Angeles',
+      'Los angeles',
       'Louisville',
       'Lowell',
       'Lubbock',
@@ -213,35 +213,35 @@ var majorCities = [
       'Milwaukee',
       'Minneapolis',
       'Miramar',
-      'Mission Viejo',
+      'Mission viejo',
       'Mobile',
       'Modesto',
       'Monroe',
       'Monterey',
       'Montgomery',
-      'Moreno Valley',
+      'Moreno valley',
       'Murfreesboro',
       'Murrieta',
       'Muskegon',
-      'Myrtle Beach',
+      'Myrtle beach',
       'Naperville',
       'Naples',
       'Nashua',
       'Nashville',
-      'New Bedford',
-      'New Haven',
-      'New London',
-      'New Orleans',
-      'New York',
+      'New bedford',
+      'New haven',
+      'New london',
+      'New orleans',
+      'New york',
       'Newark',
       'Newburgh',
-      'Newport News',
+      'Newport news',
       'Norfolk',
       'Normal',
       'Norman',
-      'North Charleston',
-      'North Las Vegas',
-      'North Port',
+      'North charleston',
+      'Las vegas',
+      'North port',
       'Norwalk',
       'Norwich',
       'Oakland',
@@ -249,7 +249,7 @@ var majorCities = [
       'Oceanside',
       'Odessa',
       'Ogden',
-      'Oklahoma City',
+      'Oklahoma city',
       'Olathe',
       'Olympia',
       'Omaha',
@@ -257,15 +257,15 @@ var majorCities = [
       'Orange',
       'Orem',
       'Orlando',
-      'Overland Park',
+      'Overland park',
       'Oxnard',
-      'Palm Bay',
-      'Palm Springs',
+      'Palm bay',
+      'Palm springs',
       'Palmdale',
-      'Panama City',
+      'Panama city',
       'Pasadena',
       'Paterson',
-      'Pembroke Pines',
+      'Pembroke pines',
       'Pensacola',
       'Peoria',
       'Philadelphia',
@@ -273,54 +273,54 @@ var majorCities = [
       'Pittsburgh',
       'Plano',
       'Pomona',
-      'Pompano Beach',
-      'Port Arthur',
-      'Port Orange',
-      'Port Saint Lucie',
-      'Port St. Lucie',
+      'Pompano beach',
+      'Port arthur',
+      'Port orange',
+      'Port saint Lucie',
+      'Port st. Lucie',
       'Portland',
       'Portsmouth',
       'Poughkeepsie',
       'Providence',
       'Provo',
       'Pueblo',
-      'Punta Gorda',
+      'Punta gorda',
       'Racine',
       'Raleigh',
-      'Rancho Cucamonga',
+      'Rancho cucamonga',
       'Reading',
       'Redding',
       'Reno',
       'Richland',
       'Richmond',
-      'Richmond County',
+      'Richmond county',
       'Riverside',
       'Roanoke',
       'Rochester',
       'Rockford',
       'Roseville',
-      'Round Lake Beach',
+      'Round lake beach',
       'Sacramento',
       'Saginaw',
-      'Saint Louis',
-      'Saint Paul',
-      'Saint Petersburg',
+      'Saint louis',
+      'Saint paul',
+      'Saint petersburg',
       'Salem',
       'Salinas',
-      'Salt Lake City',
-      'San Antonio',
-      'San Bernardino',
-      'San Buenaventura',
-      'San Diego',
-      'San Francisco',
-      'San Jose',
-      'Santa Ana',
-      'Santa Barbara',
-      'Santa Clara',
-      'Santa Clarita',
-      'Santa Cruz',
-      'Santa Maria',
-      'Santa Rosa',
+      'Salt lake City',
+      'San antonio',
+      'San bernardino',
+      'San buenaventura',
+      'San diego',
+      'San francisco',
+      'San jose',
+      'Santa ana',
+      'Santa barbara',
+      'Santa clara',
+      'Santa clarita',
+      'Santa cruz',
+      'Santa maria',
+      'Santa rosa',
       'Sarasota',
       'Savannah',
       'Scottsdale',
@@ -329,20 +329,20 @@ var majorCities = [
       'Seattle',
       'Sebastian',
       'Shreveport',
-      'Simi Valley',
-      'Sioux City',
-      'Sioux Falls',
-      'South Bend',
-      'South Lyon',
+      'Simi valley',
+      'Sioux city',
+      'Sioux falls',
+      'South nend',
+      'South lyon',
       'Spartanburg',
       'Spokane',
       'Springdale',
       'Springfield',
-      'St. Louis',
-      'St. Paul',
-      'St. Petersburg',
+      'St. louis',
+      'St. paul',
+      'St. petersburg',
       'Stamford',
-      'Sterling Heights',
+      'Sterling heights',
       'Stockton',
       'Sunnyvale',
       'Syracuse',
@@ -352,7 +352,7 @@ var majorCities = [
       'Temecula',
       'Tempe',
       'Thornton',
-      'Thousand Oaks',
+      'Thousand oaks',
       'Toledo',
       'Topeka',
       'Torrance',
@@ -366,20 +366,20 @@ var majorCities = [
       'Vancouver',
       'Vero Beach',
       'Victorville',
-      'Virginia Beach',
+      'Virginia beach',
       'Visalia',
       'Waco',
       'Warren',
       'Washington',
       'Waterbury',
       'Waterloo',
-      'West Covina',
-      'West Valley City',
+      'West covina',
+      'West valley City',
       'Westminster',
       'Wichita',
       'Wilmington',
       'Winston',
-      'Winter Haven',
+      'Winter haven',
       'Worcester',
       'Yakima',
       'Yonkers',
@@ -391,50 +391,50 @@ var majorCities = [
     CA: [
       //AB
       'Airdrie',
-      'Grande Prairie',
-      'Red Deer',
+      'Grande prairie',
+      'Red ddeer',
       'Beaumont',
       'Hanna',
-      'St. Albert',
+      'St. albert',
       'Bonnyville',
       'Hinton',
-      'Spruce Grove',
+      'Spruce grove',
       'Brazeau',
       'Irricana',
-      'Strathcona County',
+      'Strathcona county',
       'Breton',
       'Lacombe',
       'Strathmore',
       'Calgary',
       'Leduc',
-      'Sylvan Lake',
+      'Sylvan lake',
       'Camrose',
       'Lethbridge',
-      'Swan Hills',
+      'Swan hills',
       'Canmore',
       'McLennan',
       'Taber',
       'Didzbury',
-      'Medicine Hat',
-      'Turner Valley',
-      'Drayton Valley',
+      'Medicine hat',
+      'Turner valley',
+      'Drayton valley',
       'Olds',
       'Vermillion',
       'Edmonton',
       'Onoway',
-      'Wood Buffalo',
-      'Ft. Saskatchewan',
+      'Wood buffalo',
+      'Ft. saskatchewan',
       'Provost',
       //BC
       'Burnaby',
       'Lumby',
-      'City of Port Moody',
-      'Cache Creek',
-      'Maple Ridge',
-      'Prince George',
+      'Port moody',
+      'Cache creek',
+      'Maple ridge',
+      'Prince george',
       'Castlegar',
       'Merritt',
-      'Prince Rupert',
+      'Prince rupert',
       'Chemainus',
       'Mission',
       'Richmond',
@@ -445,16 +445,16 @@ var majorCities = [
       'Nelson',
       'Sooke',
       'Colwood',
-      'New Westminster',
+      'New westminster',
       'Sparwood',
       'Coquitlam',
-      'North Cowichan',
+      'North cowichan',
       'Surrey',
       'Cranbrook',
-      'North Vancouver',
+      'North vancouver',
       'Terrace',
-      'Dawson Creek',
-      'North Vancouver',
+      'Dawson creek',
+      'North vancouver',
       'Tumbler',
       'Delta',
       'Osoyoos',
@@ -463,87 +463,87 @@ var majorCities = [
       'Parksville',
       'Vancouver',
       'Invermere',
-      'Peace River',
+      'Peace river',
       'Vernon',
       'Kamloops',
       'Penticton',
       'Victoria',
       'Kaslo',
-      'Port Alberni',
+      'Port alberni',
       'Whistler',
       'Langley',
-      'Port Hardy',
+      'Port hardy',
       //MB
       'Birtle',
-      'Flin Flon',
-      'Swan River',
+      'Flin flon',
+      'Swan river',
       'Brandon',
-      'Snow Lake',
-      'The Pas',
-      'Cranberry Portage',
+      'Snow lake',
+      'The pas',
+      'Cranberry portage',
       'Steinbach',
       'Thompson',
       'Dauphin',
       'Stonewall',
       'Winnipeg',
       //NB
-      'Cap-Pele',
+      'Cap pele',
       'Miramichi',
-      'Saint John',
+      'Saint john',
       'Fredericton',
       'Moncton',
-      'Saint Stephen',
-      'Grand Bay-Westfield',
+      'Saint stephen',
+      'Grand bay westfield',
       'Oromocto',
       'Shippagan',
-      'Grand Falls',
-      'Port Elgin',
+      'Grand falls',
+      'Port elgin',
       'Sussex',
       'Memramcook',
       'Sackville',
-      'Tracadie-Sheila',
+      'Tracadie sheila',
       //NL
       'Argentia',
-      'Corner Brook',
+      'Corner brook',
       'Paradise',
-      "Bishop's Falls",
-      'Labrador City',
-      'Portaux Basques',
+      "Bishop's falls",
+      'Labrador city',
+      'Portaux basques',
       'Botwood',
-      'Mount Pearl',
-      "St. John's",
+      'Mount pearl',
+      "St. john's",
       'Brigus',
       //NWT
-      'Town of Hay River',
-      'Town of Inuvik',
+      'Hay river',
+      'Inuvik',
       'Yellowknife',
       //NS
       'Amherst',
       'Hants County',
       'Pictou',
       'Annapolis',
-      'Inverness County',
-      'Pictou County',
+      'Inverness county',
+      'Pictou county',
       'Argyle',
       'Kentville',
       'Queens',
       'Baddeck',
-      'County of Kings',
+      'County of kings',
       'Richmond',
       'Bridgewater',
       'Lunenburg',
       'Shelburne',
-      'Cape Breton',
-      'Lunenburg County',
+      'Cape breton',
+      'Lunenburg county',
       'Stellarton',
       'Chester',
-      'Mahone Bay',
+      'Mahone bay',
       'Truro',
-      'Cumberland County',
-      'New Glasgow',
+      'Cumberland county',
+      'New glasgow',
       'Windsor',
-      'East Hants',
-      'New Minas',
+      'East hants',
+      'New minas',
       'Yarmouth',
       'Halifax',
       'Parrsboro',
@@ -552,103 +552,101 @@ var majorCities = [
       'Halton',
       'Peterborough',
       'Atikokan',
-      'Halton Hills',
+      'Halton hills',
       'Pickering',
       'Barrie',
       'Hamilton',
-      'Port Bruce',
+      'Port bruce',
       'Belleville',
-      'Hamilton-Wentworth',
-      'Port Burwell',
-      'Blandford-Blenheim',
+      'Hamilton wentworth',
+      'Port burwell',
+      'Blandford blenheim',
       'Hearst',
-      'Port Colborne',
-      'Blind River',
+      'Port colborne',
+      'Blind river',
       'Huntsville',
       'Port Hope',
       'Brampton',
       'Ingersoll',
-      'Prince Edward',
+      'Prince edward',
       'Brant',
       'James',
-      'Quinte West',
+      'Quinte west',
       'Brantford',
       'Kanata',
       'Renfrew',
       'Brock',
       'Kincardine',
-      'Richmond Hill',
+      'Richmond hill',
       'Brockville',
       'King',
       'Sarnia',
       'Burlington',
       'Kingston',
-      'Sault Ste. Marie',
+      'Sault ste. marie',
       'Caledon',
-      'Kirkland Lake',
+      'Kirkland lake',
       'Scarborough',
       'Cambridge',
       'Kitchener',
       'Scugog',
-      'Chatham-Kent',
-      'Larder Lake',
-      'Souix Lookout CoC Sioux Lookout',
+      'Chatham-kent',
+      'Larder lake',
       'Chesterville',
       'Leamington',
       'Smiths Falls',
       'Clarington',
-      'Lennox-Addington',
-      'South-West Oxford',
+      'Lennox addington',
+      'South west oxford',
       'Cobourg',
       'Lincoln',
-      'St. Catharines',
+      'St. catharines',
       'Cochrane',
       'Lindsay',
-      'St. Thomas',
+      'St. thomas',
       'Collingwood',
       'London',
-      'Stoney Creek',
+      'Stoney creek',
       'Cornwall',
-      'Loyalist Township',
+      'Loyalist township',
       'Stratford',
       'Cumberland',
       'Markham',
       'Sudbury',
       'Deep River',
-      'Metro Toronto',
       'Temagami',
       'Dundas',
       'Merrickville',
       'Thorold',
       'Durham',
       'Milton',
-      'Thunder Bay',
+      'Thunder bay',
       'Dymond',
       'Nepean',
       'Tillsonburg',
-      'Ear Falls',
+      'Ear falls',
       'Newmarket',
       'Timmins',
-      'East Gwillimbury',
+      'East gwillimbury',
       'Niagara',
       'Toronto',
-      'East Zorra-Tavistock',
-      'Niagara Falls',
+      'East zorra tavistock',
+      'Niagara falls',
       'Uxbridge',
       'Elgin',
-      'Niagara-on-the-Lake',
+      'Niagara',
       'Vaughan',
-      'Elliot Lake',
-      'North Bay',
+      'Elliot lake',
+      'North bay',
       'Wainfleet',
       'Flamborough',
-      'North Dorchester',
-      'Wasaga Beach',
-      'Fort Erie',
-      'North Dumfries',
+      'North dorchester',
+      'Wasaga beach',
+      'Fort erie',
+      'North dumfries',
       'Waterloo',
-      'Fort Frances',
-      'North York',
+      'Fort frances',
+      'North york',
       'Waterloo',
       'Gananoque',
       'Norwich',
@@ -658,10 +656,10 @@ var majorCities = [
       'Wellesley',
       'Glanbrook',
       'Orangeville',
-      'West Carleton',
+      'West carleton',
       'Gloucester',
       'Orillia',
-      'West Lincoln',
+      'West lincoln',
       'Goulbourn',
       'Osgoode',
       'Whitby',
@@ -675,7 +673,7 @@ var majorCities = [
       'Ottawa-Carleton',
       'Woolwich',
       'Haldimand-Norfork',
-      'Owen Sound',
+      'Owen sound',
       'York',
       //PEI
       'Alberton',
@@ -694,22 +692,22 @@ var majorCities = [
       'Marieville',
       'Anjou',
       'Gatineau',
-      'Mount Royal',
+      'Mount royal',
       'Aylmer',
       'Hull',
       'Montreal',
       'Beauport',
       'Joliette',
-      'Montreal Region',
+      'Montreal region',
       'Bromptonville',
       'Jonquiere',
-      'Montreal-Est',
+      'Montreal',
       'Brosssard',
       'Lachine',
       'Quebec',
       'Chateauguay',
       'Lasalle',
-      'Saint-Leonard',
+      'Saint leonard',
       'Chicoutimi',
       'Laurentides',
       'Sherbrooke',
@@ -718,7 +716,7 @@ var majorCities = [
       'Sorel',
       'Coaticook',
       'Laval',
-      'Thetford Mines',
+      'Thetford mines',
       'Dorval',
       'Lennoxville',
       'Victoriaville',
@@ -727,12 +725,12 @@ var majorCities = [
       //SK
       'Avonlea',
       'Melfort',
-      'Swift Current',
+      'Swift current',
       'Colonsay',
       'Nipawin',
       'Tisdale',
       'Craik',
-      'Prince Albert',
+      'Prince albert',
       'Unity',
       'Creighton',
       'Regina',
@@ -741,7 +739,7 @@ var majorCities = [
       'Saskatoon',
       'Wynyard',
       'Esterhazy',
-      'Shell Lake',
+      'Shell lake',
       'Yorkton',
       'Gravelbourg',
       //YT
@@ -753,11 +751,30 @@ var majorCities = [
 
 // **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS / UPDATES WEATHER ELEMENTS
 // -------- -------- -------- -------- Universal fetch function
-var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
+var fetchApi = async (
+  weatherUrl,
+  selectedAge,
+  selectedGender,
+  cityCapitalized
+) => {
   // Execute a try and catch block to catch if there is no network
   try {
     var res = '';
+    var location = '';
 
+    // Keep track of the users location so we can return the correct listings from amazon based on their region
+    majorCities[1].CA.forEach((item) => {
+      if (item == cityCapitalized) {
+        location = 'CA';
+      }
+    });
+    majorCities[0].US.forEach((item) => {
+      if (item == cityCapitalized) {
+        location = 'US';
+      }
+    });
+
+    console.log('User is located in:' + location);
     console.log('weather fetching...');
     res = await fetch(weatherUrl);
     var currentWeatherData = await res.json();
@@ -794,103 +811,103 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       if (selectedGender == 'female') {
         if (selectedAge <= 3) {
           if (
-            currentWeatherData.current.temp_c > -15 &&
-            currentWeatherData.current.temp_c < -5
+            currentWeatherData.current.temp_c >= -15 &&
+            currentWeatherData.current.temp_c <= -5
           ) {
             var searchTerm = 'baby-girl-jackets';
           } else if (
-            currentWeatherData.current.temp_c > -5 &&
-            currentWeatherData.current.temp_c < 5
+            currentWeatherData.current.temp_c >= -5 &&
+            currentWeatherData.current.temp_c <= 5
           ) {
             var searchTerm = 'baby-girl-sweaters';
-          } else if (currentWeatherData.current.temp_c > 5) {
+          } else if (currentWeatherData.current.temp_c >= 5) {
             var searchTerm = 'baby-girl-shirts';
           }
-        } else if (selectedAge > 3 && selectedAge <= 13) {
+        } else if (selectedAge >= 3 && selectedAge <= 13) {
           if (
-            currentWeatherData.current.temp_c > -15 &&
-            currentWeatherData.current.temp_c < -5
+            currentWeatherData.current.temp_c >= -15 &&
+            currentWeatherData.current.temp_c <= -5
           ) {
             var searchTerm = 'little-girl-jackets';
           } else if (
-            currentWeatherData.current.temp_c > -5 &&
-            currentWeatherData.current.temp_c < 5
+            currentWeatherData.current.temp_c >= -5 &&
+            currentWeatherData.current.temp_c <= 5
           ) {
             var searchTerm = 'little-girl-sweaters';
-          } else if (currentWeatherData.current.temp_c > 5) {
+          } else if (currentWeatherData.current.temp_c >= 5) {
             var searchTerm = 'little-girl-shirts';
           }
-        } else if (selectedAge > 13) {
+        } else if (selectedAge >= 13) {
           if (
-            currentWeatherData.current.temp_c > -15 &&
-            currentWeatherData.current.temp_c < -5
+            currentWeatherData.current.temp_c >= -15 &&
+            currentWeatherData.current.temp_c <= -5
           ) {
             var searchTerm = 'women-jackets';
           } else if (
-            currentWeatherData.current.temp_c > -5 &&
-            currentWeatherData.current.temp_c < 5
+            currentWeatherData.current.temp_c >= -5 &&
+            currentWeatherData.current.temp_c <= 5
           ) {
             var searchTerm = 'women-sweaters';
-          } else if (currentWeatherData.current.temp_c > 5) {
+          } else if (currentWeatherData.current.temp_c >= 5) {
             var searchTerm = 'women-shirts';
           }
         }
       } else if (selectedGender == 'male') {
         if (selectedAge <= 3) {
           if (
-            currentWeatherData.current.temp_c > -15 &&
-            currentWeatherData.current.temp_c < -5
+            currentWeatherData.current.temp_c >= -15 &&
+            currentWeatherData.current.temp_c <= -5
           ) {
             var searchTerm = 'baby-boy-jackets';
           } else if (
-            currentWeatherData.current.temp_c > -5 &&
-            currentWeatherData.current.temp_c < 5
+            currentWeatherData.current.temp_c >= -5 &&
+            currentWeatherData.current.temp_c <= 5
           ) {
             var searchTerm = 'baby-boy-sweaters';
-          } else if (currentWeatherData.current.temp_c > 5) {
+          } else if (currentWeatherData.current.temp_c >= 5) {
             var searchTerm = 'baby-boy-shirts';
           }
-        } else if (selectedAge > 3 && selectedAge <= 13) {
+        } else if (selectedAge >= 3 && selectedAge <= 13) {
           if (
-            currentWeatherData.current.temp_c > -15 &&
-            currentWeatherData.current.temp_c < -5
+            currentWeatherData.current.temp_c >= -15 &&
+            currentWeatherData.current.temp_c <= -5
           ) {
             var searchTerm = 'little-boy-jackets';
           } else if (
-            currentWeatherData.current.temp_c > -5 &&
-            currentWeatherData.current.temp_c < 5
+            currentWeatherData.current.temp_c >= -5 &&
+            currentWeatherData.current.temp_c <= 5
           ) {
             var searchTerm = 'little-boy-sweaters';
-          } else if (currentWeatherData.current.temp_c > 5) {
+          } else if (currentWeatherData.current.temp_c >= 5) {
             var searchTerm = 'little-boy-shirts';
           }
-        } else if (selectedAge > 13) {
+        } else if (selectedAge >= 13) {
           if (
-            currentWeatherData.current.temp_c > -15 &&
-            currentWeatherData.current.temp_c < -5
+            currentWeatherData.current.temp_c >= -15 &&
+            currentWeatherData.current.temp_c <= -5
           ) {
             var searchTerm = 'men-jackets';
           } else if (
-            currentWeatherData.current.temp_c > -5 &&
-            currentWeatherData.current.temp_c < 5
+            currentWeatherData.current.temp_c >= -5 &&
+            currentWeatherData.current.temp_c <= 5
           ) {
             var searchTerm = 'men-sweaters';
-          } else if (currentWeatherData.current.temp_c > 5) {
+          } else if (currentWeatherData.current.temp_c >= 5) {
             var searchTerm = 'men-shirts';
           }
         }
       } else {
         if (
-          currentWeatherData.current.temp_c > -15 &&
-          currentWeatherData.current.temp_c < -5
+          currentWeatherData.current.temp_c >= -15 &&
+          currentWeatherData.current.temp_c <= -5
         ) {
           var searchTerm = 'unisex-jackets';
         } else if (
-          currentWeatherData.current.temp_c > -5 &&
-          currentWeatherData.current.temp_c < 5
+          currentWeatherData.current.temp_c >= -5 &&
+          currentWeatherData.current.temp_c <= 5
         ) {
           var searchTerm = 'unisex-sweaters';
-        } else if (currentWeatherData.current.temp_c > 5) {
+        } else if (currentWeatherData.current.temp_c >= 5) {
           var searchTerm = 'unisex-shirts';
         }
       }
@@ -899,7 +916,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       updateHourlyIcons(currentWeatherData);
 
       // NEXT PHASE - Extracting the amazon listings using the search term
-      fetchAmazon(searchTerm);
+      fetchAmazon(searchTerm, location);
     }
 
     // If there is no network connection, execute the catch block function
@@ -908,7 +925,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
   }
 };
 
-var fetchAmazon = async (searchTerm) => {
+var fetchAmazon = async (searchTerm, location) => {
   const amazonOptions = {
     method: 'GET',
     headers: {
@@ -919,7 +936,7 @@ var fetchAmazon = async (searchTerm) => {
 
   console.log(`Amazon fetching using this search term: ${searchTerm}...`);
   // Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
-  var amazonUrl = `http://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
+  var amazonUrl = `http://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=${location}&page=1`;
   // Referring to the ASIN number from the above API, we can return more details about the product, for now, the ASIN is hard coded
   // var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
   try {
@@ -958,8 +975,8 @@ const updateMainHero = (currentWeatherData) => {
   var weatherIconEl = document.getElementById('current-clothing-icon');
 
   if (
-    currentWeatherData.current.temp_c > -15 &&
-    currentWeatherData.current.temp_c < -5
+    currentWeatherData.current.temp_c >= -15 &&
+    currentWeatherData.current.temp_c <= -5
   ) {
     descOpener.textContent = openers[4];
     var randomPick = Math.random();
@@ -969,8 +986,8 @@ const updateMainHero = (currentWeatherData) => {
       weatherIconEl.src = 'Assets/icons/Male/Cold - clear/winter-hat.png';
     }
   } else if (
-    currentWeatherData.current.temp_c > -5 &&
-    currentWeatherData.current.temp_c < 0
+    currentWeatherData.current.temp_c >= -5 &&
+    currentWeatherData.current.temp_c <= 0
   ) {
     descOpener.textContent = openers[3];
     descClothing.textContent = clothing[3];
@@ -980,8 +997,8 @@ const updateMainHero = (currentWeatherData) => {
       weatherIconEl.src = 'Assets/icons/Male/Cold - snow/jacket.png';
     }
   } else if (
-    currentWeatherData.current.temp_c > 0 &&
-    currentWeatherData.current.temp_c < 5
+    currentWeatherData.current.temp_c >= 0 &&
+    currentWeatherData.current.temp_c <= 5
   ) {
     descOpener.textContent = openers[2];
     descClothing.textContent = clothing[2];
@@ -991,8 +1008,8 @@ const updateMainHero = (currentWeatherData) => {
       weatherIconEl.src = 'Assets/icons/Male/Cold - snow/snow.png';
     }
   } else if (
-    currentWeatherData.current.temp_c > 5 &&
-    currentWeatherData.current.temp_c < 10
+    currentWeatherData.current.temp_c >= 5 &&
+    currentWeatherData.current.temp_c <= 10
   ) {
     descOpener.textContent = openers[1];
     descClothing.textContent = clothing[1];
@@ -1001,7 +1018,7 @@ const updateMainHero = (currentWeatherData) => {
     } else {
       weatherIconEl.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
     }
-  } else if (currentWeatherData.current.temp_c > 10) {
+  } else if (currentWeatherData.current.temp_c >= 10) {
     descOpener.textContent = openers[0];
     descClothing.textContent = clothing[0];
     if (randomPick >= 0.5) {
@@ -1015,16 +1032,16 @@ const updateMainHero = (currentWeatherData) => {
   var conditions = ['mildly windy', 'windy', 'very windy'];
 
   if (
-    currentWeatherData.current.wind_mph > 0 &&
-    currentWeatherData.current.wind_mph < 15
+    currentWeatherData.current.wind_mph >= 0 &&
+    currentWeatherData.current.wind_mph <= 15
   ) {
     descCondition.textContent = conditions[0];
   } else if (
-    currentWeatherData.current.wind_mph > 15 &&
-    currentWeatherData.current.wind_mph < 25
+    currentWeatherData.current.wind_mph >= 15 &&
+    currentWeatherData.current.wind_mph <= 25
   ) {
     descCondition.textContent = conditions[1];
-  } else if (currentWeatherData.current.wind_mph > 25) {
+  } else if (currentWeatherData.current.wind_mph >= 25) {
     descCondition.textContent = conditions[2];
   }
 };
@@ -1041,7 +1058,7 @@ const updateHourlyIcons = (currentWeatherData) => {
       } else {
         hourlyEl.src = 'Assets/icons/Female/Cold - clear/winter-jacket.png';
       }
-    } else if (hourlyTemp > 0 && hourlyTemp < 10) {
+    } else if (hourlyTemp >= 0 && hourlyTemp <= 10) {
       if (randomPick >= 0.5) {
         hourlyEl.src = 'Assets/icons/Female/Nice - clear/blouse.png';
       } else {
@@ -1071,33 +1088,33 @@ const updateFiveDayIcons = (fiveDayWeatherData) => {
       console.log('Day' + i + 'temp:' + fivedayTemp);
 
       var clothingIcon = document.getElementById(`clothing-img${i}`);
-      if (fivedayTemp > -15 && fivedayTemp < -5) {
+      if (fivedayTemp >= -15 && fivedayTemp <= -5) {
         var randomPick = Math.random();
         if (randomPick >= 0.5) {
           clothingIcon.src = 'Assets/icons/Female/Cold - clear/woman.png';
         } else {
           clothingIcon.src = 'Assets/icons/Male/Cold - clear/winter-hat.png';
         }
-      } else if (fivedayTemp > -5 && fivedayTemp < 0) {
+      } else if (fivedayTemp >= -5 && fivedayTemp <= 0) {
         if (randomPick >= 0.5) {
           clothingIcon.src =
             'Assets/icons/Female/Cold - clear/winter-jacket.png';
         } else {
           clothingIcon.src = 'Assets/icons/Male/Cold - snow/jacket.png';
         }
-      } else if (fivedayTemp > 0 && fivedayTemp < 5) {
+      } else if (fivedayTemp >= 0 && fivedayTemp <= 5) {
         if (randomPick >= 0.5) {
           clothingIcon.src = 'Assets/icons/Female/Hot - clear/summer.png';
         } else {
           clothingIcon.src = 'Assets/icons/Male/Cold - snow/snow.png';
         }
-      } else if (fivedayTemp > 5 && fivedayTemp < 10) {
+      } else if (fivedayTemp >= 5 && fivedayTemp <= 10) {
         if (randomPick >= 0.5) {
           clothingIcon.src = 'Assets/icons/Female/Hot - clear/summer.png';
         } else {
           clothingIcon.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
         }
-      } else if (fivedayTemp > 10) {
+      } else if (fivedayTemp >= 10) {
         if (randomPick >= 0.5) {
           clothingIcon.src = 'Assets/icons/Female/Nice - clear/blouse.png';
         } else {
@@ -1221,7 +1238,7 @@ introFormEl.addEventListener('submit', (e) => {
   var cityCapitalized =
     selectedCity[0].toUpperCase() + selectedCity.substring(1);
 
-  // Check if the selected city is in the cities objeect
+  // Check if the selected city is in the cities object
   majorCities[1].CA.forEach((item) => {
     if (item == cityCapitalized) {
       validCity = true;
@@ -1280,7 +1297,7 @@ function handleSubmit() {
   // Return the weather data for the searched up city
   var APIKEY = '6aa15f30207248b9b2b135920223003';
   var weatherUrl = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${selectedCity.toLowerCase()}&aqi=no`;
-  fetchApi(weatherUrl, selectedAge, selectedGender);
+  fetchApi(weatherUrl, selectedAge, selectedGender, cityCapitalized);
 
   // Hide the intro page
   introEl.classList.add('inactive');
