@@ -1,4 +1,3 @@
-// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS
 var majorCities = [
   {
     US: [
@@ -752,6 +751,7 @@ var majorCities = [
   },
 ];
 
+// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS / UPDATES WEATHER ELEMENTS
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
   // Execute a try and catch block to catch if there is no network
@@ -787,54 +787,10 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       var dateEl = document.getElementById('current-date');
       dateEl.textContent = 'Today:';
 
-      // Update the weather icon
-      var weatherIconEl = document.getElementById('current-weather-icon');
-      weatherIconEl.src = currentWeatherData.current.condition.icon;
-      weatherIconEl.alt = `${currentWeatherData.current.condition.text} - weather icon`;
+      updateMainHero(currentWeatherData);
 
-      var currentTempEl = document.getElementById('current-temp');
-      currentTempEl.textContent = `${currentWeatherData.current.temp_c}°C`;
-
-      // This updates the main description based on the weather
-      var descOpener = document.getElementById('current-desc-phrase');
-      var openers = [
-        'a beautiful',
-        'a moderately nice',
-        'an ok',
-        'a very bad',
-        "don't go outside",
-      ];
-
-      var descClothing = document.getElementById('current-desc-clothing');
-      var clothing = ['light', 'medium', 'heavy', 'super-heavy'];
-      var weatherIconEl = document.getElementById('current-clothing-icon');
-
-      updateClothingIcons(
-        weatherIconEl,
-        currentWeatherData,
-        clothing,
-        descClothing,
-        openers,
-        descOpener
-      );
-
-      var descCondition = document.getElementById('current-desc-condition');
-      var conditions = ['mildly windy', 'windy', 'very windy'];
-
-      if (
-        currentWeatherData.current.wind_mph > 0 &&
-        currentWeatherData.current.wind_mph < 15
-      ) {
-        descCondition.textContent = conditions[0];
-      } else if (
-        currentWeatherData.current.wind_mph > 15 &&
-        currentWeatherData.current.wind_mph < 25
-      ) {
-        descCondition.textContent = conditions[1];
-      } else if (currentWeatherData.current.wind_mph > 25) {
-        descCondition.textContent = conditions[2];
-      }
-
+      // The conditioals below will use the users input values and weather data to return the appropriate
+      // amazon search terms (i.e., if user is a young girl and it's cold, search up 'young-girl-sweaters')
       if (selectedGender == 'female') {
         if (selectedAge <= 3) {
           if (
@@ -953,6 +909,14 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
 };
 
 var fetchAmazon = async (searchTerm) => {
+  const amazonOptions = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'amazon24.p.rapidapi.com',
+      'X-RapidAPI-Key': 'ffae5646afmshec63d61fbd07b2fp17ee73jsn3371d91d22c0',
+    },
+  };
+
   console.log(`Amazon fetching using this search term: ${searchTerm}...`);
   // Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
   var amazonUrl = `https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
@@ -970,14 +934,29 @@ var fetchAmazon = async (searchTerm) => {
   }
 };
 
-const updateClothingIcons = (
-  weatherIconEl,
-  currentWeatherData,
-  clothing,
-  descClothing,
-  openers,
-  descOpener
-) => {
+const updateMainHero = (currentWeatherData) => {
+  // Update the weather icon
+  var weatherIconEl = document.getElementById('current-weather-icon');
+  weatherIconEl.src = currentWeatherData.current.condition.icon;
+  weatherIconEl.alt = `${currentWeatherData.current.condition.text} - weather icon`;
+
+  var currentTempEl = document.getElementById('current-temp');
+  currentTempEl.textContent = `${currentWeatherData.current.temp_c}°C`;
+
+  // This updates the main description based on the weather
+  var descOpener = document.getElementById('current-desc-phrase');
+  var openers = [
+    'a beautiful',
+    'a moderately nice',
+    'an ok',
+    'a very bad',
+    "don't go outside",
+  ];
+
+  var descClothing = document.getElementById('current-desc-clothing');
+  var clothing = ['light', 'medium', 'heavy', 'super-heavy'];
+  var weatherIconEl = document.getElementById('current-clothing-icon');
+
   if (
     currentWeatherData.current.temp_c > -15 &&
     currentWeatherData.current.temp_c < -5
@@ -1030,6 +1009,23 @@ const updateClothingIcons = (
     } else {
       weatherIconEl.src = 'Assets/icons/Male/Hot - clear/hawaiian-shirt.png';
     }
+  }
+
+  var descCondition = document.getElementById('current-desc-condition');
+  var conditions = ['mildly windy', 'windy', 'very windy'];
+
+  if (
+    currentWeatherData.current.wind_mph > 0 &&
+    currentWeatherData.current.wind_mph < 15
+  ) {
+    descCondition.textContent = conditions[0];
+  } else if (
+    currentWeatherData.current.wind_mph > 15 &&
+    currentWeatherData.current.wind_mph < 25
+  ) {
+    descCondition.textContent = conditions[1];
+  } else if (currentWeatherData.current.wind_mph > 25) {
+    descCondition.textContent = conditions[2];
   }
 };
 
@@ -1117,17 +1113,8 @@ const updateFiveDayIcons = (fiveDayWeatherData) => {
     i++;
   }
 };
-// -------- -------- -------- -------- RapidAPI (Amazon) setup
-const amazonOptions = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Host': 'amazon24.p.rapidapi.com',
-    'X-RapidAPI-Key': 'ffae5646afmshec63d61fbd07b2fp17ee73jsn3371d91d22c0',
-  },
-};
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
-// Only showing 1 products for testing purposes, will include a loop to iterate over all products for final application
 // This function updates the HTML elements with the appropriate data from the fetch function
 function displayProduct(data, searchTerm) {
   var loadingEl = document.getElementById('loading-listings');
