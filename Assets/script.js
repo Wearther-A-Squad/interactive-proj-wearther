@@ -1,3 +1,4 @@
+// These will be used to test the user inputted location for validity
 var majorCities = [
   {
     US: [
@@ -941,9 +942,13 @@ var fetchAmazon = async (searchTerm, location) => {
   // var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
   try {
     res = await fetch(amazonUrl, amazonOptions);
-    var amazonData = await res.json();
-    console.log('amazon', amazonData);
-    displayProduct(amazonData, searchTerm);
+    if (res.status >= 500) {
+      console.log('Server side issue, please try again in a few minutes');
+    } else {
+      var amazonData = await res.json();
+      console.log('amazon', amazonData);
+      displayProduct(amazonData, searchTerm);
+    }
   } catch (error) {
     console.log(
       'Failed to connect to API due to network issues and or page was refreshed'
@@ -1085,7 +1090,6 @@ const updateFiveDayIcons = (fiveDayWeatherData) => {
       var fivedayTemp = fiveDayWeatherData.daily[i].temp.day;
       // For each day include the date
       fivedayEl[i - 1].textContent = new_date;
-      console.log('Day' + i + 'temp:' + fivedayTemp);
 
       var clothingIcon = document.getElementById(`clothing-img${i}`);
       if (fivedayTemp >= -15 && fivedayTemp <= -5) {
@@ -1147,17 +1151,27 @@ function displayProduct(data, searchTerm) {
     // This iterates over the data for the Amazon products and generates the HTML elements accordingly
     var amazonContainer = document.querySelector('.current-reco-container');
     for (let i = 0; i < data.docs.length; ) {
+      // Generate a unique id per amazon listing
+      var uniqueId = Math.floor(Math.random(0) * 100000);
       var newProductEl = document.createElement('div');
-      newProductEl.classList.add('single-product');
+      // Assign each product a class of single-product and a unique id
+      newProductEl.classList.add('single-product', uniqueId);
+
+      var productTitle = data.docs[i].product_title;
+      var productImg = data.docs[i].product_main_image_url;
+      var productPrice = data.docs[i].app_sale_price;
+      var productLink = data.docs[i].product_detail_url;
+      // In the star button, for easy access laate ron, we stoer all the product details as data attributes
       newProductEl.innerHTML = `
-      <p id="product-title">${data.docs[i].product_title}</p>
+      <p id="product-title">${productTitle}</p>
       <div id='product-img-container'> 
-        <img class="star-btn" src="star.png" />
-        <img id="product-img" src="${data.docs[i].product_main_image_url}" alt="${data.docs[i].product_title}" />
+        <img data-id='${uniqueId}' data-title='${productTitle}' data-price='${productPrice}' data-link='${productLink}' data-img='${productImg}' class="star-btn" src="star.png" />
+        <img id="product-img" src="${productImg}" alt="${productTitle}" />
       </div>
-      <p id="product-price">$${data.docs[i].app_sale_price}</p>
-      <a id="product-link" href="${data.docs[i].product_detail_url}" target="_blank">Link to Amazon</a>`;
+      <p id="product-price">$${productPrice}</p>
+      <a id="product-link" href="${productLink}" target="_blank">Link to Amazon</a>`;
       amazonContainer.appendChild(newProductEl);
+
       i++;
       if (i == 4) {
         break;
@@ -1168,8 +1182,24 @@ function displayProduct(data, searchTerm) {
   // This handles the star button event listeners (Favourite)
   var starBtn = document.querySelectorAll('.star-btn');
   starBtn.forEach((item) => {
-    item.addEventListener('click', () => {
-      alert('You clicked on the favourite button!');
+    item.addEventListener('click', (e) => {
+      console.log(e);
+      var favProductTitle = e.target.dataset.title;
+      var favProductImg = e.target.dataset.img;
+      var favProductPrice = e.target.dataset.price;
+      var favProductLink = e.target.dataset.link;
+      var favProductId = e.target.dataset.id;
+
+      // Push the product detail in the object array
+      userInfo[1].favItem.push({
+        title: favProductTitle,
+        price: favProductPrice,
+        link: favProductLink,
+        img: favProductImg,
+        id: favProductId,
+      });
+      // Then push it to the local storage
+      localStorage.setItem('searchTerms', JSON.stringify(userInfo));
     });
   });
 }
@@ -1272,6 +1302,12 @@ introFormEl.addEventListener('submit', (e) => {
 });
 
 // -------- -------- -------- -------- Post submit functions
+// This will hold all the relevant data that needs to be stored locally
+var userInfo = [
+  { user: { name: '', age: '', location: '', gender: '' } },
+  { favItem: [] },
+];
+
 // Here we use the form data to fetch from the API and display the MAIN page
 var parent = document.querySelector('.main-parent');
 var introEl = document.querySelector('.intro');
@@ -1282,14 +1318,22 @@ function handleSubmit() {
   var selectedAge = document.getElementById('form-age').value;
   var selectedGender = document.querySelector("select[name='gender']").value;
   var selectedCity = document.getElementById('form-city').value;
+  //  Specificlaly, we capitalize the first letter of the city to test against the majorCities object strings
   var cityCapitalized =
     selectedCity[0].toUpperCase() + selectedCity.substring(1);
 
   var cityChoseEl = document.getElementById('city-chosen');
   var descNameEl = document.getElementById('current-desc-name');
-
   descNameEl.textContent = selectedName;
   cityChoseEl.textContent = cityCapitalized;
+
+  // Save the inputted data to an object...
+  userInfo[0].user.name = selectedName;
+  userInfo[0].user.age = selectedAge;
+  userInfo[0].user.location = cityCapitalized;
+  userInfo[0].user.gender = selectedGender;
+  // Then push it to the local storage
+  localStorage.setItem('searchTerms', JSON.stringify(userInfo));
 
   // Update document title
   document.title = 'Wearther - Main';
