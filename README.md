@@ -33,8 +33,9 @@ Wearther shows users current weather and a 5-day weather forecast via images of 
 
 APIs used include:
 
-- [weatherapi](https://www.weatherapi.com/weather/), for the weather data
-- [Amazon](https://rapidapi.com/restyler/api/amazon23/details), for the clothing suggestions
+- [weatherapi](https://www.weatherapi.com/weather/), for the current and hourly weather data
+- [weatherapi](https://www.weatherapi.com/weather/), for the five-day forecast data
+- [Amazon](https://rapidapi.com/restyler/api/amazon23/details), for the amazon listings
 
 ## Project Overview
 

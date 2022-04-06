@@ -29,7 +29,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
     weatherIconEl.alt = `${data.current.condition.text} - weather icon`;
 
     var currentTempEl = document.getElementById('current-temp');
-    currentTempEl.textContent = `${data.current.feelslike_c}°C`;
+    currentTempEl.textContent = `${data.current.temp_c}°C`;
 
     // This updates the main description based on the weather
     var descOpener = document.getElementById('current-desc-phrase');
@@ -38,14 +38,14 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       'a moderately nice',
       'an ok',
       'a very bad',
-      "a don't go outside",
+      "don't go outside",
     ];
 
     var descClothing = document.getElementById('current-desc-clothing');
     var clothing = ['light', 'medium', 'heavy', 'super-heavy'];
     var weatherIconEl = document.getElementById('current-clothing-icon');
 
-    if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+    if (data.current.temp_c > -15 && data.current.temp_c < -5) {
       descOpener.textContent = openers[4];
       var randomPick = Math.random();
       if (randomPick >= 0.5) {
@@ -53,7 +53,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       } else {
         weatherIconEl.src = 'Assets/icons/Male/Cold - clear/winter-hat.png';
       }
-    } else if (data.current.feelslike_c > -5 && data.current.feelslike_c < 0) {
+    } else if (data.current.temp_c > -5 && data.current.temp_c < 0) {
       descOpener.textContent = openers[3];
       descClothing.textContent = clothing[3];
       if (randomPick >= 0.5) {
@@ -62,7 +62,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       } else {
         weatherIconEl.src = 'Assets/icons/Male/Cold - snow/jacket.png';
       }
-    } else if (data.current.feelslike_c > 0 && data.current.feelslike_c < 5) {
+    } else if (data.current.temp_c > 0 && data.current.temp_c < 5) {
       descOpener.textContent = openers[2];
       descClothing.textContent = clothing[2];
       if (randomPick >= 0.5) {
@@ -71,7 +71,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       } else {
         weatherIconEl.src = 'Assets/icons/Male/Cold - snow/snow.png';
       }
-    } else if (data.current.feelslike_c > 5 && data.current.feelslike_c < 10) {
+    } else if (data.current.temp_c > 5 && data.current.temp_c < 10) {
       descOpener.textContent = openers[1];
       descClothing.textContent = clothing[1];
       if (randomPick >= 0.5) {
@@ -79,7 +79,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       } else {
         weatherIconEl.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
       }
-    } else if (data.current.feelslike_c > 10) {
+    } else if (data.current.temp_c > 10) {
       descOpener.textContent = openers[0];
       descClothing.textContent = clothing[0];
       if (randomPick >= 0.5) {
@@ -101,83 +101,62 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
 
     if (selectedGender == 'female') {
       if (selectedAge < 3) {
-        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+        if (data.current.temp_c > -15 && data.current.temp_c < -5) {
           var searchTerm = 'baby-girl-jackets';
-        } else if (
-          data.current.feelslike_c > -5 &&
-          data.current.feelslike_c < 5
-        ) {
+        } else if (data.current.temp_c > -5 && data.current.temp_c < 5) {
           var searchTerm = 'baby-girl-sweaters';
-        } else if (data.current.feelslike_c > 5) {
+        } else if (data.current.temp_c > 5) {
           var searchTerm = 'baby-girl-shirts';
         }
-      } else if (selectedAge > 3 && selectedAge < 13) {
-        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+      } else if (selectedAge > 3 && selectedAge <= 13) {
+        if (data.current.temp_c > -15 && data.current.temp_c < -5) {
           var searchTerm = 'little-girl-jackets';
-        } else if (
-          data.current.feelslike_c > -5 &&
-          data.current.feelslike_c < 5
-        ) {
+        } else if (data.current.temp_c > -5 && data.current.temp_c < 5) {
           var searchTerm = 'little-girl-sweaters';
-        } else if (data.current.feelslike_c > 5) {
+        } else if (data.current.temp_c > 5) {
           var searchTerm = 'little-girl-shirts';
         }
       } else if (selectedAge > 13) {
-        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+        if (data.current.temp_c > -15 && data.current.temp_c < -5) {
           var searchTerm = 'women-jackets';
-        } else if (
-          data.current.feelslike_c > -5 &&
-          data.current.feelslike_c < 5
-        ) {
+        } else if (data.current.temp_c > -5 && data.current.temp_c < 5) {
           var searchTerm = 'women-sweaters';
-        } else if (data.current.feelslike_c > 5) {
+        } else if (data.current.temp_c > 5) {
           var searchTerm = 'women-shirts';
         }
       }
     } else if (selectedGender == 'male') {
       if (selectedAge < 3) {
-        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+        if (data.current.temp_c > -15 && data.current.temp_c < -5) {
           var searchTerm = 'baby-boy-jackets';
-        } else if (
-          data.current.feelslike_c > -5 &&
-          data.current.feelslike_c < 5
-        ) {
+        } else if (data.current.temp_c > -5 && data.current.temp_c < 5) {
           var searchTerm = 'baby-boy-sweaters';
-        } else if (data.current.feelslike_c > 5) {
+        } else if (data.current.temp_c > 5) {
           var searchTerm = 'baby-boy-shirts';
         }
-      } else if (selectedAge > 3 && selectedAge < 13) {
-        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+      } else if (selectedAge > 3 && selectedAge <= 13) {
+        if (data.current.temp_c > -15 && data.current.temp_c < -5) {
           var searchTerm = 'little-boy-jackets';
-        } else if (
-          data.current.feelslike_c > -5 &&
-          data.current.feelslike_c < 5
-        ) {
+        } else if (data.current.temp_c > -5 && data.current.temp_c < 5) {
           var searchTerm = 'little-boy-sweaters';
-        } else if (data.current.feelslike_c > 5) {
+        } else if (data.current.temp_c > 5) {
           var searchTerm = 'little-boy-shirts';
         }
       } else if (selectedAge > 13) {
-        if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+        if (data.current.temp_c > -15 && data.current.temp_c < -5) {
           var searchTerm = 'men-jackets';
-        } else if (
-          data.current.feelslike_c > -5 &&
-          data.current.feelslike_c < 5
-        ) {
+        } else if (data.current.temp_c > -5 && data.current.temp_c < 5) {
           var searchTerm = 'men-sweaters';
-        } else if (data.current.feelslike_c > 5) {
+        } else if (data.current.temp_c > 5) {
           var searchTerm = 'men-shirts';
         }
       }
     } else {
-      if (data.current.feelslike_c > -15 && data.current.feelslike_c < -5) {
+      if (data.current.temp_c > -15 && data.current.temp_c < -5) {
         var searchTerm = 'unisex-jackets';
-      } else if (
-        data.current.feelslike_c > -5 &&
-        data.current.feelslike_c < 5
-      ) {
+      } else if (data.current.temp_c > -5 && data.current.temp_c < 5) {
         var searchTerm = 'unisex-sweaters';
-      } else if (data.current.feelslike_c > 5) {
+      } else if (data.current.temp_c > 5) {
         var searchTerm = 'unisex-shirts';
       }
     }
@@ -186,7 +165,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       var randomPick = Math.random();
       console.log(i);
 
-      var hourlyTemp = data.forecast.forecastday[0].hour[i].feelslike_c;
+      var hourlyTemp = data.forecast.forecastday[0].hour[i].temp_c;
       var hourlyEl = document.getElementById(`hour-${i}`);
       if (hourlyTemp <= 0) {
         if (randomPick >= 0.5) {
@@ -211,7 +190,17 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
       i = i + 3;
     }
 
-    // NEXT PHASE - Fetch from the Amazon API
+    // NEXT PHASE - Updating the five-day forecast
+    var lat = data.location.lat;
+    var lon = data.location.lon;
+
+    var APIKEY2 = '67ad538a4c7356a83bfb4f14c6e9b666';
+    var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${APIKEY2}&units=imperial`;
+    var res = await fetch(url);
+    var weatherData = await res.json();
+    console.log('NEW', weatherData);
+
+    // NEXT PHASE - Updating the amazon listings
     console.log(`Amazon fetching using this search term: ${searchTerm}...`);
     // Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
     var amazonUrl = `https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
@@ -241,11 +230,11 @@ const amazonOptions = {
 // Only showing 1 products for testing purposes, will include a loop to iterate over all products for final application
 // This function updates the HTML elements with the appropriate data from the fetch function
 function displayProduct(data) {
+  var loadingEl = document.getElementById('loading-listings');
+  var amazonHeader = document.getElementById('amazon-header');
   if (data.docs.length < 1) {
-    alert('No data returned');
+    loadingEl.innerText = 'No data returned, please refresh and try again!';
   } else {
-    var amazonHeader = document.getElementById('amazon-header');
-    var loadingEl = document.getElementById('loading-listings');
     loadingEl.style.display = 'none'; // Hide the "Loading your daily listings...." label
     amazonHeader.style.display = 'unset'; // Show the "Here are your recommended amazon listings" label
 
