@@ -34,11 +34,11 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
     // This updates the main description based on the weather
     var descOpener = document.getElementById('current-desc-phrase');
     var openers = [
-      'beautiful',
-      'moderately nice',
-      'ok',
-      'very bad',
-      "don't go outside",
+      'a beautiful',
+      'a moderately nice',
+      'an ok',
+      'a very bad',
+      "a don't go outside",
     ];
 
     var descClothing = document.getElementById('current-desc-clothing');
@@ -287,18 +287,9 @@ var tempParams = [false, false, false];
 function checkInputs() {
   // These 2 variables holds the value of the options in the select container
   var selectedGender = document.querySelector("select[name='gender']").value;
-  var selectedClothingSize = document.querySelector(
-    "select[name='clothing-size']"
-  ).value;
 
   // Check the array along with the options variable values and update the submit button accordingly
-  if (
-    tempParams[0] &&
-    tempParams[1] &&
-    tempParams[2] &&
-    selectedGender &&
-    selectedClothingSize
-  ) {
+  if (tempParams[0] && tempParams[1] && tempParams[2] && selectedGender) {
     formSubmitBtn.disabled = false;
   } else {
     formSubmitBtn.disabled = true;
@@ -372,9 +363,6 @@ function handleSubmit() {
   var selectedName = document.getElementById('form-name').value;
   var selectedAge = document.getElementById('form-age').value;
   var selectedGender = document.querySelector("select[name='gender']").value;
-  var selectedClothingSize = document.querySelector(
-    "select[name='clothing-size']"
-  ).value;
   var selectedCity = document.getElementById('form-city').value;
   var cityChoseEl = document.getElementById('city-chosen');
   var descNameEl = document.getElementById('current-desc-name');

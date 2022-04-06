@@ -54,11 +54,14 @@ hr {
 }
 
 #form-submit:disabled {
+  opacity: 0.2;
   cursor: default;
 }
 
 #form-submit {
+  opacity: 1;
   cursor: pointer;
+  grid-column: 1/3;
 }
 
 /* Remove toggle buttons for input with type number */
