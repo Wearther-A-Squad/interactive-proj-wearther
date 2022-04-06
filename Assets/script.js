@@ -36,290 +36,201 @@ var date = moment().format('(L)'); // "MM/DD/YYYY"
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
   // Execute a try and catch block to catch if there is no network
-  // try {
-  var res = '';
+  try {
+    var res = '';
 
-  console.log('weather fetching...');
-  res = await fetch(weatherUrl);
-  var currentWeatherData = await res.json();
+    console.log('weather fetching...');
+    res = await fetch(weatherUrl);
+    var currentWeatherData = await res.json();
 
-  // If the response is 400...
-  if (res.status >= 400) {
-    // That means no proper data was returned
-    alert('No data returned');
-  } else {
-    // Otherwise the data returned successfully
-    console.log('weather', currentWeatherData);
-
-    // Extract lon and lat for the five day forecast data
-    var lat = currentWeatherData.location.lat;
-    var lon = currentWeatherData.location.lon;
-
-    // NEXT PHASE - Updating the five-day forecast
-    var APIKEY2 = '67ad538a4c7356a83bfb4f14c6e9b666';
-    var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${APIKEY2}&units=metric`;
-    var res = await fetch(url);
-    var fiveDayWeatherData = await res.json();
-    console.log('weather five-day forecast', fiveDayWeatherData);
-
-    for (let i = 0; i < 6; ) {
-      // Exclude the first object since we've already used this data for the current weather
-      if (i !== 0) {
-        var fivedayEl = document.querySelectorAll('.five-day-date');
-        var new_date = moment(moment(), 'L').add(i, 'days').format('L'); // Increment the date by 1 day each time
-        var clothingIcon = document.getElementById(`clothing-img${i}`);
-        clothingIcon.src = 'Assets/icons/Male/Cold - snow/snow.png';
-        // For each day include the date
-        fivedayEl[i - 1].textContent = new_date;
-      }
-
-      // Since we are only running this loop for a 5 day forecast, break the loop at 5 iterations
-      if (i == 6) {
-        break;
-      }
-      i++;
-    }
-
-    // Update main date header
-    var dateEl = document.getElementById('current-date');
-    dateEl.textContent = 'Today:';
-
-    // Update the weather icon
-    var weatherIconEl = document.getElementById('current-weather-icon');
-    weatherIconEl.src = currentWeatherData.current.condition.icon;
-    weatherIconEl.alt = `${currentWeatherData.current.condition.text} - weather icon`;
-
-    var currentTempEl = document.getElementById('current-temp');
-    currentTempEl.textContent = `${currentWeatherData.current.temp_c}°C`;
-
-    // This updates the main description based on the weather
-    var descOpener = document.getElementById('current-desc-phrase');
-    var openers = [
-      'a beautiful',
-      'a moderately nice',
-      'an ok',
-      'a very bad',
-      "don't go outside",
-    ];
-
-    var descClothing = document.getElementById('current-desc-clothing');
-    var clothing = ['light', 'medium', 'heavy', 'super-heavy'];
-    var weatherIconEl = document.getElementById('current-clothing-icon');
-
-    if (
-      currentWeatherData.current.temp_c > -15 &&
-      currentWeatherData.current.temp_c < -5
-    ) {
-      descOpener.textContent = openers[4];
-      var randomPick = Math.random();
-      if (randomPick >= 0.5) {
-        weatherIconEl.src = 'Assets/icons/Female/Cold - clear/woman.png';
-      } else {
-        weatherIconEl.src = 'Assets/icons/Male/Cold - clear/winter-hat.png';
-      }
-    } else if (
-      currentWeatherData.current.temp_c > -5 &&
-      currentWeatherData.current.temp_c < 0
-    ) {
-      descOpener.textContent = openers[3];
-      descClothing.textContent = clothing[3];
-      if (randomPick >= 0.5) {
-        weatherIconEl.src =
-          'Assets/icons/Female/Cold - clear/winter-jacket.png';
-      } else {
-        weatherIconEl.src = 'Assets/icons/Male/Cold - snow/jacket.png';
-      }
-    } else if (
-      currentWeatherData.current.temp_c > 0 &&
-      currentWeatherData.current.temp_c < 5
-    ) {
-      descOpener.textContent = openers[2];
-      descClothing.textContent = clothing[2];
-      if (randomPick >= 0.5) {
-        weatherIconEl.src = weatherIconEl.src =
-          'Assets/icons/Female/Hot - clear/summer.png';
-      } else {
-        weatherIconEl.src = 'Assets/icons/Male/Cold - snow/snow.png';
-      }
-    } else if (
-      currentWeatherData.current.temp_c > 5 &&
-      currentWeatherData.current.temp_c < 10
-    ) {
-      descOpener.textContent = openers[1];
-      descClothing.textContent = clothing[1];
-      if (randomPick >= 0.5) {
-        weatherIconEl.src = 'Assets/icons/Female/Hot - clear/summer.png';
-      } else {
-        weatherIconEl.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
-      }
-    } else if (currentWeatherData.current.temp_c > 10) {
-      descOpener.textContent = openers[0];
-      descClothing.textContent = clothing[0];
-      if (randomPick >= 0.5) {
-        weatherIconEl.src = 'Assets/icons/Female/Nice - clear/blouse.png';
-      } else {
-        weatherIconEl.src = 'Assets/icons/Male/Hot - clear/hawaiian-shirt.png';
-      }
-    }
-
-    var descCondition = document.getElementById('current-desc-condition');
-    var conditions = ['mildly windy', 'windy', 'very windy'];
-    if (
-      currentWeatherData.current.wind_mph > 0 &&
-      currentWeatherData.current.wind_mph < 15
-    ) {
-      descCondition.textContent = conditions[0];
-    } else if (
-      currentWeatherData.current.wind_mph > 15 &&
-      currentWeatherData.current.wind_mph < 25
-    ) {
-      descCondition.textContent = conditions[1];
-    } else if (currentWeatherData.current.wind_mph > 25) {
-      descCondition.textContent = conditions[2];
-    }
-
-    if (selectedGender == 'female') {
-      if (selectedAge <= 3) {
-        if (
-          currentWeatherData.current.temp_c > -15 &&
-          currentWeatherData.current.temp_c < -5
-        ) {
-          var searchTerm = 'baby-girl-jackets';
-        } else if (
-          currentWeatherData.current.temp_c > -5 &&
-          currentWeatherData.current.temp_c < 5
-        ) {
-          var searchTerm = 'baby-girl-sweaters';
-        } else if (currentWeatherData.current.temp_c > 5) {
-          var searchTerm = 'baby-girl-shirts';
-        }
-      } else if (selectedAge > 3 && selectedAge <= 13) {
-        if (
-          currentWeatherData.current.temp_c > -15 &&
-          currentWeatherData.current.temp_c < -5
-        ) {
-          var searchTerm = 'little-girl-jackets';
-        } else if (
-          currentWeatherData.current.temp_c > -5 &&
-          currentWeatherData.current.temp_c < 5
-        ) {
-          var searchTerm = 'little-girl-sweaters';
-        } else if (currentWeatherData.current.temp_c > 5) {
-          var searchTerm = 'little-girl-shirts';
-        }
-      } else if (selectedAge > 13) {
-        if (
-          currentWeatherData.current.temp_c > -15 &&
-          currentWeatherData.current.temp_c < -5
-        ) {
-          var searchTerm = 'women-jackets';
-        } else if (
-          currentWeatherData.current.temp_c > -5 &&
-          currentWeatherData.current.temp_c < 5
-        ) {
-          var searchTerm = 'women-sweaters';
-        } else if (currentWeatherData.current.temp_c > 5) {
-          var searchTerm = 'women-shirts';
-        }
-      }
-    } else if (selectedGender == 'male') {
-      if (selectedAge <= 3) {
-        if (
-          currentWeatherData.current.temp_c > -15 &&
-          currentWeatherData.current.temp_c < -5
-        ) {
-          var searchTerm = 'baby-boy-jackets';
-        } else if (
-          currentWeatherData.current.temp_c > -5 &&
-          currentWeatherData.current.temp_c < 5
-        ) {
-          var searchTerm = 'baby-boy-sweaters';
-        } else if (currentWeatherData.current.temp_c > 5) {
-          var searchTerm = 'baby-boy-shirts';
-        }
-      } else if (selectedAge > 3 && selectedAge <= 13) {
-        if (
-          currentWeatherData.current.temp_c > -15 &&
-          currentWeatherData.current.temp_c < -5
-        ) {
-          var searchTerm = 'little-boy-jackets';
-        } else if (
-          currentWeatherData.current.temp_c > -5 &&
-          currentWeatherData.current.temp_c < 5
-        ) {
-          var searchTerm = 'little-boy-sweaters';
-        } else if (currentWeatherData.current.temp_c > 5) {
-          var searchTerm = 'little-boy-shirts';
-        }
-      } else if (selectedAge > 13) {
-        if (
-          currentWeatherData.current.temp_c > -15 &&
-          currentWeatherData.current.temp_c < -5
-        ) {
-          var searchTerm = 'men-jackets';
-        } else if (
-          currentWeatherData.current.temp_c > -5 &&
-          currentWeatherData.current.temp_c < 5
-        ) {
-          var searchTerm = 'men-sweaters';
-        } else if (currentWeatherData.current.temp_c > 5) {
-          var searchTerm = 'men-shirts';
-        }
-      }
+    // If the response is 400...
+    if (res.status >= 400) {
+      // That means no proper data was returned
+      alert('No data returned');
     } else {
+      // Otherwise the data returned successfully
+      console.log('weather', currentWeatherData);
+
+      // Extract lon and lat for the five day forecast data
+      var lat = currentWeatherData.location.lat;
+      var lon = currentWeatherData.location.lon;
+
+      // NEXT PHASE - Updating the five-day forecast
+      var APIKEY2 = '67ad538a4c7356a83bfb4f14c6e9b666';
+      var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${APIKEY2}&units=metric`;
+      var res = await fetch(url);
+      var fiveDayWeatherData = await res.json();
+      console.log('weather five-day forecast', fiveDayWeatherData);
+
+      updateFiveDayIcons(fiveDayWeatherData);
+
+      // Update main date header
+      var dateEl = document.getElementById('current-date');
+      dateEl.textContent = 'Today:';
+
+      // Update the weather icon
+      var weatherIconEl = document.getElementById('current-weather-icon');
+      weatherIconEl.src = currentWeatherData.current.condition.icon;
+      weatherIconEl.alt = `${currentWeatherData.current.condition.text} - weather icon`;
+
+      var currentTempEl = document.getElementById('current-temp');
+      currentTempEl.textContent = `${currentWeatherData.current.temp_c}°C`;
+
+      // This updates the main description based on the weather
+      var descOpener = document.getElementById('current-desc-phrase');
+      var openers = [
+        'a beautiful',
+        'a moderately nice',
+        'an ok',
+        'a very bad',
+        "don't go outside",
+      ];
+
+      var descClothing = document.getElementById('current-desc-clothing');
+      var clothing = ['light', 'medium', 'heavy', 'super-heavy'];
+      var weatherIconEl = document.getElementById('current-clothing-icon');
+
+      updateClothingIcons(
+        weatherIconEl,
+        currentWeatherData,
+        clothing,
+        descClothing,
+        openers,
+        descOpener
+      );
+
+      var descCondition = document.getElementById('current-desc-condition');
+      var conditions = ['mildly windy', 'windy', 'very windy'];
+
       if (
-        currentWeatherData.current.temp_c > -15 &&
-        currentWeatherData.current.temp_c < -5
+        currentWeatherData.current.wind_mph > 0 &&
+        currentWeatherData.current.wind_mph < 15
       ) {
-        var searchTerm = 'unisex-jackets';
+        descCondition.textContent = conditions[0];
       } else if (
-        currentWeatherData.current.temp_c > -5 &&
-        currentWeatherData.current.temp_c < 5
+        currentWeatherData.current.wind_mph > 15 &&
+        currentWeatherData.current.wind_mph < 25
       ) {
-        var searchTerm = 'unisex-sweaters';
-      } else if (currentWeatherData.current.temp_c > 5) {
-        var searchTerm = 'unisex-shirts';
-      }
-    }
-
-    for (let i = 9; i <= 22; ) {
-      var randomPick = Math.random();
-      console.log(i);
-
-      var hourlyTemp =
-        currentWeatherData.forecast.forecastday[0].hour[i].temp_c;
-      var hourlyEl = document.getElementById(`hour-${i}`);
-      if (hourlyTemp <= 0) {
-        if (randomPick >= 0.5) {
-          hourlyEl.src = 'Assets/icons/Male/Cold - snow/jacket.png';
-        } else {
-          hourlyEl.src = 'Assets/icons/Female/Cold - clear/winter-jacket.png';
-        }
-      } else if (hourlyTemp > 0 && hourlyTemp < 10) {
-        if (randomPick >= 0.5) {
-          hourlyEl.src = 'Assets/icons/Female/Nice - clear/blouse.png';
-        } else {
-          hourlyEl.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
-        }
-      } else if (hourlyTemp >= 10) {
-        if (randomPick >= 0.5) {
-          hourlyEl.src = 'Assets/icons/Male/Hot - clear/hawaiian-shirt.png';
-        } else {
-          hourlyEl.src = 'Assets/icons/Male/Hot - clear/sunglasses.png';
-        }
+        descCondition.textContent = conditions[1];
+      } else if (currentWeatherData.current.wind_mph > 25) {
+        descCondition.textContent = conditions[2];
       }
 
-      i = i + 3;
+      if (selectedGender == 'female') {
+        if (selectedAge <= 3) {
+          if (
+            currentWeatherData.current.temp_c > -15 &&
+            currentWeatherData.current.temp_c < -5
+          ) {
+            var searchTerm = 'baby-girl-jackets';
+          } else if (
+            currentWeatherData.current.temp_c > -5 &&
+            currentWeatherData.current.temp_c < 5
+          ) {
+            var searchTerm = 'baby-girl-sweaters';
+          } else if (currentWeatherData.current.temp_c > 5) {
+            var searchTerm = 'baby-girl-shirts';
+          }
+        } else if (selectedAge > 3 && selectedAge <= 13) {
+          if (
+            currentWeatherData.current.temp_c > -15 &&
+            currentWeatherData.current.temp_c < -5
+          ) {
+            var searchTerm = 'little-girl-jackets';
+          } else if (
+            currentWeatherData.current.temp_c > -5 &&
+            currentWeatherData.current.temp_c < 5
+          ) {
+            var searchTerm = 'little-girl-sweaters';
+          } else if (currentWeatherData.current.temp_c > 5) {
+            var searchTerm = 'little-girl-shirts';
+          }
+        } else if (selectedAge > 13) {
+          if (
+            currentWeatherData.current.temp_c > -15 &&
+            currentWeatherData.current.temp_c < -5
+          ) {
+            var searchTerm = 'women-jackets';
+          } else if (
+            currentWeatherData.current.temp_c > -5 &&
+            currentWeatherData.current.temp_c < 5
+          ) {
+            var searchTerm = 'women-sweaters';
+          } else if (currentWeatherData.current.temp_c > 5) {
+            var searchTerm = 'women-shirts';
+          }
+        }
+      } else if (selectedGender == 'male') {
+        if (selectedAge <= 3) {
+          if (
+            currentWeatherData.current.temp_c > -15 &&
+            currentWeatherData.current.temp_c < -5
+          ) {
+            var searchTerm = 'baby-boy-jackets';
+          } else if (
+            currentWeatherData.current.temp_c > -5 &&
+            currentWeatherData.current.temp_c < 5
+          ) {
+            var searchTerm = 'baby-boy-sweaters';
+          } else if (currentWeatherData.current.temp_c > 5) {
+            var searchTerm = 'baby-boy-shirts';
+          }
+        } else if (selectedAge > 3 && selectedAge <= 13) {
+          if (
+            currentWeatherData.current.temp_c > -15 &&
+            currentWeatherData.current.temp_c < -5
+          ) {
+            var searchTerm = 'little-boy-jackets';
+          } else if (
+            currentWeatherData.current.temp_c > -5 &&
+            currentWeatherData.current.temp_c < 5
+          ) {
+            var searchTerm = 'little-boy-sweaters';
+          } else if (currentWeatherData.current.temp_c > 5) {
+            var searchTerm = 'little-boy-shirts';
+          }
+        } else if (selectedAge > 13) {
+          if (
+            currentWeatherData.current.temp_c > -15 &&
+            currentWeatherData.current.temp_c < -5
+          ) {
+            var searchTerm = 'men-jackets';
+          } else if (
+            currentWeatherData.current.temp_c > -5 &&
+            currentWeatherData.current.temp_c < 5
+          ) {
+            var searchTerm = 'men-sweaters';
+          } else if (currentWeatherData.current.temp_c > 5) {
+            var searchTerm = 'men-shirts';
+          }
+        }
+      } else {
+        if (
+          currentWeatherData.current.temp_c > -15 &&
+          currentWeatherData.current.temp_c < -5
+        ) {
+          var searchTerm = 'unisex-jackets';
+        } else if (
+          currentWeatherData.current.temp_c > -5 &&
+          currentWeatherData.current.temp_c < 5
+        ) {
+          var searchTerm = 'unisex-sweaters';
+        } else if (currentWeatherData.current.temp_c > 5) {
+          var searchTerm = 'unisex-shirts';
+        }
+      }
+
+      // Update hourly icons
+      updateHourlyIcons(currentWeatherData);
+
+      // NEXT PHASE - Extracting the amazon listings using the search term
+      fetchAmazon(searchTerm);
     }
 
-    // NEXT PHASE - Extracting the amazon listings using the search term
-    fetchAmazon(searchTerm);
+    // If there is no network connection, execute the catch block function
+  } catch (error) {
+    alert('Failed to connect to API due to network issues');
   }
-
-  // If there is no network connection, execute the catch block function
-  // } catch (error) {
-  //   alert('Failed to connect to API due to network issues');
-  // }
 };
 
 var fetchAmazon = async (searchTerm) => {
@@ -328,12 +239,163 @@ var fetchAmazon = async (searchTerm) => {
   var amazonUrl = `https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
   // Referring to the ASIN number from the above API, we can return more details about the product, for now, the ASIN is hard coded
   // var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
-  res = await fetch(amazonUrl, amazonOptions);
-  var amazonData = await res.json();
-  console.log('amazon', amazonData);
-  displayProduct(amazonData, searchTerm);
+  try {
+    res = await fetch(amazonUrl, amazonOptions);
+    var amazonData = await res.json();
+    console.log('amazon', amazonData);
+    displayProduct(amazonData, searchTerm);
+  } catch (error) {
+    alert('Failed to connect to API due to network issues');
+  }
 };
 
+const updateClothingIcons = (
+  weatherIconEl,
+  currentWeatherData,
+  clothing,
+  descClothing,
+  openers,
+  descOpener
+) => {
+  if (
+    currentWeatherData.current.temp_c > -15 &&
+    currentWeatherData.current.temp_c < -5
+  ) {
+    descOpener.textContent = openers[4];
+    var randomPick = Math.random();
+    if (randomPick >= 0.5) {
+      weatherIconEl.src = 'Assets/icons/Female/Cold - clear/woman.png';
+    } else {
+      weatherIconEl.src = 'Assets/icons/Male/Cold - clear/winter-hat.png';
+    }
+  } else if (
+    currentWeatherData.current.temp_c > -5 &&
+    currentWeatherData.current.temp_c < 0
+  ) {
+    descOpener.textContent = openers[3];
+    descClothing.textContent = clothing[3];
+    if (randomPick >= 0.5) {
+      weatherIconEl.src = 'Assets/icons/Female/Cold - clear/winter-jacket.png';
+    } else {
+      weatherIconEl.src = 'Assets/icons/Male/Cold - snow/jacket.png';
+    }
+  } else if (
+    currentWeatherData.current.temp_c > 0 &&
+    currentWeatherData.current.temp_c < 5
+  ) {
+    descOpener.textContent = openers[2];
+    descClothing.textContent = clothing[2];
+    if (randomPick >= 0.5) {
+      weatherIconEl.src = 'Assets/icons/Female/Hot - clear/summer.png';
+    } else {
+      weatherIconEl.src = 'Assets/icons/Male/Cold - snow/snow.png';
+    }
+  } else if (
+    currentWeatherData.current.temp_c > 5 &&
+    currentWeatherData.current.temp_c < 10
+  ) {
+    descOpener.textContent = openers[1];
+    descClothing.textContent = clothing[1];
+    if (randomPick >= 0.5) {
+      weatherIconEl.src = 'Assets/icons/Female/Hot - clear/summer.png';
+    } else {
+      weatherIconEl.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
+    }
+  } else if (currentWeatherData.current.temp_c > 10) {
+    descOpener.textContent = openers[0];
+    descClothing.textContent = clothing[0];
+    if (randomPick >= 0.5) {
+      weatherIconEl.src = 'Assets/icons/Female/Nice - clear/blouse.png';
+    } else {
+      weatherIconEl.src = 'Assets/icons/Male/Hot - clear/hawaiian-shirt.png';
+    }
+  }
+};
+
+const updateHourlyIcons = (currentWeatherData) => {
+  for (let i = 9; i <= 22; ) {
+    var randomPick = Math.random();
+
+    var hourlyTemp = currentWeatherData.forecast.forecastday[0].hour[i].temp_c;
+    var hourlyEl = document.getElementById(`hour-${i}`);
+    if (hourlyTemp <= 0) {
+      if (randomPick >= 0.5) {
+        hourlyEl.src = 'Assets/icons/Male/Cold - snow/jacket.png';
+      } else {
+        hourlyEl.src = 'Assets/icons/Female/Cold - clear/winter-jacket.png';
+      }
+    } else if (hourlyTemp > 0 && hourlyTemp < 10) {
+      if (randomPick >= 0.5) {
+        hourlyEl.src = 'Assets/icons/Female/Nice - clear/blouse.png';
+      } else {
+        hourlyEl.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
+      }
+    } else if (hourlyTemp >= 10) {
+      if (randomPick >= 0.5) {
+        hourlyEl.src = 'Assets/icons/Male/Hot - clear/hawaiian-shirt.png';
+      } else {
+        hourlyEl.src = 'Assets/icons/Male/Hot - clear/sunglasses.png';
+      }
+    }
+
+    i = i + 3;
+  }
+};
+
+const updateFiveDayIcons = (fiveDayWeatherData) => {
+  for (let i = 0; i < 6; ) {
+    // Exclude the first object since we've already used this data for the current weather
+    if (i !== 0) {
+      var new_date = moment(moment(), 'L').add(i, 'days').format('L'); // Increment the date by 1 day each time
+      var fivedayEl = document.querySelectorAll('.five-day-date');
+      var fivedayTemp = fiveDayWeatherData.daily[i].temp.day;
+      // For each day include the date
+      fivedayEl[i - 1].textContent = new_date;
+      console.log('Day' + i + 'temp:' + fivedayTemp);
+
+      var clothingIcon = document.getElementById(`clothing-img${i}`);
+      if (fivedayTemp > -15 && fivedayTemp < -5) {
+        var randomPick = Math.random();
+        if (randomPick >= 0.5) {
+          clothingIcon.src = 'Assets/icons/Female/Cold - clear/woman.png';
+        } else {
+          clothingIcon.src = 'Assets/icons/Male/Cold - clear/winter-hat.png';
+        }
+      } else if (fivedayTemp > -5 && fivedayTemp < 0) {
+        if (randomPick >= 0.5) {
+          clothingIcon.src =
+            'Assets/icons/Female/Cold - clear/winter-jacket.png';
+        } else {
+          clothingIcon.src = 'Assets/icons/Male/Cold - snow/jacket.png';
+        }
+      } else if (fivedayTemp > 0 && fivedayTemp < 5) {
+        if (randomPick >= 0.5) {
+          clothingIcon.src = 'Assets/icons/Female/Hot - clear/summer.png';
+        } else {
+          clothingIcon.src = 'Assets/icons/Male/Cold - snow/snow.png';
+        }
+      } else if (fivedayTemp > 5 && fivedayTemp < 10) {
+        if (randomPick >= 0.5) {
+          clothingIcon.src = 'Assets/icons/Female/Hot - clear/summer.png';
+        } else {
+          clothingIcon.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
+        }
+      } else if (fivedayTemp > 10) {
+        if (randomPick >= 0.5) {
+          clothingIcon.src = 'Assets/icons/Female/Nice - clear/blouse.png';
+        } else {
+          clothingIcon.src = 'Assets/icons/Male/Hot - clear/hawaiian-shirt.png';
+        }
+      }
+    }
+
+    // Since we are only running this loop for a 5 day forecast, break the loop at 5 iterations
+    if (i == 6) {
+      break;
+    }
+    i++;
+  }
+};
 // -------- -------- -------- -------- RapidAPI (Amazon) setup
 const amazonOptions = {
   method: 'GET',
@@ -350,7 +412,8 @@ function displayProduct(data, searchTerm) {
   var loadingEl = document.getElementById('loading-listings');
   var amazonHeader = document.getElementById('amazon-header');
   if (data.docs.length < 1) {
-    loadingEl.innerText = 'No data returned, trying again...';
+    loadingEl.innerText =
+      'No data returned, trying again... (This may take a few minutes)';
     fetchAmazon(searchTerm);
   } else {
     loadingEl.style.display = 'none'; // Hide the "Loading your daily listings...." label
