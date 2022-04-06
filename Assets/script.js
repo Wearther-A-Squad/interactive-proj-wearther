@@ -90,7 +90,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
     }
 
     var descCondition = document.getElementById('current-desc-condition');
-    var conditions = ['mildy windy', 'windy', 'very windy'];
+    var conditions = ['mildly windy', 'windy', 'very windy'];
     if (data.current.wind_mph > 0 && data.current.wind_mph < 15) {
       descCondition.textContent = conditions[0];
     } else if (data.current.wind_mph > 15 && data.current.wind_mph < 25) {
