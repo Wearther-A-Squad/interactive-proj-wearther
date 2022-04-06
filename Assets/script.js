@@ -5,8 +5,6 @@ var majorCities = [
   { CA: ['toronto', 'vancouver'] },
 ];
 
-console.log(majorCities[0].US[1]);
-
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
   // Execute a try and catch block to catch if there is no network
@@ -183,14 +181,45 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
         var searchTerm = 'unisex-shirts';
       }
     }
+
+    for (let i = 9; i <= 22; ) {
+      var randomPick = Math.random();
+      console.log(i);
+
+      var hourlyTemp = data.forecast.forecastday[0].hour[i].feelslike_c;
+      var hourlyEl = document.getElementById(`hour-${i}`);
+      if (hourlyTemp <= 0) {
+        if (randomPick >= 0.5) {
+          hourlyEl.src = 'Assets/icons/Male/Cold - snow/jacket.png';
+        } else {
+          hourlyEl.src = 'Assets/icons/Female/Cold - clear/winter-jacket.png';
+        }
+      } else if (hourlyTemp > 0 && hourlyTemp < 10) {
+        if (randomPick >= 0.5) {
+          hourlyEl.src = 'Assets/icons/Female/Nice - clear/blouse.png';
+        } else {
+          hourlyEl.src = 'Assets/icons/Male/Nice - clear/denim-jacket.png';
+        }
+      } else if (hourlyTemp >= 10) {
+        if (randomPick >= 0.5) {
+          hourlyEl.src = 'Assets/icons/Male/Hot - clear/hawaiian-shirt.png';
+        } else {
+          hourlyEl.src = 'Assets/icons/Male/Hot - clear/sunglasses.png';
+        }
+      }
+
+      i = i + 3;
+    }
+
+    // NEXT PHASE - Fetch from the Amazon API
     console.log(`Amazon fetching using this search term: ${searchTerm}...`);
     // Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
-    console.log('amazon', data);
     var amazonUrl = `https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
     // Referring to the ASIN number from the above API, we can return more details about the product, for now, the ASIN is hard coded
     // var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
     res = await fetch(amazonUrl, amazonOptions);
     var data = await res.json();
+    console.log('amazon', data);
     displayProduct(data);
   }
   // If there is no network connection, execute the catch block function
@@ -212,28 +241,32 @@ const amazonOptions = {
 // Only showing 1 products for testing purposes, will include a loop to iterate over all products for final application
 // This function updates the HTML elements with the appropriate data from the fetch function
 function displayProduct(data) {
-  var amazonHeader = document.getElementById('amazon-header');
-  var loadingEl = document.getElementById('loading-listings');
-  loadingEl.style.display = 'none'; // Hided the "Loading your daily listings...." label
-  amazonHeader.style.display = 'unset'; // Show the "Here are your recommended amazon listings" label
+  if (data.docs.length < 1) {
+    alert('No data returned');
+  } else {
+    var amazonHeader = document.getElementById('amazon-header');
+    var loadingEl = document.getElementById('loading-listings');
+    loadingEl.style.display = 'none'; // Hide the "Loading your daily listings...." label
+    amazonHeader.style.display = 'unset'; // Show the "Here are your recommended amazon listings" label
 
-  // This iterates over the data for the Amazon products and generates the HTML elements accordingly
-  var amazonContainer = document.querySelector('.current-reco-container');
-  for (let i = 0; i < data.docs.length; ) {
-    var newProductEl = document.createElement('div');
-    newProductEl.classList.add('single-product');
-    newProductEl.innerHTML = `
-    <p id="product-title">${data.docs[i].product_title}</p>
-    <div id='product-img-container'> 
-      <img class="star-btn" src="star.png" />
-      <img id="product-img" src="${data.docs[i].product_main_image_url}" alt="${data.docs[i].product_title}" />
-    </div>
-    <p id="product-price">$${data.docs[i].app_sale_price}</p>
-    <a id="product-link" href="${data.docs[i].product_detail_url}" target="_blank">Link to Amazon</a>`;
-    amazonContainer.appendChild(newProductEl);
-    i++;
-    if (i == 4) {
-      break;
+    // This iterates over the data for the Amazon products and generates the HTML elements accordingly
+    var amazonContainer = document.querySelector('.current-reco-container');
+    for (let i = 0; i < data.docs.length; ) {
+      var newProductEl = document.createElement('div');
+      newProductEl.classList.add('single-product');
+      newProductEl.innerHTML = `
+      <p id="product-title">${data.docs[i].product_title}</p>
+      <div id='product-img-container'> 
+        <img class="star-btn" src="star.png" />
+        <img id="product-img" src="${data.docs[i].product_main_image_url}" alt="${data.docs[i].product_title}" />
+      </div>
+      <p id="product-price">$${data.docs[i].app_sale_price}</p>
+      <a id="product-link" href="${data.docs[i].product_detail_url}" target="_blank">Link to Amazon</a>`;
+      amazonContainer.appendChild(newProductEl);
+      i++;
+      if (i == 4) {
+        break;
+      }
     }
   }
 
