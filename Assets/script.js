@@ -776,7 +776,7 @@ var fetchApi = async (weatherUrl, selectedAge, selectedGender) => {
 
       // NEXT PHASE - Updating the five-day forecast
       var APIKEY2 = '67ad538a4c7356a83bfb4f14c6e9b666';
-      var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${APIKEY2}&units=metric`;
+      var url = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${APIKEY2}&units=metric`;
       var res = await fetch(url);
       var fiveDayWeatherData = await res.json();
       console.log('weather five-day forecast', fiveDayWeatherData);
@@ -919,7 +919,7 @@ var fetchAmazon = async (searchTerm) => {
 
   console.log(`Amazon fetching using this search term: ${searchTerm}...`);
   // Use the below URL to return BASIC information about the product but primarily to return the ASIN number #
-  var amazonUrl = `https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
+  var amazonUrl = `http://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=${searchTerm}&country=CA&page=1`;
   // Referring to the ASIN number from the above API, we can return more details about the product, for now, the ASIN is hard coded
   // var amazonUrlFull = `https://amazon24.p.rapidapi.com/api/product/B09X24ZQBL?country=US`;
   try {
