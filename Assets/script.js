@@ -1483,6 +1483,7 @@ function gotoMain() {
 }
 
 // Goes to the favourites
+var favContainer = document.getElementById('favourites-container');
 var favourites = document.querySelector('.favourites');
 var goBackBtn = document.getElementById('go-back');
 function gotoFavourites() {
@@ -1499,7 +1500,6 @@ function gotoFavourites() {
 }
 
 function generateFavEl() {
-  var favContainer = document.getElementById('favourites-container');
   favContainer.innerHTML = '';
 
   if (!userFavourites.length == 0) {
@@ -1507,7 +1507,7 @@ function generateFavEl() {
       // Generate a unique id per amazon listing
       var favProductEl = document.createElement('div');
       // Assign each product a class of single-product and a unique id
-      favProductEl.classList.add('single-product');
+      favProductEl.classList.add('fav-single-product');
 
       var productTitle = userFavourites[i].title;
       var productImg = userFavourites[i].img;
@@ -1518,9 +1518,43 @@ function generateFavEl() {
           <img id="product-img" src="${productImg}" alt="${productTitle}" />
           <p id="product-price">$${productPrice}</p>
           <a id="product-link" href="${productLink}" target="_blank">Link to Amazon</a>
-          <button id='remove-fav' >Remove from favorites</button>`;
+          <button class='remove-fav'>Remove from favorites</button>`;
       favContainer.appendChild(favProductEl);
     }
+  }
+  removeFavItems();
+}
+
+function removeFavItems() {
+  var favItems = document.querySelectorAll('.remove-fav');
+  if (favItems) {
+    favItems.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        var parentEl = e.path[1];
+        var currentImgSrc = e.path[1].childNodes[1].currentSrc;
+        var currentLink = e.path[1].childNodes[5].href;
+
+        userFavourites.forEach((item) => {
+          if (item.link == currentLink && item.img == currentImgSrc) {
+            // Extract the index of that specific object in the array
+            const index = userFavourites.indexOf(item);
+
+            // Then remove it...
+            if (index > -1) {
+              userFavourites.splice(index, 1); // 2nd parameter means remove one item only
+            }
+
+            // And push the new objeect to local storage
+            localStorage.setItem(
+              'userFavorites',
+              JSON.stringify(userFavourites)
+            );
+
+            parentEl.remove();
+          }
+        });
+      });
+    });
   }
 }
 

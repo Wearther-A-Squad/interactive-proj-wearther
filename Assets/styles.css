@@ -309,7 +309,7 @@ nav {
   align-items: center;
 }
 
-#favourites-container .single-product {
+#favourites-container .fav-single-product {
   width: 200px;
   height: 200px;
   display: flex;
@@ -324,9 +324,9 @@ nav {
   font-size: 16px;
 }
 
-#favourites-container #remove-fav {
+#favourites-container .remove-fav {
   margin-top: 5px;
-  font-size: 12px;
+  font-size: 13px;
 }
 #favourites-container img {
   width: 105px;
