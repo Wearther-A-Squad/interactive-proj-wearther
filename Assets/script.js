@@ -751,6 +751,7 @@ var majorCities = [
 ];
 
 // **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES THE API FETCH FUNCTIONS AND DISPLAYS THE PRODUCTS / UPDATES WEATHER ELEMENTS
+
 // -------- -------- -------- -------- Universal fetch function
 var fetchApi = async (
   weatherUrl,
@@ -807,7 +808,7 @@ var fetchApi = async (
 
       updateMainHero(currentWeatherData);
 
-      // The conditioals below will use the users input values and weather data to return the appropriate
+      // The conditionals below will use the users input values and weather data to return the appropriate
       // amazon search terms (i.e., if user is a young girl and it's cold, search up 'young-girl-sweaters')
       if (selectedGender == 'female') {
         if (selectedAge <= 3) {
@@ -1135,6 +1136,70 @@ const updateFiveDayIcons = (fiveDayWeatherData) => {
   }
 };
 
+// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES LOCAL STORAGE PARSING AND DECLARATION
+
+var localUserFavorites = localStorage.getItem('userFavorites');
+
+// If the local storage doesn't exist....
+if (localUserFavorites == null) {
+  // For this session declare an empty object
+  // This will hold the favorited items object (stored locally)
+  var userFavourites = [];
+  // Otherwise if local storage does exist...
+} else {
+  // Parse the local data and update the above empty object with the data from local
+  localUserFavorites = JSON.parse(localUserFavorites);
+  userFavourites = localUserFavorites;
+}
+
+var localUserInfo = localStorage.getItem('userInfo');
+// If the local storage doesn't exist....
+if (localUserInfo == null) {
+  // For this session declare an empty object
+  // This will hold all the relevant data that needs to be stored locally
+  var userInfo = [];
+  // Otherwise if local storage does exist...
+} else {
+  var parent = document.querySelector('.main-parent');
+  var introEl = document.querySelector('.intro');
+  // Parse the local data and and execute the main function of the applilciation using said data
+  localUserInfo = JSON.parse(localUserInfo);
+  userInfo = localUserInfo;
+  // Then input the data and launch the application
+  document.querySelector("select[name='gender']").value = localUserInfo.gender;
+  document.getElementById('form-name').value = localUserInfo.name;
+  document.getElementById('form-age').value = localUserInfo.age;
+  document.getElementById('form-city').value = localUserInfo.location;
+
+  // Update document title
+  document.title = 'Wearther - Main';
+
+  // Return the weather data for the searched up city
+  var APIKEY = '6aa15f30207248b9b2b135920223003';
+  var weatherUrl = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${localUserInfo.location.toLowerCase()}&aqi=no`;
+  fetchApi(
+    weatherUrl,
+    localUserInfo.age,
+    localUserInfo.gender,
+    localUserInfo.location
+  );
+
+  // Hide the intro page
+  introEl.classList.add('inactive');
+  // Reveal the main section
+  parent.classList.remove('inactive');
+
+  // After the main container is revealed (display: unset), execute event listener for the nav buttons
+  handleNavBtns();
+
+  var cityChoseEl = document.getElementById('city-chosen');
+  var descNameEl = document.getElementById('current-desc-name');
+  descNameEl.textContent = localUserInfo.name;
+  cityChoseEl.textContent = localUserInfo.location;
+}
+
+console.log(localUserFavorites, localUserInfo);
+
 // -------- -------- -------- -------- Displaying the amazon product(s)
 // This function updates the HTML elements with the appropriate data from the fetch function
 function displayProduct(data, searchTerm) {
@@ -1142,7 +1207,7 @@ function displayProduct(data, searchTerm) {
   var amazonHeader = document.getElementById('amazon-header');
   if (data.docs.length < 1) {
     loadingEl.innerText =
-      'No data returned, trying again... (This may take a few minutes)';
+      'No data returned yet, this may take a few minutes...';
     fetchAmazon(searchTerm);
   } else {
     loadingEl.style.display = 'none'; // Hide the "Loading your daily listings...." label
@@ -1177,13 +1242,15 @@ function displayProduct(data, searchTerm) {
         break;
       }
     }
+    favoriteItem();
   }
+}
 
+function favoriteItem() {
   // This handles the star button event listeners (Favourite)
   var starBtn = document.querySelectorAll('.star-btn');
   starBtn.forEach((item) => {
     item.addEventListener('click', (e) => {
-      console.log(e);
       var favProductTitle = e.target.dataset.title;
       var favProductImg = e.target.dataset.img;
       var favProductPrice = e.target.dataset.price;
@@ -1191,15 +1258,17 @@ function displayProduct(data, searchTerm) {
       var favProductId = e.target.dataset.id;
 
       // Push the product detail in the object array
-      userInfo[1].favItem.push({
+      console.log(userFavourites.id);
+      userFavourites.push({
         title: favProductTitle,
         price: favProductPrice,
         link: favProductLink,
         img: favProductImg,
         id: favProductId,
       });
+
       // Then push it to the local storage
-      localStorage.setItem('searchTerms', JSON.stringify(userInfo));
+      localStorage.setItem('userFavorites', JSON.stringify(userFavourites));
     });
   });
 }
@@ -1302,11 +1371,6 @@ introFormEl.addEventListener('submit', (e) => {
 });
 
 // -------- -------- -------- -------- Post submit functions
-// This will hold all the relevant data that needs to be stored locally
-var userInfo = [
-  { user: { name: '', age: '', location: '', gender: '' } },
-  { favItem: [] },
-];
 
 // Here we use the form data to fetch from the API and display the MAIN page
 var parent = document.querySelector('.main-parent');
@@ -1327,13 +1391,15 @@ function handleSubmit() {
   descNameEl.textContent = selectedName;
   cityChoseEl.textContent = cityCapitalized;
 
-  // Save the inputted data to an object...
-  userInfo[0].user.name = selectedName;
-  userInfo[0].user.age = selectedAge;
-  userInfo[0].user.location = cityCapitalized;
-  userInfo[0].user.gender = selectedGender;
+  // Save the inputted data to an object
+  userInfo = {
+    name: selectedName,
+    age: selectedAge,
+    location: cityCapitalized,
+    gender: selectedGender,
+  };
   // Then push it to the local storage
-  localStorage.setItem('searchTerms', JSON.stringify(userInfo));
+  localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
   // Update document title
   document.title = 'Wearther - Main';
@@ -1385,7 +1451,9 @@ function gotoFavourites() {
 }
 
 // Goes to the home page (intro with the form)
+// Refresh states
 function gotoHome() {
   location.reload();
+  localStorage.clear();
   validCity = false;
 }
