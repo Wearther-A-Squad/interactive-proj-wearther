@@ -1214,14 +1214,15 @@ function displayProduct(data, searchTerm) {
 
     // This iterates over the data for the Amazon products and generates the HTML elements accordingly
     var amazonContainer = document.querySelector('.current-reco-container');
+    var numbers = [];
     for (let i = 0; i < data.docs.length; ) {
       var randomClothing = Math.floor(Math.random(0) * data.docs.length);
+      numbers.push(randomClothing);
+      console.log(randomClothing, numbers);
 
-      if (randomClothing == prev) {
-        var randomClothing = Math.floor(Math.random(0) * data.docs.length);
+      if (randomClothing.includes) {
+        randomClothing = Math.floor(Math.random(0) * data.docs.length);
       }
-      var prev = randomClothing;
-      console.log(randomClothing);
 
       // Generate a unique id per amazon listing
       var uniqueId = Math.floor(Math.random(0) * 100000);
