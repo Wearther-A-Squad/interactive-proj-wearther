@@ -1258,14 +1258,17 @@ function favoriteItem() {
       var favProductLink = e.target.dataset.link;
       var favProductId = e.target.dataset.id;
 
-      // Push the product detail in the object array
+      // If the product exists in the object..
       userFavourites.forEach((item) => {
-        if (item.id == favProductId) {
+        if (
+          item.link == favProductLink &&
+          item.img == favProductImg &&
+          item.title == favProductTitle
+        ) {
+          // Set boolean to false so we don't add it again
           uniqueItem = false;
         }
       });
-
-      console.log(uniqueItem);
 
       if (uniqueItem) {
         userFavourites.push({
