@@ -12,15 +12,16 @@
 
 ## Table of Contents
 
-- [Link to Page](#link-to-page)
+- [Links](#links)
 - [Description](#description)
 - [Project Overview](#project-overview)
 
 #
 
-## Link to Page
+## Links
 
-[https://github.com/Wearther-A-Squad/interactive-proj-wearther](https://github.com/Wearther-A-Squad/interactive-proj-wearther)
+Deployed application:[https://wearther-a-squad.github.io/interactive-proj-wearther/](https://wearther-a-squad.github.io/interactive-proj-wearther/)
+Github repository: [https://github.com/Wearther-A-Squad/interactive-proj-wearther](https://github.com/Wearther-A-Squad/interactive-proj-wearther)
 
 ## Description / Function
 
