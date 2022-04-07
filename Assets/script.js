@@ -1413,7 +1413,7 @@ introFormEl.addEventListener('submit', (e) => {
     formSubmitBtn.disabled = true;
     validCity = false;
   } else {
-    alert('Choose a valid city');
+    console.log('User did not choose a valid city');
   }
 });
 
