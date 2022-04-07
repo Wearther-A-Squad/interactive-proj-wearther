@@ -1267,6 +1267,9 @@ function favoriteItem() {
       var favProductLink = e.target.dataset.link;
       var favProductId = e.target.dataset.id;
 
+      e.target.style.opacity = '0.5';
+      e.target.style.cursor = 'default';
+
       // Check if the items exist in local storage, if not, store it
       checkFavItems(
         uniqueItem,
@@ -1274,7 +1277,8 @@ function favoriteItem() {
         favProductImg,
         favProductPrice,
         favProductLink,
-        favProductId
+        favProductId,
+        e
       );
     });
   });
@@ -1286,7 +1290,8 @@ function checkFavItems(
   favProductImg,
   favProductPrice,
   favProductLink,
-  favProductId
+  favProductId,
+  e
 ) {
   // If the product exists in the object..
   userFavourites.forEach((item) => {
