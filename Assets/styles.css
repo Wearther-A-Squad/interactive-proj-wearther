@@ -20,6 +20,7 @@
 #current-hourly div:first-child {
   margin-left: 0;
 }
+
 .five-day-reco #single-product:last-child,
 #nav-items ul li:last-child,
 .current-reco-container #single-product:last-child,
@@ -37,9 +38,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}*/
+}
 
-/*.intro h1 {
+.intro h1 {
   text-align: center;
   margin: 15px 0;
 }*/
@@ -52,15 +53,17 @@
   display: grid;
   grid-template: 40px 40px 40px 40px/ 300px 300px;
   gap: 15px;
-}
-*/
+}*/
 
 #form-submit:disabled {
+  opacity: 0.2;
   cursor: default;
 }
 
 #form-submit {
+  opacity: 1;
   cursor: pointer;
+  grid-column: 1/3;
 }
 
 /* Remove toggle buttons for input with type number */
@@ -120,29 +123,28 @@ input::-webkit-inner-spin-button {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid black;
-}*/
+}
 
-/*#nav-items ul {
+#nav-items ul {
   width: 70%;
   display: flex;
   justify-content: space-between;
   list-style: none;
-}*/
+}
 
 #nav-items ul li {
   cursor: pointer;
-/*  margin: 0 5px;*/
+  margin: 0 5px;
 }
 
 #nav-items button {
   cursor: pointer;
 }
-
-/*.data h1 {
+.data h1 {
   text-align: center;
-}*/
+}
 
-/*#data-container {
+#data-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -172,23 +174,16 @@ input::-webkit-inner-spin-button {
 #current-temp-container img {
   width: 80px;
   margin-left: 5px;
-}*/
-/*#current-desc p {
-  width: 450px;
-}*/
-
-/*#current-desc {
-  flex: 1 30%;
-}*/
-
-/*#current-cicon {
-  flex: 1 12%;
+}
+#current-desc {
+  display: flex;
+  align-items: center;
 }
 
-#current-desc-p {
-  flex: 1 70%
-}*/
-
+#current-desc p {
+  width: 450px;
+}
+*/
 /* Hourly ---- ---- ----*/
 /*#current-hourly {
   margin-top: 30px;
@@ -207,10 +202,10 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-}*/
-
+}
+*/
 /* Amazon listings ---- ---- ----*/
-/*.amazon-listings {
+.amazon-listings {
   margin-bottom: 100px;
   margin-top: 45px;
   display: flex;
@@ -221,9 +216,10 @@ input::-webkit-inner-spin-button {
 #amazon-header {
   display: none;
 }
-.amazon-listings h5 {*/
+
+.amazon-listings h5 {
   /* Header */
-  /*margin-bottom: 15px;
+  margin-bottom: 15px;
   font-size: 20px;
   font-weight: 400;
 }
@@ -243,17 +239,17 @@ input::-webkit-inner-spin-button {
   display: flex;
 }
 
-.current-reco-container img {
-  width: 105px;
-  object-fit: cover;
-}
+  .current-reco-container img {
+    width: 105px;
+    object-fit: cover;
+  }
 
-.current-reco-container .single-product {
-  margin: 0 20px;
-  justify-content: space-around;
-  display: flex;
-  flex-direction: column;
-}
+  .current-reco-container .single-product {
+    margin: 0 20px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+  }
 
 #product-img-container {
   width: 100%;
@@ -267,7 +263,7 @@ input::-webkit-inner-spin-button {
   right: 10px;
   top: 10px;
   cursor: pointer;
-}*/
+}
 
 /* Five day forecast ---- ---- ----*/
 /*.five-day-reco {
@@ -298,10 +294,11 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 
-/*#go-back {
+#go-back {
   margin: 10px;
   margin-left: 10px;
 }
+
 .favourites h1 {
   text-align: center;
   margin-bottom: 25px;
@@ -312,14 +309,13 @@ input::-webkit-inner-spin-button {
   justify-content: center;
 }
 
-#favourites-container #single-product {
-  margin: 0 15px;
-}
+  #favourites-container #single-product {
+    margin: 0 15px;
+  }
 
-#favourites-container img {
-  width: 200px;
-}
-*/
+  #favourites-container img {
+    width: 200px;
+  }
 
 /* Main data page (Clothing Recommendations)  --------- --------- --------- ---------  */
 .data.inactive {
