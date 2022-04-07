@@ -186,6 +186,7 @@ nav {
 #current-hourly {
   margin-top: 30px;
   display: flex;
+  align-items: center;
 }
 
 #current-hourly div {
@@ -271,6 +272,7 @@ nav {
 
 .five-day-reco-container {
   display: flex;
+  align-items: center;
 }
 
 .five-day-reco img {
@@ -280,7 +282,7 @@ nav {
 }
 
 .five-day-reco #single-product {
-  margin: 0 30px;
+  margin: 0 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
