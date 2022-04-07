@@ -303,16 +303,40 @@ nav {
 }
 
 #favourites-container {
+  margin-top: 50px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-#favourites-container #single-product {
-  margin: 0 15px;
-}
-
-#favourites-container img {
+#favourites-container .single-product {
   width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#favourites-container #product-link {
+  color: blue;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
+#favourites-container #remove-fav {
+  margin-top: 5px;
+  font-size: 12px;
+}
+#favourites-container img {
+  width: 105px;
+  object-fit: cover;
+}
+
+#favourites-container #product-title {
+  width: 150px;
+  font-size: 13px;
+  margin-bottom: 5px;
 }
 
 /* Main data page (Clothing Recommendations)  --------- --------- --------- ---------  */

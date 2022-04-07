@@ -1136,8 +1136,7 @@ const updateFiveDayIcons = (fiveDayWeatherData) => {
   }
 };
 
-// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES LOCAL STORAGE PARSING AND DECLARATION
-
+// **** **** **** **** **** **** **** EVERYTHING BELOW HANDLES ANYTHING WITH LOCAL STORAGE - STORING/PARSING AND DECLARATION
 var localUserFavorites = localStorage.getItem('userFavorites');
 
 // If the local storage doesn't exist....
@@ -1151,7 +1150,6 @@ if (localUserFavorites == null) {
   localUserFavorites = JSON.parse(localUserFavorites);
   userFavourites = localUserFavorites;
 }
-
 var localUserInfo = localStorage.getItem('userInfo');
 // If the local storage doesn't exist....
 if (localUserInfo == null) {
@@ -1198,6 +1196,7 @@ if (localUserInfo == null) {
   cityChoseEl.textContent = localUserInfo.location;
 }
 
+// Console log local object
 console.log(localUserFavorites, localUserInfo);
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
@@ -1216,16 +1215,24 @@ function displayProduct(data, searchTerm) {
     // This iterates over the data for the Amazon products and generates the HTML elements accordingly
     var amazonContainer = document.querySelector('.current-reco-container');
     for (let i = 0; i < data.docs.length; ) {
+      var randomClothing = Math.floor(Math.random(0) * data.docs.length);
+
+      if (randomClothing == prev) {
+        var randomClothing = Math.floor(Math.random(0) * data.docs.length);
+      }
+      var prev = randomClothing;
+      console.log(randomClothing);
+
       // Generate a unique id per amazon listing
       var uniqueId = Math.floor(Math.random(0) * 100000);
       var newProductEl = document.createElement('div');
       // Assign each product a class of single-product and a unique id
       newProductEl.classList.add('single-product', uniqueId);
-
-      var productTitle = data.docs[i].product_title;
-      var productImg = data.docs[i].product_main_image_url;
-      var productPrice = data.docs[i].app_sale_price;
-      var productLink = data.docs[i].product_detail_url;
+      var rawTitle = data.docs[randomClothing].product_title;
+      var productTitle = rawTitle.replace(/'/g, '');
+      var productImg = data.docs[randomClothing].product_main_image_url;
+      var productPrice = data.docs[randomClothing].app_sale_price;
+      var productLink = data.docs[randomClothing].product_detail_url;
       // In the star button, for easy access laate ron, we stoer all the product details as data attributes
       newProductEl.innerHTML = `
       <p id="product-title">${productTitle}</p>
@@ -1246,11 +1253,13 @@ function displayProduct(data, searchTerm) {
   }
 }
 
+// -------- -------- -------- -------- Handle favorite item functions
 function favoriteItem() {
   // This handles the star button event listeners (Favourite)
   var starBtn = document.querySelectorAll('.star-btn');
   starBtn.forEach((item) => {
     item.addEventListener('click', (e) => {
+      // We will use the below boolean to handle storing items to local storage
       var uniqueItem = true;
       var favProductTitle = e.target.dataset.title;
       var favProductImg = e.target.dataset.img;
@@ -1258,32 +1267,51 @@ function favoriteItem() {
       var favProductLink = e.target.dataset.link;
       var favProductId = e.target.dataset.id;
 
-      // If the product exists in the object..
-      userFavourites.forEach((item) => {
-        if (
-          item.link == favProductLink &&
-          item.img == favProductImg &&
-          item.title == favProductTitle
-        ) {
-          // Set boolean to false so we don't add it again
-          uniqueItem = false;
-        }
-      });
-
-      if (uniqueItem) {
-        userFavourites.push({
-          title: favProductTitle,
-          price: favProductPrice,
-          link: favProductLink,
-          img: favProductImg,
-          id: favProductId,
-        });
-
-        // Then push it to the local storage
-        localStorage.setItem('userFavorites', JSON.stringify(userFavourites));
-      }
+      // Check if the items exist in local storage, if not, store it
+      checkFavItems(
+        uniqueItem,
+        favProductTitle,
+        favProductImg,
+        favProductPrice,
+        favProductLink,
+        favProductId
+      );
     });
   });
+}
+
+function checkFavItems(
+  uniqueItem,
+  favProductTitle,
+  favProductImg,
+  favProductPrice,
+  favProductLink,
+  favProductId
+) {
+  // If the product exists in the object..
+  userFavourites.forEach((item) => {
+    if (
+      item.link == favProductLink &&
+      item.img == favProductImg &&
+      item.title == favProductTitle
+    ) {
+      // Set boolean to false so we don't add it again
+      uniqueItem = false;
+    }
+  });
+
+  if (uniqueItem) {
+    userFavourites.push({
+      title: favProductTitle,
+      price: favProductPrice,
+      link: favProductLink,
+      img: favProductImg,
+      id: favProductId,
+    });
+
+    // Then push it to the local storage
+    localStorage.setItem('userFavorites', JSON.stringify(userFavourites));
+  }
 }
 
 // **** **** **** **** **** **** **** EVERYTHING BELOW WILL CHECK THE FORM AS THE DATA IS BEING INPUTTED
@@ -1384,7 +1412,6 @@ introFormEl.addEventListener('submit', (e) => {
 });
 
 // -------- -------- -------- -------- Post submit functions
-
 // Here we use the form data to fetch from the API and display the MAIN page
 var parent = document.querySelector('.main-parent');
 var introEl = document.querySelector('.intro');
@@ -1458,13 +1485,41 @@ function gotoFavourites() {
   favourites.classList.remove('inactive');
   data.classList.add('inactive');
 
+  generateFavEl();
+
   goBackBtn.addEventListener('click', () => {
     gotoMain();
   });
 }
 
+function generateFavEl() {
+  var favContainer = document.getElementById('favourites-container');
+  favContainer.innerHTML = '';
+
+  if (!userFavourites.length == 0) {
+    for (let i = 0; i < userFavourites.length; i++) {
+      // Generate a unique id per amazon listing
+      var favProductEl = document.createElement('div');
+      // Assign each product a class of single-product and a unique id
+      favProductEl.classList.add('single-product');
+
+      var productTitle = userFavourites[i].title;
+      var productImg = userFavourites[i].img;
+      var productPrice = userFavourites[i].price;
+      var productLink = userFavourites[i].link;
+      // In the star button, for easy access laate ron, we stoer all the product details as data attributes
+      favProductEl.innerHTML = `
+          <img id="product-img" src="${productImg}" alt="${productTitle}" />
+          <p id="product-price">$${productPrice}</p>
+          <a id="product-link" href="${productLink}" target="_blank">Link to Amazon</a>
+          <button id='remove-fav' >Remove from favorites</button>`;
+      favContainer.appendChild(favProductEl);
+    }
+  }
+}
+
 // Goes to the home page (intro with the form)
-// Refresh states
+// Refresh states and clear local storage
 function gotoHome() {
   location.reload();
   localStorage.clear();
