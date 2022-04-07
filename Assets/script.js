@@ -1251,6 +1251,7 @@ function favoriteItem() {
   var starBtn = document.querySelectorAll('.star-btn');
   starBtn.forEach((item) => {
     item.addEventListener('click', (e) => {
+      var uniqueItem = true;
       var favProductTitle = e.target.dataset.title;
       var favProductImg = e.target.dataset.img;
       var favProductPrice = e.target.dataset.price;
@@ -1258,17 +1259,26 @@ function favoriteItem() {
       var favProductId = e.target.dataset.id;
 
       // Push the product detail in the object array
-      console.log(userFavourites.id);
-      userFavourites.push({
-        title: favProductTitle,
-        price: favProductPrice,
-        link: favProductLink,
-        img: favProductImg,
-        id: favProductId,
+      userFavourites.forEach((item) => {
+        if (item.id == favProductId) {
+          uniqueItem = false;
+        }
       });
 
-      // Then push it to the local storage
-      localStorage.setItem('userFavorites', JSON.stringify(userFavourites));
+      console.log(uniqueItem);
+
+      if (uniqueItem) {
+        userFavourites.push({
+          title: favProductTitle,
+          price: favProductPrice,
+          link: favProductLink,
+          img: favProductImg,
+          id: favProductId,
+        });
+
+        // Then push it to the local storage
+        localStorage.setItem('userFavorites', JSON.stringify(userFavourites));
+      }
     });
   });
 }
