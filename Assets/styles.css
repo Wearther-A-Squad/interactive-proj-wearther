@@ -34,16 +34,18 @@
   display: none;
 }
 
-/*.intro {
+/* .intro {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .intro h1 {
+  size: 2rem;
   text-align: center;
   margin: 15px 0;
-}*/
+
+} */
 
 #intro-form input {
   text-indent: 10px;
