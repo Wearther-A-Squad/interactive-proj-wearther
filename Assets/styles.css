@@ -38,7 +38,7 @@ hr {
   display: inline-flex;
 }
 
-.logo img {
+.logo {
   height: 80px;
   filter: drop-shadow(0 0 0.75rem --grey);
 }
@@ -67,15 +67,38 @@ hr {
   margin-right: 0;
 }
 
-/* Intro Page --------- --------- --------- ---------  */
-.intro.inactive {
+/* Favorites nav button */
+#favorites-nav,
+#go-back {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+/* Main containers */
+.main-parent.inactive,
+#nav-items.inactive,
+.intro.inactive,
+.favourites.inactive,
+.data.inactive {
   display: none;
 }
 
-.intro {
+.amazon-listings,
+.hourly,
+#data-container,
+.intro,
+.favourites,
+.five-day-reco #single-product,
+.five-day-reco {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Intro Page --------- --------- --------- ---------  */
+.intro {
   margin-top: 30px;
 }
 .intro h1 {
@@ -143,16 +166,7 @@ input::-webkit-inner-spin-button {
   background-size: 0.65em auto, 100%;
 }
 
-/* MAIN parent container (holds all HTML pages) --------- --------- --------- ---------  */
-.main-parent.inactive {
-  display: none;
-}
-
-/* Nav items */
-#nav-items.inactive {
-  display: none;
-}
-
+/* Nav section --------- --------- --------- ---------  */
 nav {
   margin-top: 50px;
   display: flex;
@@ -164,14 +178,6 @@ nav {
   font-size: 20px;
   background-color: transparent;
   border: none;
-}
-
-/* Favorites nav button */
-#favorites-nav {
-  font-size: 20px;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid black;
 }
 
 #nav-items ul {
@@ -196,9 +202,6 @@ nav {
 }
 
 #data-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 15px;
 }
 
@@ -251,19 +254,10 @@ nav {
   margin-top: 5px;
 }
 
-.hourly {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* Amazon listings ---- ---- ----*/
 .amazon-listings {
   margin-bottom: 60px;
   margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #amazon-header {
@@ -372,12 +366,6 @@ nav {
 }
 
 /* Five day forecast ---- ---- ----*/
-.five-day-reco {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .five-day-reco-container {
   display: flex;
   align-items: center;
@@ -396,21 +384,11 @@ nav {
 
 .five-day-reco #single-product {
   margin: 0 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /* Favourites page  --------- --------- --------- ---------  */
-.favourites.inactive {
-  display: none;
-}
-
 .favourites {
   margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 .favourites-header {
@@ -461,11 +439,6 @@ nav {
   width: 150px;
   font-size: 13px;
   margin-bottom: 5px;
-}
-
-/* Main data page (Clothing Recommendations)  --------- --------- --------- ---------  */
-.data.inactive {
-  display: none;
 }
 
 /* Reset button  --------- --------- --------- ---------  */
