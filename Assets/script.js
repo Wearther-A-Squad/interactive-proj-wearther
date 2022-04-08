@@ -1198,7 +1198,8 @@ if (localUserInfo == null) {
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
 // This function updates the HTML elements with the appropriate data from the fetch function
-var numbers = [];
+// var numbers = [];
+
 function displayProduct(data, searchTerm) {
   var loadingEl = document.getElementById('loading-listings');
   var amazonHeader = document.getElementById('amazon-header');
@@ -1212,13 +1213,16 @@ function displayProduct(data, searchTerm) {
 
     // This iterates over the data for the Amazon products and generates the HTML elements accordingly
     var amazonContainer = document.querySelector('.current-reco-container');
+    var numbers = [...Array(data.docs.length).keys()];
     for (let i = 0; i < data.docs.length; ) {
-      var randomClothing = Math.floor(Math.random(0) * data.docs.length);
-      numbers.push(randomClothing);
+      // Generate an array from 0 to the docs.length
 
-      // If number exists, re-execute the random generator
-      if (numbers.includes(randomClothing)) {
-        randomClothing = Math.floor(Math.random(0) * data.docs.length);
+      // Randomize order of elements with a sort function
+      numbers.sort(function (xx, yy) {
+        return Math.floor(Math.random() * 3) - 1;
+      });
+      function getNextRandom() {
+        return numbers.shift();
       }
 
       // Generate a unique id per amazon listing
@@ -1226,11 +1230,11 @@ function displayProduct(data, searchTerm) {
       var newProductEl = document.createElement('div');
       // Assign each product a class of single-product and a unique id
       newProductEl.classList.add('single-product', uniqueId);
-      var rawTitle = data.docs[randomClothing].product_title;
+      var rawTitle = data.docs[getNextRandom()].product_title;
       var productTitle = rawTitle.replace(/'/g, '');
-      var productImg = data.docs[randomClothing].product_main_image_url;
-      var productPrice = data.docs[randomClothing].app_sale_price;
-      var productLink = data.docs[randomClothing].product_detail_url;
+      var productImg = data.docs[getNextRandom()].product_main_image_url;
+      var productPrice = data.docs[getNextRandom()].app_sale_price;
+      var productLink = data.docs[getNextRandom()].product_detail_url;
 
       // In the star button, for easy access laate ron, we stoer all the product details as data attributes
       newProductEl.innerHTML = `
