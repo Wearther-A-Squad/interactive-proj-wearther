@@ -39,6 +39,14 @@ filter: drop-shadow(0 0 0.75rem --grey);
 
 }
 
+.intro-description {
+margin-bottom: 20px;
+}
+
+.intro-description h2 {
+  font-size: 1.5rem;
+}
+
 /* Universal properties --------- --------- --------- ---------  */
 .five-day-reco #single-product:first-child,
 #nav-items ul li:first-child,
@@ -79,7 +87,7 @@ filter: drop-shadow(0 0 0.75rem --grey);
   display: grid;
   grid-template: 40px 40px 40px 40px/ 300px 300px;
   gap: 15px;
-}
+  }
 
 #form-submit:disabled {
   opacity: 0.2;
@@ -90,6 +98,10 @@ filter: drop-shadow(0 0 0.75rem --grey);
   opacity: 1;
   cursor: pointer;
   grid-column: 1/3;
+}
+
+#form-submit:hover {
+  background-color: orange;
 }
 
 /* Remove toggle buttons for input with type number */
