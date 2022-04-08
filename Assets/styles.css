@@ -20,7 +20,6 @@ hr {
   color: white;
   padding-left: 15px;
   height: 125px;
-
 }
 
 .hero h1 {
@@ -29,18 +28,17 @@ hr {
 }
 
 .logo {
-  padding-right: 15px; 
-  display: inline-flex; 
+  padding-right: 15px;
+  display: inline-flex;
 }
 
 .logo img {
-height: 80px;
-filter: drop-shadow(0 0 0.75rem --grey);
-
+  height: 80px;
+  filter: drop-shadow(0 0 0.75rem --grey);
 }
 
 .intro-description {
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .intro-description h2 {
@@ -87,7 +85,7 @@ margin-bottom: 20px;
   display: grid;
   grid-template: 40px 40px 40px 40px/ 300px 300px;
   gap: 15px;
-  }
+}
 
 #form-submit:disabled {
   opacity: 0.2;
@@ -224,7 +222,7 @@ nav {
 
 /* Hourly ---- ---- ----*/
 #current-hourly {
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
   align-items: center;
 }
@@ -234,7 +232,8 @@ nav {
 }
 
 #current-hourly img {
-  width: 65px;
+  width: 70px;
+  margin-top: 5px;
 }
 
 .hourly {
@@ -245,7 +244,7 @@ nav {
 
 /* Amazon listings ---- ---- ----*/
 .amazon-listings {
-  margin-bottom: 100px;
+  margin-bottom: 60px;
   margin-top: 60px;
   display: flex;
   flex-direction: column;
@@ -278,20 +277,25 @@ nav {
 }
 
 .current-reco-container img {
-  width: 105px;
+  height: 156px;
+  width: 125px;
   object-fit: cover;
 }
 
 .current-reco-container .single-product {
-  margin: 0 20px;
+  margin: 0 5px;
   justify-content: space-around;
   display: flex;
   flex-direction: column;
+  padding: 5px 10px;
+  box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
 }
 
 #product-img-container {
   width: 100%;
   position: relative;
+  justify-content: center;
+  display: flex;
 }
 
 .current-reco-container .star-btn {
@@ -315,6 +319,11 @@ nav {
   align-items: center;
 }
 
+.five-day-reco-container p {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
 .five-day-reco img {
   width: 65px;
   height: 65px;
@@ -333,29 +342,39 @@ nav {
   display: none;
 }
 
-#go-back {
-  margin: 10px;
-  margin-left: 10px;
+.favourites {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.favourites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
 }
 .favourites h1 {
   text-align: center;
-  margin-bottom: 25px;
 }
 
 #favourites-container {
-  margin-top: 100px;
+  width: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #favourites-container .fav-single-product {
-  width: 200px;
+  width: 170px;
   height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-top: 52px;
 }
 
 #favourites-container #product-link {
@@ -370,6 +389,7 @@ nav {
 }
 #favourites-container img {
   width: 105px;
+  height: 70%;
   object-fit: cover;
 }
 
@@ -382,4 +402,19 @@ nav {
 /* Main data page (Clothing Recommendations)  --------- --------- --------- ---------  */
 .data.inactive {
   display: none;
+}
+
+/* Reset button  --------- --------- --------- ---------  */
+#reset-data {
+  font-size: 156x;
+  opacity: 0.8;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+#reset-data-desc {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 50px;
 }

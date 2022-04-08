@@ -1196,11 +1196,9 @@ if (localUserInfo == null) {
   cityChoseEl.textContent = localUserInfo.location;
 }
 
-// Console log local object
-console.log(localUserFavorites, localUserInfo);
-
 // -------- -------- -------- -------- Displaying the amazon product(s)
 // This function updates the HTML elements with the appropriate data from the fetch function
+var numbers = [];
 function displayProduct(data, searchTerm) {
   var loadingEl = document.getElementById('loading-listings');
   var amazonHeader = document.getElementById('amazon-header');
@@ -1214,13 +1212,12 @@ function displayProduct(data, searchTerm) {
 
     // This iterates over the data for the Amazon products and generates the HTML elements accordingly
     var amazonContainer = document.querySelector('.current-reco-container');
-    var numbers = [];
     for (let i = 0; i < data.docs.length; ) {
       var randomClothing = Math.floor(Math.random(0) * data.docs.length);
       numbers.push(randomClothing);
-      console.log(randomClothing, numbers);
 
-      if (randomClothing.includes) {
+      // If number exists, re-execute the random generator
+      if (numbers.includes(randomClothing)) {
         randomClothing = Math.floor(Math.random(0) * data.docs.length);
       }
 
@@ -1234,6 +1231,7 @@ function displayProduct(data, searchTerm) {
       var productImg = data.docs[randomClothing].product_main_image_url;
       var productPrice = data.docs[randomClothing].app_sale_price;
       var productLink = data.docs[randomClothing].product_detail_url;
+
       // In the star button, for easy access laate ron, we stoer all the product details as data attributes
       newProductEl.innerHTML = `
       <p id="product-title">${productTitle}</p>
@@ -1241,7 +1239,9 @@ function displayProduct(data, searchTerm) {
         <img data-id='${uniqueId}' data-title='${productTitle}' data-price='${productPrice}' data-link='${productLink}' data-img='${productImg}' class="star-btn" src="star.png" />
         <img id="product-img" src="${productImg}" alt="${productTitle}" />
       </div>
-      <p id="product-price">$${productPrice}</p>
+      <p id="product-price">${(productPrice = null
+        ? 'No price in data'
+        : '$' + productPrice)}</p>
       <a id="product-link" href="${productLink}" target="_blank">Link to Amazon</a>`;
       amazonContainer.appendChild(newProductEl);
 
@@ -1467,7 +1467,7 @@ function handleNavBtns() {
   navBtns.forEach((item) => {
     item.addEventListener('click', (e) => {
       var btnLabel = e.target.textContent;
-      btnLabel == 'Favorites' ? gotoFavourites() : gotoHome();
+      btnLabel == 'Favorites' ? gotoFavourites() : '';
     });
   });
 }
@@ -1558,6 +1558,9 @@ function removeFavItems() {
   }
 }
 
+var resetBtn = document.getElementById('reset-data');
+
+resetBtn.addEventListener('click', gotoHome);
 // Goes to the home page (intro with the form)
 // Refresh states and clear local storage
 function gotoHome() {

@@ -96,8 +96,12 @@
       </header>
       <!-- Favourites page -->
       <section class="favourites inactive">
-        <button id="go-back">Go back</button>
-        <h1 id="favourites-header">Favourites</h1>
+        <div class="favourites-header">
+          <button id="go-back">Go back</button>
+          <h1 id="favourites-header">Favourites</h1>
+          <!-- Add the empty h1 to fill in blank space and works in tandem with space-between -->
+          <h1 style="width: 76px"></h1>
+        </div>
         <div id="favourites-container">
           <!-- The below HTML code will be dynamically generated via JS -->
         </div>
@@ -199,7 +203,12 @@
               </h1>
             </div>
           </section>
+          <button id="reset-data">Reset all data</button>
+          <p id="reset-data-desc">
+            (Clears all stored data and return to intro page)
+          </p>
         </div>
+        
       </section>
       
     </main>
