@@ -168,14 +168,16 @@ nav {
   list-style: none;
 }
 
-#nav-items ul li {
+#nav-items ul li:nth-child(2) {
   cursor: pointer;
   margin: 0 5px;
 }
 
-#nav-items button {
-  cursor: pointer;
+#nav-items ul li:nth-child(1) {
+  cursor: default;
+  user-select: none;
 }
+
 .data h1 {
   text-align: center;
 }

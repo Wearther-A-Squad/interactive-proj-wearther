@@ -1236,7 +1236,7 @@ function displayProduct(data, searchTerm) {
       newProductEl.innerHTML = `
       <p id="product-title">${productTitle}</p>
       <div id='product-img-container'> 
-        <img data-id='${uniqueId}' data-title='${productTitle}' data-price='${productPrice}' data-link='${productLink}' data-img='${productImg}' class="star-btn" src="star.png" />
+        <img data-id='${uniqueId}' data-title='${productTitle}' data-price='${productPrice}' data-link='${productLink}' data-img='${productImg}' class="star-btn" src="./Assets/images/star.png" />
         <img id="product-img" src="${productImg}" alt="${productTitle}" />
       </div>
       <p id="product-price">${(productPrice = null
