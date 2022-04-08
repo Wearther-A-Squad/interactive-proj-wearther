@@ -15,7 +15,7 @@ hr {
   width: 580px;
 }
 
-.hero {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +31,7 @@ hr {
   height: 125px;
 }
 
-.hero h1 {
+.header h1 {
   font-size: 2rem;
   text-shadow: #444;
 }
@@ -44,8 +44,7 @@ hr {
 .logo {
   height: 80px;
   filter: drop-shadow(0 0 0.75rem grey);
-
-}
+  }
 
 .intro-description {
   margin-bottom: 20px;
@@ -53,6 +52,18 @@ hr {
 
 .intro-description h2 {
   font-size: 1.5rem;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
 }
 
 /* Universal properties --------- --------- --------- ---------  */
