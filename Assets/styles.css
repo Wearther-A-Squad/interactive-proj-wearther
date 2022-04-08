@@ -12,6 +12,33 @@ hr {
   width: 580px;
 }
 
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: dodgerblue;
+  color: white;
+  padding-left: 15px;
+  height: 125px;
+
+}
+
+.hero h1 {
+  font-size: 2rem;
+  text-shadow: #444;
+}
+
+.logo {
+  padding-right: 15px; 
+  display: inline-flex; 
+}
+
+.logo img {
+height: 80px;
+filter: drop-shadow(0 0 0.75rem --grey);
+
+}
+
 /* Universal properties --------- --------- --------- ---------  */
 .five-day-reco #single-product:first-child,
 #nav-items ul li:first-child,
@@ -37,6 +64,7 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 30px;
 }
 .intro h1 {
   text-align: center;
