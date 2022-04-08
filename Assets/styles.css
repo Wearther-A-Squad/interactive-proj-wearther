@@ -16,8 +16,13 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(131,58,180);
-background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
   color: white;
   padding-left: 15px;
   height: 125px;
@@ -101,8 +106,13 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%,
 }
 
 #form-submit:hover {
-  background: rgb(131,58,180);
-background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
 }
 
 /* Remove toggle buttons for input with type number */
@@ -281,7 +291,8 @@ nav {
   display: flex;
 }
 
-.current-reco-container img {
+/* Starting here */
+.current-reco-container #product-img {
   height: 156px;
   width: 125px;
   object-fit: cover;
@@ -303,13 +314,61 @@ nav {
   display: flex;
 }
 
-.current-reco-container .star-btn {
-  position: absolute;
-  width: 30px;
-  height: 30px;
+/* Favourite button animation */
+.star-btn img {
+  pointer-events: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+
+.star-btn:hover {
+  transform: scale(1.1);
+  transition: 0.1s all ease-in-out;
+}
+
+.star-btn:active {
+  transform: scale(1.05);
+}
+
+.star-btn {
   right: 10px;
   top: 10px;
   cursor: pointer;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  transform: scale(1);
+  transition: 0.1s all ease-in-out;
+}
+
+.star-btn.active::after {
+  content: '';
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: 4px solid rgb(255, 208, 0);
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1s;
+}
+
+.star-btn.inactive {
+  opacity: 0.7;
+  transition: 0.5s all ease-in-out;
 }
 
 /* Five day forecast ---- ---- ----*/

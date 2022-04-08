@@ -1198,8 +1198,6 @@ if (localUserInfo == null) {
 
 // -------- -------- -------- -------- Displaying the amazon product(s)
 // This function updates the HTML elements with the appropriate data from the fetch function
-// var numbers = [];
-
 function displayProduct(data, searchTerm) {
   var loadingEl = document.getElementById('loading-listings');
   var amazonHeader = document.getElementById('amazon-header');
@@ -1213,10 +1211,9 @@ function displayProduct(data, searchTerm) {
 
     // This iterates over the data for the Amazon products and generates the HTML elements accordingly
     var amazonContainer = document.querySelector('.current-reco-container');
+    // Generate an array from 0 to the docs.length
     var numbers = [...Array(data.docs.length).keys()];
     for (let i = 0; i < data.docs.length; ) {
-      // Generate an array from 0 to the docs.length
-
       // Randomize order of elements with a sort function
       numbers.sort(function (xx, yy) {
         return Math.floor(Math.random() * 3) - 1;
@@ -1225,22 +1222,25 @@ function displayProduct(data, searchTerm) {
         return numbers.shift();
       }
 
-      // Generate a unique id per amazon listing
+      var currentNum = getNextRandom();
+      // Generate a   unique id per amazon listing
       var uniqueId = Math.floor(Math.random(0) * 100000);
       var newProductEl = document.createElement('div');
       // Assign each product a class of single-product and a unique id
       newProductEl.classList.add('single-product', uniqueId);
-      var rawTitle = data.docs[getNextRandom()].product_title;
+      var rawTitle = data.docs[currentNum].product_title;
       var productTitle = rawTitle.replace(/'/g, '');
-      var productImg = data.docs[getNextRandom()].product_main_image_url;
-      var productPrice = data.docs[getNextRandom()].app_sale_price;
-      var productLink = data.docs[getNextRandom()].product_detail_url;
+      var productImg = data.docs[currentNum].product_main_image_url;
+      var productPrice = data.docs[currentNum].app_sale_price;
+      var productLink = data.docs[currentNum].product_detail_url;
 
-      // In the star button, for easy access laate ron, we stoer all the product details as data attributes
+      // In the star button, for easy access later on, we store all the product details as data attributes
       newProductEl.innerHTML = `
       <p id="product-title">${productTitle}</p>
       <div id='product-img-container'> 
-        <img data-id='${uniqueId}' data-title='${productTitle}' data-price='${productPrice}' data-link='${productLink}' data-img='${productImg}' class="star-btn" src="./Assets/images/star.png" />
+        <button class="star-btn" data-id='${uniqueId}' data-title='${productTitle}' data-price='${productPrice}' data-link='${productLink}' data-img='${productImg}'>
+          <img src="./Assets/images/star.png" alt="Favourite btn star icon">
+        </button>
         <img id="product-img" src="${productImg}" alt="${productTitle}" />
       </div>
       <p id="product-price">${(productPrice = null
@@ -1272,9 +1272,6 @@ function favoriteItem() {
       var favProductLink = e.target.dataset.link;
       var favProductId = e.target.dataset.id;
 
-      e.target.style.opacity = '0.5';
-      e.target.style.cursor = 'default';
-
       // Check if the items exist in local storage, if not, store it
       checkFavItems(
         uniqueItem,
@@ -1282,9 +1279,18 @@ function favoriteItem() {
         favProductImg,
         favProductPrice,
         favProductLink,
-        favProductId,
-        e
+        favProductId
       );
+      // Add/remove the appropriate classes to animate the star button
+      item.classList.add('active');
+      setTimeout(() => {
+        item.classList.remove('active');
+      }, 1000);
+      setTimeout(() => {
+        item.classList.add('inactive');
+      }, 200);
+
+      e.target.style.cursor = 'default';
     });
   });
 }
@@ -1295,8 +1301,7 @@ function checkFavItems(
   favProductImg,
   favProductPrice,
   favProductLink,
-  favProductId,
-  e
+  favProductId
 ) {
   // If the product exists in the object..
   userFavourites.forEach((item) => {
