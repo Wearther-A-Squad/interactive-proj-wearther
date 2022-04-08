@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
 }
+
+
+
 hr {
   opacity: 0.3;
   margin: 40px 0;
@@ -40,7 +43,8 @@ hr {
 
 .logo {
   height: 80px;
-  filter: drop-shadow(0 0 0.75rem --grey);
+  filter: drop-shadow(0 0 0.75rem grey);
+
 }
 
 .intro-description {
@@ -399,6 +403,8 @@ nav {
 }
 .favourites h1 {
   text-align: center;
+  font-size: 1.5rem;
+  ;
 }
 
 #favourites-container {
@@ -408,6 +414,7 @@ nav {
   align-items: center;
   flex-wrap: wrap;
 }
+
 
 #favourites-container .fav-single-product {
   width: 170px;
@@ -429,6 +436,11 @@ nav {
   margin-top: 5px;
   font-size: 13px;
 }
+
+#favourites-container .remove-fav:hover {
+  color: orange;
+}
+
 #favourites-container img {
   width: 105px;
   height: 70%;
@@ -454,4 +466,20 @@ nav {
   font-size: 12px;
   opacity: 0.7;
   margin-bottom: 50px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  color: white;
+  text-align: center;
 }
