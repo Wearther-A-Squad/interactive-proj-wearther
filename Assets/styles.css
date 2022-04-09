@@ -145,7 +145,7 @@ gets a new position at the top of the page (position:fixed and top:0) */
 }
 
 #invalid-city {
-  font-size: 19px;
+  font-size: 17px;
   color: red;
   text-align: center;
   grid-column: 1/3;
