@@ -13,7 +13,7 @@ hr {
   width: 580px;
 }
 
-.header {
+#main-Header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,9 +27,19 @@ hr {
   color: white;
   padding-left: 15px;
   height: 115px;
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
-.header h1 {
+/* Add some top padding to the page content to prevent sudden quick movement (as the header 
+gets a new position at the top of the page (position:fixed and top:0) */
+#main-Header + .header-content {
+  padding-top: 102px;
+}
+
+#main-Header h1 {
   font-size: 30px;
   text-shadow: #444;
 }
@@ -40,7 +50,7 @@ hr {
 
 .logo {
   height: 80px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
 }
 
 .intro-description {
@@ -49,19 +59,6 @@ hr {
 
 .intro-description h2 {
   font-size: 20px;
-}
-
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
-  position: sticky;
-  top: 0;
-  width: 100%;
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the header 
-gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 102px;
 }
 
 /* Universal properties --------- --------- --------- ---------  */
@@ -401,7 +398,7 @@ nav {
 
 /* Favourites page  --------- --------- --------- ---------  */
 .favourites {
-  margin-top: 50px;
+  margin-top: 43px;
   justify-content: center;
 }
 .favourites-header {
@@ -479,6 +476,7 @@ nav {
   position: fixed;
   left: 0;
   bottom: 0;
+  padding: 5px 0;
   width: 100%;
   background: rgb(131, 58, 180);
   background: linear-gradient(
@@ -492,5 +490,5 @@ nav {
 }
 
 .footer p {
-  font-size: 15px;
+  font-size: 17px;
 }
