@@ -31,7 +31,7 @@ Wearther shows users current weather and a 5-day weather forecast via images of 
 - Current weather & forecast for current day in 3-hr increments, explained visually with appropriate clothing images.
 - 5-day forecast with visual clothing suggestions based on daily average temperature.
 - Amazon links to appropriate clothing given today's weather
-- The ability to "favourite" amazon items (which saves to local storage) and allow users to visit a favurites pages with a list of all the items they saved.
+- The ability to "favourite" amazon items (which saves to local storage) and allow users to visit a favourites pages with a list of all the items they saved.
 
 APIs used include:
 
