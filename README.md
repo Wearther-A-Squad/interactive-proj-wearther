@@ -63,3 +63,6 @@ WHEN i revisit the application
 THEN i am presented with the new data for the day without needing to input my information again
 
 ```
+
+<img width="1070" alt="Preview" src="https://user-images.githubusercontent.com/91699101/162587585-4e35b9cc-e870-49c2-8557-3f05a11576ed.png">
+
