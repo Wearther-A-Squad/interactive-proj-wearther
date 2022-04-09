@@ -7,8 +7,6 @@
   font-family: 'Raleway', sans-serif;
 }
 
-
-
 hr {
   opacity: 0.3;
   margin: 40px 0;
@@ -28,40 +26,40 @@ hr {
   );
   color: white;
   padding-left: 15px;
-  height: 125px;
+  height: 115px;
 }
 
 .header h1 {
-  font-size: 2rem;
+  font-size: 30px;
   text-shadow: #444;
 }
 
 .logo {
   padding-right: 15px;
-  display: inline-flex;
 }
 
 .logo {
   height: 80px;
-  filter: drop-shadow(0 0 0.75rem grey);
-  }
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+}
 
 .intro-description {
   margin-bottom: 20px;
 }
 
 .intro-description h2 {
-  font-size: 1.5rem;
+  font-size: 20px;
 }
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 100%
+  width: 100%;
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+/* Add some top padding to the page content to prevent sudden quick movement (as the header 
+gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {
   padding-top: 102px;
 }
@@ -415,7 +413,6 @@ nav {
 .favourites h1 {
   text-align: center;
   font-size: 1.5rem;
-  ;
 }
 
 #favourites-container {
@@ -425,7 +422,6 @@ nav {
   align-items: center;
   flex-wrap: wrap;
 }
-
 
 #favourites-container .fav-single-product {
   width: 170px;
@@ -493,4 +489,8 @@ nav {
   );
   color: white;
   text-align: center;
+}
+
+.footer p {
+  font-size: 15px;
 }
