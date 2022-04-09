@@ -1422,7 +1422,13 @@ introFormEl.addEventListener('submit', (e) => {
     formSubmitBtn.disabled = true;
     validCity = false;
   } else {
-    console.log('User did not choose a valid city');
+    var invalidCityEL = document.getElementById('invalid-city');
+    invalidCityEL.style.display = 'unset';
+    invalidCityEL.textContent =
+      'Invalid city, make sure your location is within the US or Canadian region';
+    setTimeout(() => {
+      invalidCityEL.style.display = 'none';
+    }, 2500);
   }
 });
 
