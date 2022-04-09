@@ -923,7 +923,7 @@ var fetchApi = async (
 
     // If there is no network connection, execute the catch block function
   } catch (error) {
-    console.log('Failed to connect to API due to network issues');
+    displayNoNetwork();
   }
 };
 
@@ -1567,32 +1567,32 @@ function removeFavItems() {
   }
 }
 
-var resetBtn = document.getElementById('reset-data');
+var parent = document.querySelector('.main-parent');
+var noNetworkEl = document.querySelector('.no-network-el');
 
-resetBtn.addEventListener('click', gotoHome);
+// Display the no network page
+function displayNoNetwork() {
+  introFormEl.style.display = 'none';
+  parent.style.display = 'none';
+  noNetworkEl.classList.remove('inactive');
+  document.title = 'Wearther - No Network';
+}
+
+function reloadPage() {
+  location.reload();
+  validCity = false;
+}
+
+var reloadBtn = document.getElementById('reload-btn');
+reloadBtn.addEventListener('click', reloadPage);
+
 // Goes to the home page (intro with the form)
 // Refresh states and clear local storage
-function gotoHome() {
+function resetData() {
   location.reload();
   localStorage.clear();
   validCity = false;
 }
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
-
-// Get the header
-var header = document.getElementById("myHeader");
-
-// Get the offset position of the navbar
-var sticky = header.offsetTop;
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-
+var resetBtn = document.getElementById('reset-data');
+resetBtn.addEventListener('click', resetData);
