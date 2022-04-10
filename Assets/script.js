@@ -1482,7 +1482,7 @@ function handleNavBtns() {
   navBtns.forEach((item) => {
     item.addEventListener('click', (e) => {
       var btnLabel = e.target.textContent;
-      btnLabel == 'Favorites' ? gotoFavourites() : '';
+      btnLabel == 'Favourites' ? gotoFavourites() : '';
     });
   });
 }

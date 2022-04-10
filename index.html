@@ -26,31 +26,38 @@
   </head>
   <body>
     <!-- OPTIONAL HEADER TO USE -->
-    <header id="main-Header">
-      <div class="header-content">
-        <h1 class="header-title">Wearther</h1>
-        <h2 class="header-subtitle">
-          the weather. every wear.
+    <section class="header flex flex-wrap space-between items-center justify-between h-28 text-white z-50" id="myHeader">
+      <div class="header-content pl-4 space-y-1">
+        <h1 class="header-title text-3xl">Wearther</h1>
+        <h2 class="header-subtitle lowercase">
+          The weather. Every wear.
+         </h2>
       </div>
         <img class="logo" src="./Assets/images/wearther Logo/Wearther-logo.png" alt="">
     </header>
     <!-- The first page the user is presented with -->
-    <main class="intro">
+    <main class="intro flex justify-center items-center flex-wrap">
       <!-- <h1 class="text-black text-xl">Wearther</h1>
       <h2>the weather. every wear.</h2> -->
-      <div class="intro-description">
+      <div class="intro-description text-3xl mt-24 w-full text-center mx-4">
         <h2>Let's get started!</h2>
       </div>
  
-      <form id="intro-form" action="#">
-        <input class="border" id="form-name" type="text" placeholder="Name" />
-        <input class="border" id="form-age" type="number" placeholder="Age" />
-        <select class="form-dropdown border" id="form-gender" name="gender">
-          <option value="" disabled selected>Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="non-binary">Non-binary</option>
-        </select>
+      <form id="intro-form" action="#" class="mt-10 grid grid-cols-2 gap-4 w-full mx-5 lg:w-1/2 xl:w-2/5 2xl:w-1/4">
+        <div class="flex justify-center col-span-2 lg:col-span-1">
+          <input class="border w-full p-4 rounded-sm lg:py-2 2xl:p-3" id="form-name" type="text" placeholder="Name" />
+        </div>
+        <div class="col-span-2 lg:col-span-1">
+          <input class="border w-full p-4 rounded-sm lg:py-2 2xl:p-3" id="form-age" type="number" placeholder="Age" />
+        </div>
+        <div class="col-span-2 lg:col-span-1">
+          <select class="form-dropdown border w-full p-4 rounded-sm lg:py-2 2xl:p-3" id="form-gender" name="gender">
+            <option value="" disabled selected>Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-binary</option>
+          </select>
+        </div>
         <!-- Future update is to include clothing size -->
         <!-- <select
           class="form-dropdown border"
@@ -62,16 +69,17 @@
           <option value="medium">Medium</option>
           <option value="large">Large</option>
         </select> -->
-        <input
-          class="border"
-          id="form-city"
-          type="text"
-          placeholder="City (US and Canada)"
-        />
-        <button class="" disabled id="form-submit" type="submit">
-          Submit
-        </button>
-        <p id="invalid-city"></p>
+        <div class="col-span-2 lg:col-span-1">
+          <input class="border w-full h-full p-4 rounded-sm lg:py-2 2xl:p-3"
+                 id="form-city"
+                 type="text"
+                 placeholder="City (US and Canada)" />
+        </div>
+        <div class="col-span-2 col-span-1">
+          <button class="border w-full p-4 rounded-xl lg:py-2 2xl:p-3" disabled id="form-submit" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </main>
 
@@ -84,47 +92,47 @@
     <!-- MAIN application section (Displays AFTER initial form submissions) -->
     <main class="main-parent inactive">
       <header id="nav-items">
-        <nav>
+        <nav class="mt-5 flex justify-center md:mt-10 md:justify-start md:ml-24 xl:ml-64 xl:mt-14">
           <ul>
             <li>
-              <button id="favorites-nav" class="nav-btn">Favorites</button>
+              <button id="favorites-nav" class="nav-btn border-b border-solid border-black text-xl text-center md:text-left">Favourites</button>
             </li>
           </ul>
         </nav>
       </header>
       <!-- Favourites page -->
-      <section class="favourites inactive">
-        <div class="favourites-header">
-          <button id="go-back">Go back</button>
-          <h1 id="favourites-header">Favourites</h1>
-          <!-- Add the empty h1 to fill in blank space and works in tandem with space-between -->
-          <h1 style="width: 76px"></h1>
+      <section class="favourites inactive mt-10 xl:mt-14">
+        <div class="favourites-header flex grid grid-cols-3">
+          <button id="go-back" class="nav-btn w-24 border-b border-solid border-black text-xl text-center md:justify-start md:ml-24 md:self-end xl:ml-64">Go back</button>
+          <h1 id="favourites-header" class="justify-self-center text-2xl">Favourites</h1>
         </div>
-        <div id="favourites-container">
+        <div id="favourites-container" class="flex flex-wrap mx-auto px-8 justify-center items-center md:px-10 lg:px-12">
           <!-- The below HTML code will be dynamically generated via JS -->
         </div>
       </section>
       <!-- Data page that displays the current recommended clothing -->
       <section class="data">
         <!-- <h1>Current:</h1> -->
-        <div id="data-container">
+        <div id="data-container" class="mt-8 flex flex-col items-center md:mt-5">
           <!-- Current weather clothing recommendation -->
-          <div id="current-weather-hero">
-            <div id="current-date"></div>
-            <div id="current-temp-container">
-              <h1 id="city-chosen"></h1>
-              <h1 id="current-temp"></h1>
-              <img
-                id="current-weather-icon"
-                src=""
-                alt="Current weather icon"
-              />
+          <div id="current-weather-hero" class="flex flex-wrap content-center items-center justify-center">
+            <div id="current-date" class="w-full text-center text-base"></div>
+            <div id="current-temp-container" class="w-full flex flex-wrap justify-center items-center md:space-x-4">
+              <h1 id="city-chosen" class="w-full text-3xl md:w-auto md:text-4xl"></h1>
+              <h1 id="current-temp" class="text-3xl md:text-4xl"></h1>
+              <div class="w-14 md:w-20">
+                <img id="current-weather-icon"
+                     src=""
+                     alt="Current weather icon"
+                 />
+              </div>
             </div>
-            <div id="current-desc">
+            <div id="current-desc" class="mt-10 flex flex-wrap justify-center items-center text-center text-xl w-2/3 md:text-left md:space-x-10 md:flex-nowrap md:w-3/4 md:text-lg md:mt-5 lg:text-base lg:w-2/3 xl:w-7/12 xl:space-x-2 xl:mt-2">
               <img
                 id="current-clothing-icon"
                 src=""
                 alt="Current clothing icon"
+                class="mx-0 w-auto h-28 mb-2 sm:h-36 md:h-48 md:mx-2 xl:h-48"
               />
               <p>
                 Hi <span id="current-desc-name"></span>! Today is
@@ -134,69 +142,72 @@
               </p>
             </div>
           </div>
-          <section id="current-hourly">
-            <div class="hourly">
-              <p>9AM</p>
-              <img id="hour-9" src="./Assets/images/loading.png" alt="Hourly clothing icon" />
-            </div>
-            -
-            <div class="hourly">
-              <p>12PM</p>
-              <img id="hour-12" src="./Assets/images/loading.png" alt="Hourly clothing icon" />
-            </div>
-            -
-            <div class="hourly">
-              <p>3PM</p>
-              <img id="hour-15" src="./Assets/images/loading.png" alt="Hourly clothing icon" />
-            </div>
-            -
-            <div class="hourly">
-              <p>6PM</p>
-              <img id="hour-18" src="./Assets/images/loading.png" alt="Hourly clothing icon" />
-            </div>
-            -
-            <div class="hourly">
-              <p>9PM</p>
-              <img id="hour-21" src="./Assets/images/loading.png" alt="Hourly clothing icon" />
+          <section id="current-hourly" class="mt-16 lg:mt-5">
+            <div class="grid grid-cols-1 gap-8 mt-5 text-center md:grid-cols-9 md:gap-2 xl:gap-1">
+              <div class="hourly w-20 flex flex-col items-center md:w-16">
+                <p>9AM</p>
+                <img id="hour-9" src="./Assets/images/loading.png" alt="Hourly clothing icon" />
+              </div>
+              <span class="my-auto">-</span>
+              <div class="hourly w-20 flex flex-col items-center md:w-16">
+                <p>12PM</p>
+                <img id="hour-12" src="./Assets/images/loading.png" alt="Hourly clothing icon" />
+              </div>
+              <span class="hidden my-auto md:block">-</span>
+              <div class="hourly w-20 flex flex-col items-center md:w-16">
+                <p>3PM</p>
+                <img id="hour-15" src="./Assets/images/loading.png" alt="Hourly clothing ic
+                     on" />
+              </div>
+              <span class="my-auto">-</span>
+              <div class="hourly w-20 flex flex-col items-center md:w-16">
+                <p>6PM</p>
+                <img id="hour-18" src="./Assets/images/loading.png" alt="Hourly clothing icon" />
+              </div>
+              <span class="hidden my-auto md:block">-</span>
+              <div class="hourly col-span-3 flex flex-col items-center md:col-span-1 md:w-16">
+                <p>9PM</p>
+                <img id="hour-21" src="./Assets/images/loading.png" alt="Hourly clothing icon" class="w-20 md:w-auto" />
+              </div>
             </div>
           </section>
-          <hr />
+          <hr class="hidden my-10 opacity-30 md:flex md:w-4/5 lg:w-2/5" />
 
           <!-- Five-day forecast clothing recommendations -->
-          <section class="five-day-reco">
-            <div class="five-day-reco-container">
-              <div id="single-product">
+          <section class="five-day-reco mt-16 md:mt-0">
+            <div class="five-day-reco-container grid grid-cols-1 gap-8 mt-5 text-center md:grid-cols-9 md:gap-2 md:mt-0 xl:gap-1">
+              <div class="w-20 flex flex-col items-center md:w-16">
                 <p class="five-day-date"></p>
-                <img id="clothing-img1" src="./Assets/images/loading.png" alt="" />
+                <img id="clothing-img1" src="./Assets/images/loading.png" alt="" class="w-20 h-auto" />
               </div>
-              -
-              <div id="single-product">
+              <span class="my-auto">-</span>
+              <div class="w-20 flex flex-col items-center md:w-16">
                 <p class="five-day-date"></p>
-                <img id="clothing-img2" src="./Assets/images/loading.png" alt="" />
+                <img id="clothing-img2" src="./Assets/images/loading.png" alt="" class="w-20 h-auto" />
               </div>
-              -
-              <div id="single-product">
+              <span class="hidden my-auto md:block">-</span>
+              <div class="w-20 flex flex-col items-center md:w-16">
                 <p class="five-day-date"></p>
-                <img id="clothing-img3" src="./Assets/images/loading.png" alt="" />
+                <img id="clothing-img3" src="./Assets/images/loading.png" alt="" class="w-20 h-auto" />
               </div>
-              -
-              <div id="single-product">
+              <span class="my-auto">-</span>
+              <div class="w-20 flex flex-col items-center md:w-16">
                 <p class="five-day-date"></p>
-                <img id="clothing-img4" src="./Assets/images/loading.png" alt="" />
+                <img id="clothing-img4" src="./Assets/images/loading.png" alt="" class="w-20 h-auto" />
               </div>
-              -
-              <div id="single-product">
+              <span class="hidden my-auto md:block">-</span>
+              <div class="col-span-3 flex flex-col items-center md:col-span-1 md:w-16">
                 <p class="five-day-date"></p>
-                <img id="clothing-img5" src="./Assets/images/loading.png" alt="" />
+                <img id="clothing-img5" src="./Assets/images/loading.png" alt="" class="w-20 h-auto" />
               </div>
             </div>
           </section>
-          <section class="amazon-listings">
-            <h5 id="amazon-header">
+          <section class="amazon-listings my-14 mx-8 flex flex-wrap justify-center">
+            <h5 id="amazon-header" class="text-center w-full text-xl">
               Checkout the Amazon listings for the day!
             </h5>
-            <div class="current-reco-container">
-              <h1 id="loading-listings">
+            <div class="current-reco-container mt-10 flex flex-wrap justify-center">
+              <h1 id="loading-listings" class="text-center w-full text-lg">
                 Loading recommended Amazon listings....
               </h1>
             </div>
