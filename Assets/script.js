@@ -1188,7 +1188,9 @@ if (localUserInfo == null) {
   parent.classList.remove('inactive');
 
   // After the main container is revealed (display: unset), execute event listener for the nav buttons
-  handleNavBtns();
+  var favBtn = document.getElementById('favorites-nav');
+
+  favBtn.addEventListener('click', gotoFavourites);
 
   var cityChoseEl = document.getElementById('city-chosen');
   var descNameEl = document.getElementById('current-desc-name');
@@ -1410,7 +1412,9 @@ introFormEl.addEventListener('submit', (e) => {
     handleSubmit();
 
     // After the main container is revealed (display: unset), execute event listener for the nav buttons
-    handleNavBtns();
+    var favBtn = document.getElementById('favorites-nav');
+
+    favBtn.addEventListener('click', gotoFavourites);
 
     // Clears the form
     introFormEl.reset();
@@ -1477,16 +1481,6 @@ function handleSubmit() {
 }
 
 // -------- -------- -------- -------- Page Handling functions
-function handleNavBtns() {
-  var navBtns = document.querySelectorAll('.nav-btn');
-  navBtns.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      var btnLabel = e.target.textContent;
-      btnLabel == 'Favourites' ? gotoFavourites() : '';
-    });
-  });
-}
-
 // Goes back to the main page
 var data = document.querySelector('.data');
 var navEl = document.getElementById('nav-items');
