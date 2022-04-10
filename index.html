@@ -26,23 +26,23 @@
   </head>
   <body>
     <!-- OPTIONAL HEADER TO USE -->
-    <section class="header flex flex-wrap space-between items-center justify-between h-28 text-white z-50" id="myHeader">
+    <header id="main-Header" class="flex flex-wrap space-between items-center justify-between h-28 text-white z-50">
       <div class="header-content pl-4 space-y-1">
         <h1 class="header-title text-3xl">Wearther</h1>
         <h2 class="header-subtitle lowercase">
           The weather. Every wear.
-         </h2>
+        </h2>
       </div>
-        <img class="logo" src="./Assets/images/wearther Logo/Wearther-logo.png" alt="">
+      <img class="logo pr-4" src="./Assets/images/wearther Logo/Wearther-logo.png" alt="">
     </header>
     <!-- The first page the user is presented with -->
     <main class="intro flex justify-center items-center flex-wrap">
       <!-- <h1 class="text-black text-xl">Wearther</h1>
-      <h2>the weather. every wear.</h2> -->
+    <h2>the weather. every wear.</h2> -->
       <div class="intro-description text-3xl mt-24 w-full text-center mx-4">
         <h2>Let's get started!</h2>
       </div>
- 
+
       <form id="intro-form" action="#" class="mt-10 grid grid-cols-2 gap-4 w-full mx-5 lg:w-1/2 xl:w-2/5 2xl:w-1/4">
         <div class="flex justify-center col-span-2 lg:col-span-1">
           <input class="border w-full p-4 rounded-sm lg:py-2 2xl:p-3" id="form-name" type="text" placeholder="Name" />
@@ -59,16 +59,16 @@
           </select>
         </div>
         <!-- Future update is to include clothing size -->
-        <!-- <select
-          class="form-dropdown border"
-          id="form-clothing-size"
-          name="clothing-size"
-        >
-          <option value="" disabled selected>Size</option>
-          <option value="small">Small</option>
-          <option value="medium">Medium</option>
-          <option value="large">Large</option>
-        </select> -->
+        <!--<div class="col-span-2 lg:col-span-1">
+          <select class="form-dropdown border w-full p-4 rounded-sm lg:py-2 2xl:p-3"
+                  id="form-clothing-size"
+                  name="clothing-size">
+            <option value="" disabled selected>Size</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>-->
         <div class="col-span-2 lg:col-span-1">
           <input class="border w-full h-full p-4 rounded-sm lg:py-2 2xl:p-3"
                  id="form-city"
@@ -84,11 +84,13 @@
     </main>
 
     <section class="no-network-el inactive">
-      <img src="./Assets/images/no.wifi_.png" alt="No network icon">
-      <h1>No network connection, please try again.</h1>
-      <button id="reload-btn">Reload</button>
+      <div class="flex justify-center flex-wrap mt-10">
+        <img src="./Assets/images/no.wifi_.png" alt="No network icon" class="block" />
+        <h1 class="w-full text-center text-xl md:text-2xl">No network connection, please try again.</h1>
+        <div class="w-full flex justify-center"><button id="reload-btn">Reload</button></div>
+      </div>
     </section>
-    
+
     <!-- MAIN application section (Displays AFTER initial form submissions) -->
     <main class="main-parent inactive">
       <header id="nav-items">
@@ -123,17 +125,14 @@
               <div class="w-14 md:w-20">
                 <img id="current-weather-icon"
                      src=""
-                     alt="Current weather icon"
-                 />
+                     alt="Current weather icon" />
               </div>
             </div>
-            <div id="current-desc" class="mt-10 flex flex-wrap justify-center items-center text-center text-xl w-2/3 md:text-left md:space-x-10 md:flex-nowrap md:w-3/4 md:text-lg md:mt-5 lg:text-base lg:w-2/3 xl:w-7/12 xl:space-x-2 xl:mt-2">
-              <img
-                id="current-clothing-icon"
-                src=""
-                alt="Current clothing icon"
-                class="mx-0 w-auto h-28 mb-2 sm:h-36 md:h-48 md:mx-2 xl:h-48"
-              />
+            <div id="current-desc" class="mt-10 flex flex-wrap justify-center items-center text-center text-xl w-2/3 md:text-left md:space-x-4 md:flex-nowrap md:w-3/4 md:text-lg lg:mt-5 lg:text-base lg:w-2/3 xl:w-7/12 xl:space-x-2 xl:mt-4">
+              <img id="current-clothing-icon"
+                   src=""
+                   alt="Current clothing icon"
+                   class="mx-0 w-auto h-28 mb-2 sm:h-36 md:h-48 md:mx-2 xl:h-48" />
               <p>
                 Hi <span id="current-desc-name"></span>! Today is
                 <span id="current-desc-phrase"></span> and
@@ -217,8 +216,8 @@
             (Clears all stored data and return to intro page)
           </p>
         </div>
-        
-      </section>  
+
+      </section>
     </main>
     <div class="footer">
       <p>made with love by the A-TEAM</p>

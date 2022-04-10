@@ -16,7 +16,7 @@
 }*/
 
 #main-Header {
-  display: flex;
+/*  display: flex;
   justify-content: space-between;
   align-items: center;*/
   background: rgb(131, 58, 180);
@@ -28,7 +28,7 @@
   );
 /*  color: white;
   padding-left: 15px;
-  height: 115px;
+  height: 115px; */
   /* The sticky class is added to the header with JS when it reaches its scroll position */
   position: sticky;
   top: 0;
@@ -37,17 +37,13 @@
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the header 
 gets a new position at the top of the page (position:fixed and top:0) */
-#main-Header + .header-content {
+/*#main-Header + .header-content {
   padding-top: 102px;
-}
+}*/
 
 #main-Header h1 {
-  font-size: 30px;
+/*  font-size: 30px;*/
   text-shadow: #444;
-}
-
-.logo {
-  padding-right: 15px;
 }
 
 .logo {
@@ -109,13 +105,15 @@ gets a new position at the top of the page (position:fixed and top:0) */
 }*/
 
 /* Intro Page --------- --------- --------- ---------  */
-.intro {
+/*.intro {
   margin-top: 100px;
-}
-.intro h1 {
+}*/
+
+/*.intro h1 {
   text-align: center;
   margin: 15px 0;
-}*/
+}
+*/
 
 /*#intro-form input {
   text-indent: 10px;
@@ -413,7 +411,7 @@ input::-webkit-inner-spin-button {
 }*/
 
 /* Favourites page  --------- --------- --------- ---------  */
-.favourites {
+/*.favourites {
   margin-top: 43px;
   justify-content: center;
 }*/
@@ -480,24 +478,24 @@ input::-webkit-inner-spin-button {
 .no-network-el.inactive {
   display: none;
 }
-.no-network-el {
+/*.no-network-el {
   margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
+*/
 .no-network-el img {
   filter: hue-rotate(200deg);
   width: 200px;
 }
 
-.no-network-el h1 {
+/*.no-network-el h1 {
   font-size: 30px;
   width: 400px;
   text-align: center;
-}
+}*/
 .no-network-el button {
   border: none;
   background-color: orange;
