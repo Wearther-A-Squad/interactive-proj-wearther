@@ -21,11 +21,8 @@
 ## Links
 
 - Deployed application: [https://wearther-a-squad.github.io/interactive-proj-wearther/](https://wearther-a-squad.github.io/interactive-proj-wearther/)
-
 - Github repository: [https://github.com/Wearther-A-Squad/interactive-proj-wearther](https://github.com/Wearther-A-Squad/interactive-proj-wearther)
-
 - Presentation - https://www.dropbox.com/s/vy3h22ozb3v2z3h/Wearther%20-%20Presentation.mp4?dl=0
-
 - Pitch Deck - https://www.dropbox.com/s/y3bwksj2kok3sdh/Wearther%20-%20Pitch%20Deck.m4v?dl=0
 
 ## Description / Function
@@ -40,7 +37,7 @@ Wearther shows users current weather and a 5-day weather forecast via images of 
 APIs used include:
 
 - [weatherapi](https://www.weatherapi.com/weather/), for the current and hourly weather data
-- [weatherapi](https://www.weatherapi.com/weather/), for the five-day forecast data
+- [openweatherapi](https://openweathermap.org/), for the five-day forecast data
 - [Amazon](https://rapidapi.com/restyler/api/amazon23/details), for the amazon listings
 
 ## Project Overview
