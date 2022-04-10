@@ -24,6 +24,10 @@
 
 - Github repository: [https://github.com/Wearther-A-Squad/interactive-proj-wearther](https://github.com/Wearther-A-Squad/interactive-proj-wearther)
 
+- Presentation - https://www.dropbox.com/s/vy3h22ozb3v2z3h/Wearther%20-%20Presentation.mp4?dl=0
+
+- Pitch Deck - https://www.dropbox.com/s/y3bwksj2kok3sdh/Wearther%20-%20Pitch%20Deck.m4v?dl=0
+
 ## Description / Function
 
 Wearther shows users current weather and a 5-day weather forecast via images of appropriate clothing for said weather. Wearther prompts the user for their name, age, gender, clothing size, and city of interest, and provides:
