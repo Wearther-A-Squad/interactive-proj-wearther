@@ -6,59 +6,72 @@
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
 }
-hr {
-  opacity: 0.3;
-  margin: 40px 0;
-  width: 580px;
+
+#main-Header {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+#main-Header h1 {
+  /*  font-size: 30px;*/
+  text-shadow: #444;
+}
+
+.logo {
+  height: 80px;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
 }
 
 /* Universal properties --------- --------- --------- ---------  */
-.five-day-reco #single-product:first-child,
-#nav-items ul li:first-child,
-.current-reco-container #single-product:first-child,
-#favourites-container #single-product:first-child,
-#current-hourly div:first-child {
-  margin-left: 0;
-}
-.five-day-reco #single-product:last-child,
-#nav-items ul li:last-child,
-.current-reco-container #single-product:last-child,
-#favourites-container #single-product:last-child,
-#current-hourly div:last-child {
-  margin-right: 0;
-}
-
-/* Intro Page --------- --------- --------- ---------  */
-.intro.inactive {
+/* Main containers */
+.main-parent.inactive,
+#nav-items.inactive,
+.intro.inactive,
+.favourites.inactive,
+.data.inactive {
   display: none;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.intro h1 {
-  text-align: center;
-  margin: 15px 0;
-}
-
-#intro-form input {
-  text-indent: 10px;
-}
-
-#intro-form {
-  display: grid;
-  grid-template: 40px 40px 40px 40px/ 300px 300px;
-  gap: 15px;
-}
-
+/* Intro Page --------- --------- --------- ---------  */
 #form-submit:disabled {
+  opacity: 0.2;
   cursor: default;
 }
 
 #form-submit {
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 30%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  opacity: 1;
   cursor: pointer;
+}
+
+#invalid-city {
+  font-size: 17px;
+  color: red;
+  text-align: center;
+  grid-column: 1/3;
+}
+
+#form-submit:hover {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
 }
 
 /* Remove toggle buttons for input with type number */
@@ -89,22 +102,7 @@ input::-webkit-inner-spin-button {
   background-size: 0.65em auto, 100%;
 }
 
-/* MAIN parent container (holds all HTML pages) --------- --------- --------- ---------  */
-.main-parent.inactive {
-  display: none;
-}
-
-/* Nav items */
-#nav-items.inactive {
-  display: none;
-}
-
-nav {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-}
-
+/* Nav section --------- --------- --------- ---------  */
 /* Weather nav button */
 #wearther-nav {
   font-size: 20px;
@@ -112,192 +110,236 @@ nav {
   border: none;
 }
 
-/* Favorites nav button */
-#favorites-nav {
-  font-size: 20px;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid black;
-}
-
-#nav-items ul {
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
-#nav-items ul li {
+#nav-items ul li:nth-child(2) {
   cursor: pointer;
   margin: 0 5px;
 }
 
-#nav-items button {
-  cursor: pointer;
+#nav-items ul li:nth-child(1) {
+  cursor: default;
+  user-select: none;
 }
+
 .data h1 {
   text-align: center;
 }
 
-#data-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 15px;
-}
-
-/* Main container hero ---- ---- ----*/
-#current-weather-hero {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-#current-weather-hero img {
-  width: 200px;
-  margin-right: 20px;
-}
-#current-temp {
-  display: flex;
-  align-items: center;
-}
-
-#current-temp h1 {
-  font-size: 45px;
-}
-
-#current-temp img {
-  width: 100px;
-  margin-left: 10px;
-}
-#current-desc {
-  display: flex;
-  align-items: center;
-}
-
-#current-desc p {
-  width: 400px;
-}
-
-/* Hourly ---- ---- ----*/
-#current-hourly {
-  margin-top: 30px;
-  display: flex;
-}
-
-#current-hourly div {
-  margin: 0 30px;
-}
-
-#current-hourly img {
-  width: 65px;
-}
-
-.hourly {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* Amazon listings ---- ---- ----*/
-.amazon-listings {
-  margin-bottom: 100px;
-  margin-top: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.amazon-listings h5 {
-  /* Header */
-  margin-bottom: 15px;
-  font-size: 20px;
-  font-weight: 400;
+#amazon-header {
+  display: none;
 }
 
 .amazon-listings #product-title {
+  width: 150px;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.amazon-listings #product-link {
+  text-decoration: underline;
   font-size: 15px;
-  margin-bottom: 5px;
 }
 
-.amazon-listings #product-price {
-  margin-bottom: 5px;
-}
-
-.current-reco-container {
-  display: flex;
-}
-
-.current-reco-container img {
+/* Starting here */
+.current-reco-container #product-img {
+  height: 156px;
   width: 125px;
-  height: 125px;
   object-fit: cover;
 }
 
-.current-reco-container #single-product {
+.current-reco-container .single-product {
+  margin: 1rem 2rem 2rem;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
+}
+
+#product-img-container {
+  width: 100%;
   position: relative;
-  margin: 0 15px;
+  justify-content: center;
+  display: flex;
 }
 
-.current-reco-container .star-btn {
-  position: absolute;
-  width: 30px;
-  height: 30px;
+/* Favourite button animation */
+.star-btn img {
+  pointer-events: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+
+.star-btn:hover {
+  transform: scale(1.1);
+  transition: 0.1s all ease-in-out;
+}
+
+.star-btn:active {
+  transform: scale(1.05);
+}
+
+.star-btn {
   right: 10px;
-  top: 30px;
+  top: 10px;
   cursor: pointer;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  transform: scale(1);
+  transition: 0.1s all ease-in-out;
 }
 
-/* Five day forecast ---- ---- ----*/
-.five-day-reco {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.star-btn.active::after {
+  content: '';
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: 4px solid rgb(255, 208, 0);
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1s;
 }
 
-.five-day-reco-container {
-  display: flex;
-}
-
-.five-day-reco img {
-  width: 65px;
-  height: 65px;
-  object-fit: cover;
-}
-
-.five-day-reco #single-product {
-  margin: 0 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.star-btn.inactive {
+  opacity: 0.7;
+  transition: 0.5s all ease-in-out;
 }
 
 /* Favourites page  --------- --------- --------- ---------  */
-.favourites.inactive {
-  display: none;
-}
-
-#go-back {
-  margin: 10px;
-  margin-left: 10px;
-}
-.favourites h1 {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-#favourites-container {
+#favourites-container .fav-single-product {
+  width: 170px;
+  height: 200px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 52px;
 }
 
-#favourites-container #single-product {
-  margin: 0 15px;
+#favourites-container #product-link {
+  color: blue;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
+#favourites-container .remove-fav {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+#favourites-container .remove-fav:hover {
+  color: orange;
 }
 
 #favourites-container img {
+  width: 105px;
+  height: 70%;
+  object-fit: cover;
+}
+
+#favourites-container #product-title {
+  width: 150px;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+/* No network page  --------- --------- --------- ---------  */
+.no-network-el.inactive {
+  display: none;
+}
+
+.no-network-el img {
+  filter: hue-rotate(200deg);
   width: 200px;
 }
 
-/* Main data page (Clothing Recommendations)  --------- --------- --------- ---------  */
-.data.inactive {
-  display: none;
+.no-network-el button {
+  border: none;
+  background-color: orange;
+  font-size: 20px;
+  width: 150px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 30px;
+  transition: 0.1s all ease-in-out;
+}
+
+.no-network-el button:hover {
+  transform: scale(1.1);
+  transition: 0.1s all ease-in-out;
+}
+.no-network-el button:active {
+  transform: scale(1);
+}
+
+/* Reset button  --------- --------- --------- ---------  */
+#reset-data {
+  font-size: 15px;
+  opacity: 0.8;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+#reset-data-desc {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 50px;
+}
+
+/* Form  --------- --------- --------- ---------  */
+#intro-form {
+  position: relative;
+}
+
+#invalid-city {
+  top: -50px;
+  left: 50%;
+  width: 500px;
+  transform: translateX(-50%);
+  position: absolute;
+  font-size: 15px;
+  color: red;
+  text-align: center;
+}
+
+@media (max-width: 1535px) {
+  #invalid-city {
+    top: -40px;
+    width: 500px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  #invalid-city {
+    top: -45px;
+    width: 80%;
+    font-size: 13px;
+  }
+}
+/* Footer  --------- --------- --------- ---------  */
+.footer {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
 }

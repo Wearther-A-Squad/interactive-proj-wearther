@@ -3,230 +3,367 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Assets/styles.css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="./Assets/icons/Favicon/favicon.ico">
-    <title>Wearther - the weather. every wear</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./Assets/styles.css" />
+    <title>Wearther - Welcome</title>
   </head>
   <body>
+    <!-- OPTIONAL HEADER TO USE -->
+    <header
+      id="main-Header"
+      class="flex flex-wrap-reverse sm:flex-wrap space-between items-center justify-between py-2 text-white z-50 md:py-4"
+    >
+      <div class="header-content pl-4 space-y-0.5 md:space-y-1">
+        <h1 class="header-title text-2xl md:text-3xl">Wearther</h1>
+        <h2 class="header-subtitle lowercase text-xs md:text-base">
+          The weather. Every wear.
+        </h2>
+      </div>
+      <img
+        class="logo mr-4 p-2 md:p-0"
+        src="./Assets/images/wearther Logo/Wearther-logo.png"
+        alt=""
+      />
+    </header>
     <!-- The first page the user is presented with -->
-    <main class="intro">
-      <h1>Wearther</h1>
-      <h3>the weather. every wear.</h3>
-      <form id="intro-form" action="#">
-        <input
-          id="form-name"
-          type="text"
-          placeholder="Name"
-          onkeydown="return /[a-z]/i.test(event.key)"
-        />
-        <input id="form-age" type="number" placeholder="Age" />
-        <select class="form-dropdown" id="form-gender" name="gender">
-          <option value="" disabled selected>Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="non-binary">Non-binary</option>
-        </select>
-        <select
-          class="form-dropdown"
-          id="form-clothing-size"
-          name="clothing-size"
+    <main class="intro flex justify-center items-center flex-wrap">
+      <!-- <h1 class="text-black text-xl">Wearther</h1>
+    <h2>the weather. every wear.</h2> -->
+      <div
+        class="intro-description text-3xl mt-14 w-full text-center mx-4 md:mt-24 2xl:text-4xl 2xl:mt-36"
+      >
+        <h2>Let's get started!</h2>
+      </div>
+
+      <form
+        id="intro-form"
+        action="#"
+        class="flex justify-center mt-10 grid grid-cols-2 gap-4 w-full mx-10 mb-16 md:w-96 lg:mx-5 2xl:w-1/3 2xl:gap-8 2xl:mt-16"
+      >
+        <div class="col-span-2 lg:col-span-1">
+          <input
+            class="border w-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md"
+            id="form-name"
+            type="text"
+            placeholder="Name"
+          />
+        </div>
+        <div class="col-span-2 lg:col-span-1">
+          <input
+            class="border w-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md"
+            id="form-age"
+            type="number"
+            placeholder="Age"
+          />
+        </div>
+        <div class="col-span-2 lg:col-span-1">
+          <select
+            class="form-dropdown border w-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md"
+            id="form-gender"
+            name="gender"
+          >
+            <option value="" disabled selected>Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-binary</option>
+          </select>
+        </div>
+        <!-- Future update is to include clothing size -->
+        <!--<div class="col-span-2 lg:col-span-1">
+          <select class="form-dropdown border w-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md"
+                  id="form-clothing-size"
+                  name="clothing-size">
+            <option value="" disabled selected>Size</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>-->
+        <div class="col-span-2 lg:col-span-1">
+          <input
+            class="border w-full h-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md"
+            id="form-city"
+            type="text"
+            placeholder="City (US and Canada)"
+          />
+        </div>
+        <p id="invalid-city"></p>
+        <div
+          class="col-span-2 col-span-1 mx-10 mt-4 lg: lg:mx-0 2xl:mt-0 2xl:mx-14"
         >
-          <option value="" disabled selected>Size</option>
-          <option value="small">Small</option>
-          <option value="medium">Medium</option>
-          <option value="large">Large</option>
-        </select>
-        <input
-          id="form-city"
-          type="text"
-          placeholder="City"
-          onkeydown="return /[a-z]/i.test(event.key)"
-        />
-        <button disabled id="form-submit" type="submit">Submit</button>
+          <button
+            class="border w-full py-2 rounded-xl lg:py-2 2xl:py-2 2xl:text-lg"
+            disabled
+            id="form-submit"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </main>
+
+    <section class="no-network-el inactive">
+      <div class="flex justify-center flex-wrap mt-10">
+        <img
+          src="./Assets/images/no.wifi_.png"
+          alt="No network icon"
+          class="block"
+        />
+        <h1 class="w-full text-center text-xl md:text-2xl">
+          No network connection, please try again.
+        </h1>
+        <div class="w-full flex justify-center">
+          <button id="reload-btn">Reload</button>
+        </div>
+      </div>
+    </section>
+
     <!-- MAIN application section (Displays AFTER initial form submissions) -->
     <main class="main-parent inactive">
       <header id="nav-items">
-        <nav>
+        <nav
+          class="mt-5 flex justify-center md:mt-10 md:justify-start md:ml-24 xl:ml-64 xl:mt-14"
+        >
           <ul>
             <li>
-              <button id="wearther-nav" class="nav-btn">Wearther</button>
-              <p>the weather. every wear.</p>
-            </li>
-            <li>
-              <button id="favorites-nav" class="nav-btn">Favorites</button>
+              <button
+                id="favorites-nav"
+                class="nav-btn border-b border-solid border-black text-xl text-center md:text-left"
+              >
+                Favourites
+              </button>
             </li>
           </ul>
         </nav>
       </header>
       <!-- Favourites page -->
-      <section class="favourites inactive">
-        <button id="go-back">Go back</button>
-        <h1>Favourites</h1>
-        <div id="favourites-container">
+      <section class="favourites inactive mt-5 md:mt-10 xl:mt-14">
+        <div class="favourites-header flex grid grid-cols-3">
+          <button
+            id="go-back"
+            class="nav-btn ml-2 m-2 w-24 mt-9 border-b border-solid border-black text-base text-center sm:text-lg md:mt-0 md:m-0 md:text-xl md:ml-10 md:justify-center md:ml-24 md:self-end md:item-end xl:ml-64"
+          >
+            Go back
+          </button>
+          <h1 id="favourites-header" class="justify-self-center text-2xl">
+            Favourites
+          </h1>
+        </div>
+        <div
+          id="favourites-container"
+          class="flex flex-wrap mx-auto px-8 justify-center items-center pb-20 md:px-10 lg:px-12"
+        >
           <!-- The below HTML code will be dynamically generated via JS -->
-          <div id="single-product">
-            <h4 id="fav-product-title">Dummy Product Title</h4>
-            <img
-              id="fav-product-img"
-              src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-              alt="Test Image"
-            />
-            <p id="fav-product-price">$0.00</p>
-            <a id="fav-product-link" href="#" target="_blank">Test Link</a>
-          </div>
-          <div id="single-product">
-            <h4 id="fav-product-title">Dummy Product Title</h4>
-            <img
-              id="fav-product-img"
-              src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-              alt="Test Image"
-            />
-            <p id="fav-product-price">$0.00</p>
-            <a id="fav-product-link" href="#" target="_blank">Test Link</a>
-          </div>
-          <div id="single-product">
-            <h4 id="fav-product-title">Dummy Product Title</h4>
-            <img
-              id="fav-product-img"
-              src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-              alt="Test Image"
-            />
-            <p id="fav-product-price">$0.00</p>
-            <a id="fav-product-link" href="#" target="_blank">Test Link</a>
-          </div>
-          <div id="single-product">
-            <h4 id="fav-product-title">Dummy Product Title</h4>
-            <img
-              id="fav-product-img"
-              src="easter_desktop_379x304new._SY304_CB626571179_.jpg"
-              alt="Test Image"
-            />
-            <p id="fav-product-price">$0.00</p>
-            <a id="fav-product-link" href="#" target="_blank">Test Link</a>
-          </div>
         </div>
       </section>
       <!-- Data page that displays the current recommended clothing -->
       <section class="data">
         <!-- <h1>Current:</h1> -->
-        <div id="data-container">
+        <div
+          id="data-container"
+          class="mt-8 flex flex-col items-center md:mt-5 pb-10"
+        >
           <!-- Current weather clothing recommendation -->
-          <div id="current-weather-hero">
-            <div id="current-temp">
-              <h1>4°C</h1>
-              <img src="weather.png" alt="Current weather icon" />
+          <div
+            id="current-weather-hero"
+            class="flex flex-wrap content-center items-center justify-center"
+          >
+            <div id="current-date" class="w-full text-center text-base"></div>
+            <div
+              id="current-temp-container"
+              class="w-full flex flex-wrap justify-center items-center md:space-x-4"
+            >
+              <h1
+                id="city-chosen"
+                class="w-full text-3xl md:w-auto md:text-4xl"
+              ></h1>
+              <h1 id="current-temp" class="text-3xl md:text-4xl"></h1>
+              <div class="w-14 md:w-20">
+                <img
+                  id="current-weather-icon"
+                  src=""
+                  alt="Current weather icon"
+                />
+              </div>
             </div>
-            <div id="current-desc">
-              <img src="clothes.png" alt="Current clothing icon" />
+            <div
+              id="current-desc"
+              class="mt-10 flex flex-wrap justify-center items-center text-center text-xl w-2/3 md:text-left md:space-x-4 md:flex-nowrap md:w-3/4 md:text-lg lg:mt-5 lg:text-base lg:w-2/3 xl:w-7/12 xl:space-x-2 xl:mt-4"
+            >
+              <img
+                id="current-clothing-icon"
+                src=""
+                alt="Current clothing icon"
+                class="mx-0 w-auto h-28 mb-2 sm:h-36 md:h-48 md:mx-2 xl:h-48"
+              />
               <p>
-                Today is a {beautiful, moderately nice, bad, very bad, don't go
-                outside} {windy, sunny, hailing, ''} day! You should wear
-                {light, medium, heavy} clothing.
+                Hi <span id="current-desc-name"></span>! Today is
+                <span id="current-desc-phrase"></span> and
+                <span id="current-desc-condition"></span> day. You should wear
+                <span id="current-desc-clothing"></span> clothing.
               </p>
             </div>
           </div>
-          <section id="current-hourly">
-            <div class="hourly">
-              <p>9AM</p>
-              <img src="clothes.png" alt="Hourly clothing icon" />
-            </div>
-            -
-            <div class="hourly">
-              <p>12PM</p>
-              <img src="clothes.png" alt="Hourly clothing icon" />
-            </div>
-            -
-            <div class="hourly">
-              <p>3PM</p>
-              <img src="clothes.png" alt="Hourly clothing icon" />
-            </div>
-            -
-            <div class="hourly">
-              <p>6PM</p>
-              <img src="clothes.png" alt="Hourly clothing icon" />
-            </div>
-            -
-            <div class="hourly">
-              <p>9PM</p>
-              <img src="clothes.png" alt="Hourly clothing icon" />
+          <section id="current-hourly" class="mt-16 lg:mt-5">
+            <div
+              class="grid grid-cols-1 gap-8 mt-5 text-center md:grid-cols-9 md:gap-2 xl:gap-1"
+            >
+              <div class="hourly w-20 flex flex-col items-center md:w-16">
+                <p>9AM</p>
+                <img
+                  id="hour-9"
+                  src="./Assets/images/loading.png"
+                  alt="Hourly clothing icon"
+                />
+              </div>
+              <span class="my-auto">-</span>
+              <div class="hourly w-20 flex flex-col items-center md:w-16">
+                <p>12PM</p>
+                <img
+                  id="hour-12"
+                  src="./Assets/images/loading.png"
+                  alt="Hourly clothing icon"
+                />
+              </div>
+              <span class="hidden my-auto md:block">-</span>
+              <div class="hourly w-20 flex flex-col items-center md:w-16">
+                <p>3PM</p>
+                <img
+                  id="hour-15"
+                  src="./Assets/images/loading.png"
+                  alt="Hourly clothing ic
+                     on"
+                />
+              </div>
+              <span class="my-auto">-</span>
+              <div class="hourly w-20 flex flex-col items-center md:w-16">
+                <p>6PM</p>
+                <img
+                  id="hour-18"
+                  src="./Assets/images/loading.png"
+                  alt="Hourly clothing icon"
+                />
+              </div>
+              <span class="hidden my-auto md:block">-</span>
+              <div
+                class="hourly col-span-3 flex flex-col items-center md:col-span-1 md:w-16"
+              >
+                <p>9PM</p>
+                <img
+                  id="hour-21"
+                  src="./Assets/images/loading.png"
+                  alt="Hourly clothing icon"
+                  class="w-20 md:w-auto"
+                />
+              </div>
             </div>
           </section>
-          <hr />
+          <hr class="hidden my-10 opacity-30 md:flex md:w-4/5 lg:w-2/5" />
 
           <!-- Five-day forecast clothing recommendations -->
-          <section class="five-day-reco">
-            <div class="five-day-reco-container">
-              <div id="single-product">
-                <p>0/0/22</p>
-                <img id="product-img" src="clothes.png" alt="" />
+          <section class="five-day-reco mt-16 md:mt-0">
+            <div
+              class="five-day-reco-container grid grid-cols-1 gap-8 mt-5 text-center md:grid-cols-9 md:gap-2 md:mt-0 xl:gap-1"
+            >
+              <div class="w-20 flex flex-col items-center md:w-16">
+                <p class="five-day-date"></p>
+                <img
+                  id="clothing-img1"
+                  src="./Assets/images/loading.png"
+                  alt=""
+                  class="w-20 h-auto"
+                />
               </div>
-              -
-              <div id="single-product">
-                <p>0/0/22</p>
-                <img id="product-img" src="clothes.png" alt="" />
+              <span class="my-auto">-</span>
+              <div class="w-20 flex flex-col items-center md:w-16">
+                <p class="five-day-date"></p>
+                <img
+                  id="clothing-img2"
+                  src="./Assets/images/loading.png"
+                  alt=""
+                  class="w-20 h-auto"
+                />
               </div>
-              -
-              <div id="single-product">
-                <p>0/0/22</p>
-                <img id="product-img" src="clothes.png" alt="" />
+              <span class="hidden my-auto md:block">-</span>
+              <div class="w-20 flex flex-col items-center md:w-16">
+                <p class="five-day-date"></p>
+                <img
+                  id="clothing-img3"
+                  src="./Assets/images/loading.png"
+                  alt=""
+                  class="w-20 h-auto"
+                />
               </div>
-              -
-              <div id="single-product">
-                <p>0/0/22</p>
-                <img id="product-img" src="clothes.png" alt="" />
+              <span class="my-auto">-</span>
+              <div class="w-20 flex flex-col items-center md:w-16">
+                <p class="five-day-date"></p>
+                <img
+                  id="clothing-img4"
+                  src="./Assets/images/loading.png"
+                  alt=""
+                  class="w-20 h-auto"
+                />
               </div>
-              -
-              <div id="single-product">
-                <p>0/0/22</p>
-                <img id="product-img" src="clothes.png" alt="" />
-              </div>
-            </div>
-          </section>
-          <section class="amazon-listings">
-            <h5>Checkout the Amazon listings for the day!</h5>
-            <div class="current-reco-container">
-              <div id="single-product">
-                <img class="star-btn" src="star.png" />
-                <p id="product-title">Dummy Product</p>
-                <img id="product-img" src="1.png" alt="" />
-                <p id="product-price">$0,00</p>
-                <a id="product-link" href="#" target="_blank">Test Link</a>
-              </div>
-              <div id="single-product">
-                <img class="star-btn" src="star.png" />
-                <p id="product-title">Dummy Product</p>
-                <img id="product-img" src="2.png" alt="" />
-                <p id="product-price">$0,00</p>
-                <a id="product-link" href="#" target="_blank">Test Link</a>
-              </div>
-              <div id="single-product">
-                <img class="star-btn" src="star.png" />
-                <p id="product-title">Dummy Product</p>
-                <img id="product-img" src="3.png" alt="" />
-                <p id="product-price">$0,00</p>
-                <a id="product-link" href="#" target="_blank">Test Link</a>
-              </div>
-              <div id="single-product">
-                <img class="star-btn" src="star.png" />
-                <p id="product-title">Dummy Product</p>
-                <img id="product-img" src="4.png" alt="" />
-                <p id="product-price">$0,00</p>
-                <a id="product-link" href="#" target="_blank">Test Link</a>
+              <span class="hidden my-auto md:block">-</span>
+              <div
+                class="col-span-3 flex flex-col items-center md:col-span-1 md:w-16"
+              >
+                <p class="five-day-date"></p>
+                <img
+                  id="clothing-img5"
+                  src="./Assets/images/loading.png"
+                  alt=""
+                  class="w-20 h-auto"
+                />
               </div>
             </div>
           </section>
+          <section
+            class="amazon-listings mt-16 mb-14 mx-8 flex flex-wrap justify-center md:mt-20"
+          >
+            <h5 id="amazon-header" class="text-center w-full text-xl">
+              Checkout the Amazon listings for the day!
+            </h5>
+            <div
+              class="current-reco-container mt-9 flex flex-wrap justify-center"
+            >
+              <h1 id="loading-listings" class="text-center w-full text-lg">
+                Loading recommended Amazon listings....
+              </h1>
+            </div>
+          </section>
+          <button id="reset-data" class="text-center">Reset all data</button>
+          <p id="reset-data-desc" class="text-center">
+            (Clears all stored data and returns to intro page)
+          </p>
         </div>
       </section>
     </main>
+
+    <footer
+      class="footer fixed left-0 bottom-0 py-0.5 w-full text-sm text-white text-center sm:py-1.5 sm:font-xl"
+    >
+      <p>made with love by the A-TEAM</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./Assets/script.js"></script>
   </body>
 </html>
