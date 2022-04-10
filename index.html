@@ -26,14 +26,14 @@
   </head>
   <body>
     <!-- OPTIONAL HEADER TO USE -->
-    <header id="main-Header" class="flex flex-wrap space-between items-center justify-between h-28 text-white z-50">
-      <div class="header-content pl-4 space-y-1">
-        <h1 class="header-title text-3xl">Wearther</h1>
-        <h2 class="header-subtitle lowercase">
+    <header id="main-Header" class="flex flex-wrap-reverse sm:flex-wrap space-between items-center justify-between py-2 text-white z-50 md:py-4">
+      <div class="header-content pl-4 space-y-0.5 md:space-y-1">
+        <h1 class="header-title text-2xl md:text-3xl">Wearther</h1>
+        <h2 class="header-subtitle lowercase text-xs md:text-base">
           The weather. Every wear.
         </h2>
       </div>
-      <img class="logo pr-4" src="./Assets/images/wearther Logo/Wearther-logo.png" alt="">
+      <img class="logo mr-4 p-2 md:p-0" src="./Assets/images/wearther Logo/Wearther-logo.png" alt="">
     </header>
     <!-- The first page the user is presented with -->
     <main class="intro flex justify-center items-center flex-wrap">
@@ -103,9 +103,9 @@
         </nav>
       </header>
       <!-- Favourites page -->
-      <section class="favourites inactive mt-10 xl:mt-14">
+      <section class="favourites inactive mt-5 md:mt-10 xl:mt-14">
         <div class="favourites-header flex grid grid-cols-3">
-          <button id="go-back" class="nav-btn ml-10 w-24 border-b border-solid border-black text-xl text-center md:justify-start md:ml-24 md:self-end xl:ml-64">Go back</button>
+          <button id="go-back" class="nav-btn ml-2 m-2 w-24 mt-9 border-b border-solid border-black text-base text-center sm:text-lg md:mt-0 md:m-0 md:text-xl md:ml-10 md:justify-center md:ml-24 md:self-end md:item-end xl:ml-64">Go back</button>
           <h1 id="favourites-header" class="justify-self-center text-2xl">Favourites</h1>
         </div>
         <div id="favourites-container" class="flex flex-wrap mx-auto px-8 justify-center items-center pb-20 md:px-10 lg:px-12">
@@ -211,15 +211,15 @@
               </h1>
             </div>
           </section>
-          <button id="reset-data">Reset all data</button>
-          <p id="reset-data-desc">
+          <button id="reset-data" class="text-center">Reset all data</button>
+          <p id="reset-data-desc" class="text-center">
             (Clears all stored data and returns to intro page)
           </p>
         </div>
       </section>
     </main>
 
-    <footer class="footer fixed left-0 bottom-0 py-1.5 w-full text-white text-center font-xl">
+    <footer class="footer fixed left-0 bottom-0 py-0.5 w-full text-sm text-white text-center sm:py-1.5 sm:font-xl">
       <p>made with love by the A-TEAM</p>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
