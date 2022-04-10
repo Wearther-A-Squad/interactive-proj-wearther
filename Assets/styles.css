@@ -532,11 +532,11 @@ input::-webkit-inner-spin-button {
 
 /* Footer  --------- --------- --------- ---------  */
 .footer {
-  position: fixed;
+/*  position: fixed;
   left: 0;
   bottom: 0;
   padding: 5px 0;
-  width: 100%;
+  width: 100%;*/
   background: rgb(131, 58, 180);
   background: linear-gradient(
     90deg,
@@ -544,10 +544,11 @@ input::-webkit-inner-spin-button {
     rgba(253, 29, 29, 1) 50%,
     rgba(252, 176, 69, 1) 100%
   );
-  color: white;
-  text-align: center;
+/*  color: white;
+  text-align: center;*/
 }
 
-.footer p {
+/*.footer p {
   font-size: 17px;
 }
+*/

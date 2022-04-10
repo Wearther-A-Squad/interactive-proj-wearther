@@ -39,19 +39,19 @@
     <main class="intro flex justify-center items-center flex-wrap">
       <!-- <h1 class="text-black text-xl">Wearther</h1>
     <h2>the weather. every wear.</h2> -->
-      <div class="intro-description text-3xl mt-14 md:mt-24 w-full text-center mx-4">
+      <div class="intro-description text-3xl mt-14 w-full text-center mx-4 md:mt-24 2xl:text-4xl 2xl:mt-36">
         <h2>Let's get started!</h2>
       </div>
 
-      <form id="intro-form" action="#" class="mt-10 grid grid-cols-2 gap-4 w-full mx-10 lg:mx-5 lg:w-1/2 xl:w-2/5 2xl:w-1/4">
+      <form id="intro-form" action="#" class="mt-10 grid grid-cols-2 gap-4 w-full mx-10 mb-16 md:w-96 lg:mx-5 2xl:w-1/3 2xl:gap-8 2xl:mt-16">
         <div class="flex justify-center col-span-2 lg:col-span-1">
-          <input class="border w-full p-4 rounded-sm lg:py-2 2xl:p-3" id="form-name" type="text" placeholder="Name" />
+          <input class="border w-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md" id="form-name" type="text" placeholder="Name" />
         </div>
         <div class="col-span-2 lg:col-span-1">
-          <input class="border w-full p-4 rounded-sm lg:py-2 2xl:p-3" id="form-age" type="number" placeholder="Age" />
+          <input class="border w-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md" id="form-age" type="number" placeholder="Age" />
         </div>
         <div class="col-span-2 lg:col-span-1">
-          <select class="form-dropdown border w-full p-4 rounded-sm lg:py-2 2xl:p-3" id="form-gender" name="gender">
+          <select class="form-dropdown border w-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md" id="form-gender" name="gender">
             <option value="" disabled selected>Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -60,7 +60,7 @@
         </div>
         <!-- Future update is to include clothing size -->
         <!--<div class="col-span-2 lg:col-span-1">
-          <select class="form-dropdown border w-full p-4 rounded-sm lg:py-2 2xl:p-3"
+          <select class="form-dropdown border w-full p-4 rounded-sm lg:py-2"
                   id="form-clothing-size"
                   name="clothing-size">
             <option value="" disabled selected>Size</option>
@@ -70,13 +70,13 @@
           </select>
         </div>-->
         <div class="col-span-2 lg:col-span-1">
-          <input class="border w-full h-full p-4 rounded-sm lg:py-2 2xl:p-3"
+          <input class="border w-full h-full p-4 rounded-sm lg:py-2 2xl:py-3 2xl:rounded-md"
                  id="form-city"
                  type="text"
                  placeholder="City (US and Canada)" />
         </div>
-        <div class="col-span-2 col-span-1 mx-10 mt-4">
-          <button class="border w-full p-4 rounded-xl lg:py-2 2xl:p-3" disabled id="form-submit" type="submit">
+        <div class="col-span-2 col-span-1 mx-10 mt-4 2xl:mt-2 2xl:mx-14">
+          <button class="border w-full py-4 rounded-xl md:py-3 2xl:py-4 2xl:text-lg" disabled id="form-submit" type="submit">
             Submit
           </button>
         </div>
@@ -105,17 +105,17 @@
       <!-- Favourites page -->
       <section class="favourites inactive mt-10 xl:mt-14">
         <div class="favourites-header flex grid grid-cols-3">
-          <button id="go-back" class="nav-btn w-24 border-b border-solid border-black text-xl text-center md:justify-start md:ml-24 md:self-end xl:ml-64">Go back</button>
+          <button id="go-back" class="nav-btn ml-10 w-24 border-b border-solid border-black text-xl text-center md:justify-start md:ml-24 md:self-end xl:ml-64">Go back</button>
           <h1 id="favourites-header" class="justify-self-center text-2xl">Favourites</h1>
         </div>
-        <div id="favourites-container" class="flex flex-wrap mx-auto px-8 justify-center items-center md:px-10 lg:px-12">
+        <div id="favourites-container" class="flex flex-wrap mx-auto px-8 justify-center items-center pb-20 md:px-10 lg:px-12">
           <!-- The below HTML code will be dynamically generated via JS -->
         </div>
       </section>
       <!-- Data page that displays the current recommended clothing -->
       <section class="data">
         <!-- <h1>Current:</h1> -->
-        <div id="data-container" class="mt-8 flex flex-col items-center md:mt-5">
+        <div id="data-container" class="mt-8 flex flex-col items-center md:mt-5 pb-10">
           <!-- Current weather clothing recommendation -->
           <div id="current-weather-hero" class="flex flex-wrap content-center items-center justify-center">
             <div id="current-date" class="w-full text-center text-base"></div>
@@ -213,15 +213,15 @@
           </section>
           <button id="reset-data">Reset all data</button>
           <p id="reset-data-desc">
-            (Clears all stored data and return to intro page)
+            (Clears all stored data and returns to intro page)
           </p>
         </div>
-
       </section>
     </main>
-    <div class="footer">
+
+    <footer class="footer fixed left-0 bottom-0 py-1.5 w-full text-white text-center font-xl">
       <p>made with love by the A-TEAM</p>
-    </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./Assets/script.js"></script>
   </body>
